@@ -25,7 +25,7 @@ export default function Home() {
             <Zap className="w-[18px] h-[18px] text-white" />
           </div>
           <span className="font-[family-name:var(--font-anton)] text-[22px] text-white tracking-[0.44px]">
-            PUNCH
+            RISKY
           </span>
         </div>
         <div className="flex items-center gap-8">
@@ -275,7 +275,7 @@ export default function Home() {
           <div className="w-[200px] h-[200px] bg-white rounded-2xl flex flex-col items-center justify-center gap-3 p-4">
             <QrCode className="w-20 h-20 text-[#0A0A0A]" />
             <span className="font-[family-name:var(--font-anton)] text-base text-[#0A0A0A] text-center tracking-[0.5px]">
-              PUNCH LMRA
+              RISKY LMRA
             </span>
             <span className="text-[#71717A] text-[11px] text-center">
               Station A-12
@@ -297,7 +297,7 @@ export default function Home() {
           the first step.
         </h2>
         <p className="text-[#A1A1AA] text-lg text-center mt-8">
-          Join hundreds of teams using PUNCH LMRA to protect their crews.
+          Join hundreds of teams using RISKY LMRA to protect their crews.
         </p>
         <a
           href="#"
@@ -317,11 +317,11 @@ export default function Home() {
             <Zap className="w-3.5 h-3.5 text-white" />
           </div>
           <span className="font-[family-name:var(--font-anton)] text-base text-white tracking-[0.32px]">
-            PUNCH
+            RISKY
           </span>
         </div>
         <span className="text-[#52525B] text-[13px]">
-          © 2026 PUNCH. All rights reserved.
+          © 2026 RISKY. All rights reserved.
         </span>
       </footer>
     </div>
