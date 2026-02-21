@@ -11,6 +11,7 @@ import {
 
   Clock3,
   User,
+  AlertTriangle,
 } from "lucide-react";
 
 export default function Home() {
@@ -46,28 +47,13 @@ export default function Home() {
           </span>
         </div>
         <h1 className="font-[family-name:var(--font-anton)] text-5xl sm:text-[80px] text-white text-center leading-[1.05] tracking-[-1.6px] max-w-[900px] mt-6 sm:mt-8">
-          Veiligheidschecks op de werf die w&eacute;l worden ingevuld.
+          Veiligheidschecks die w&eacute;l worden ingevuld.
         </h1>
         <p className="text-[#A1A1AA] text-base sm:text-xl leading-[1.6] text-center max-w-[680px] mt-6 sm:mt-8">
-          Risky laat je team veiligheidschecks (LMRA&apos;s) invullen via
-          QR-code en stem. In 1 minuut, zonder papierwerk. Jouw
-          inspectielogboek wordt automatisch opgebouwd waardoor je altijd klaar
-          bent voor controle.
+          Risky laat je team snel veiligheidschecks (LMRA&apos;s) invullen
+          op de werf via QR-code en stem. Jouw inspectielogboek wordt
+          automatisch opgebouwd waardoor je altijd klaar bent voor controle.
         </p>
-        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
-          <a
-            href="#"
-            className="bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center w-full sm:w-auto"
-          >
-            Start nu
-          </a>
-          <a
-            href="#"
-            className="border border-[#333333] text-[#A1A1AA] text-base font-medium h-[52px] px-9 rounded-full flex items-center justify-center w-full sm:w-auto"
-          >
-            Bekijk hoe het werkt
-          </a>
-        </div>
 
         {/* Phone Mockup */}
         <div className="flex items-center justify-center pt-10 w-full max-w-[1100px]">
@@ -194,6 +180,33 @@ export default function Home() {
                       <span className="text-xs font-medium text-zinc-700">{row.value}</span>
                     </div>
                   ))}
+                </div>
+              ),
+            },
+            {
+              num: 4,
+              title: "Rapporteer bij incidenten",
+              visual: (
+                <div className="flex flex-col gap-3 w-full">
+                  <div className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2">
+                    <AlertTriangle className="w-4 h-4 text-red-500 shrink-0" />
+                    <span className="text-xs font-semibold text-red-600">Bijna-ongeval</span>
+                  </div>
+                  <div className="text-sm font-semibold text-zinc-800">
+                    Stelling niet vastgezet
+                  </div>
+                  <div className="text-xs text-zinc-400 leading-[1.5]">
+                    &quot;De stelling op niveau 2 was niet geborgd. Meteen gemeld en afgezet.&quot;
+                  </div>
+                  <div className="flex items-center justify-between pt-1">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-5 h-5 rounded-full bg-zinc-200 flex items-center justify-center">
+                        <User className="w-3 h-3 text-zinc-500" />
+                      </div>
+                      <span className="text-[11px] font-medium text-zinc-500">Jan D.</span>
+                    </div>
+                    <span className="text-[11px] text-zinc-400">Vandaag, 14:47</span>
+                  </div>
                 </div>
               ),
             },
