@@ -1,7 +1,6 @@
 import {
   Scan,
   Mic,
-  ShieldCheck,
   LayoutTemplate,
   MapPin,
   FileText,
@@ -9,74 +8,73 @@ import {
   WifiOff,
   QrCode,
   Check,
-  ShoppingCart,
+
   Clock3,
   User,
-  Zap,
 } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] font-[family-name:var(--font-inter)]">
       {/* Header */}
-      <header className="flex items-center justify-between h-[72px] px-12 border-b border-[#1A1A1A]">
+      <header className="flex items-center justify-between h-[72px] px-5 sm:px-12 border-b border-[#1A1A1A]">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 bg-[#E53E3E] rounded-md flex items-center justify-center">
-            <Zap className="w-[18px] h-[18px] text-white" />
-          </div>
+          <img src="/punch-logo.png" alt="RISKY" className="w-8 h-8 rounded-md" />
           <span className="font-[family-name:var(--font-anton)] text-[22px] text-white tracking-[0.44px]">
             RISKY
           </span>
         </div>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-4 sm:gap-8">
           <a href="#" className="text-[#A1A1AA] text-[15px] font-medium">
-            Log in
+            Inloggen
           </a>
           <a
             href="#"
-            className="bg-[#DC2626] text-white text-sm font-semibold h-10 px-6 rounded-full flex items-center justify-center"
+            className="bg-[#DC2626] text-white text-sm font-semibold h-10 px-5 sm:px-6 rounded-full flex items-center justify-center"
           >
-            Get Started
+            Start nu
           </a>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="flex flex-col items-center pt-20 pb-16 px-12">
+      <section className="flex flex-col items-center pt-16 pb-12 px-5 sm:pt-20 sm:pb-16 sm:px-12">
         <div className="flex items-center gap-2 border border-[#333333] rounded-full px-4 py-2">
           <div className="w-2 h-2 bg-[#E53E3E] rounded-full" />
           <span className="text-[#A1A1AA] text-[13px] font-medium">
             LMRA — Last Minute Risk Assessment
           </span>
         </div>
-        <h1 className="font-[family-name:var(--font-anton)] text-[80px] text-white text-center leading-[1.05] tracking-[-1.6px] max-w-[900px] mt-8">
-          Scan. Speak. Safe.
+        <h1 className="font-[family-name:var(--font-anton)] text-5xl sm:text-[80px] text-white text-center leading-[1.05] tracking-[-1.6px] max-w-[900px] mt-6 sm:mt-8">
+          Veiligheidschecks op de werf die w&eacute;l worden ingevuld.
         </h1>
-        <p className="text-[#A1A1AA] text-xl leading-[1.6] text-center max-w-[680px] mt-8">
-          Your crew scans a QR code, answers safety questions by voice, and gets
-          back to work. Location, time, and answers — all logged automatically.
+        <p className="text-[#A1A1AA] text-base sm:text-xl leading-[1.6] text-center max-w-[680px] mt-6 sm:mt-8">
+          Risky laat je team veiligheidschecks (LMRA&apos;s) invullen via
+          QR-code en stem. In 1 minuut, zonder papierwerk. Jouw
+          inspectielogboek wordt automatisch opgebouwd waardoor je altijd klaar
+          bent voor controle.
         </p>
-        <div className="flex items-center gap-4 mt-8">
+        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-6 sm:mt-8 w-full sm:w-auto">
           <a
             href="#"
-            className="bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center"
+            className="bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center w-full sm:w-auto"
           >
-            Start Free Trial
+            Start nu
           </a>
           <a
             href="#"
-            className="border border-[#333333] text-[#A1A1AA] text-base font-medium h-[52px] px-9 rounded-full flex items-center justify-center"
+            className="border border-[#333333] text-[#A1A1AA] text-base font-medium h-[52px] px-9 rounded-full flex items-center justify-center w-full sm:w-auto"
           >
-            See How It Works
+            Bekijk hoe het werkt
           </a>
         </div>
 
         {/* Phone Mockup */}
         <div className="flex items-center justify-center pt-10 w-full max-w-[1100px]">
-          <div className="w-[320px] h-[580px] bg-[#111111] rounded-[32px] border-2 border-[#2A2A2A] overflow-hidden flex flex-col gap-4 pt-12 px-5 pb-5">
+          <div className="w-[280px] h-[510px] sm:w-[320px] sm:h-[580px] bg-[#111111] rounded-[32px] border-2 border-[#2A2A2A] overflow-hidden flex flex-col gap-4 pt-10 sm:pt-12 px-4 sm:px-5 pb-4 sm:pb-5">
             <div className="flex flex-col items-center gap-2 w-full">
-              <Scan className="w-12 h-12 text-[#E53E3E]" />
-              <span className="text-white text-lg font-bold text-center">
+              <Scan className="w-10 h-10 sm:w-12 sm:h-12 text-[#E53E3E]" />
+              <span className="text-white text-base sm:text-lg font-bold text-center">
                 LMRA Check
               </span>
               <span className="text-[#71717A] text-xs text-center w-full">
@@ -86,23 +84,23 @@ export default function Home() {
             <div className="h-px bg-[#222222] w-full" />
             <div className="flex flex-col gap-3 py-2 w-full">
               <span className="text-[#71717A] text-[11px] font-medium tracking-[1px]">
-                Question 1 of 5
+                Vraag 1 van 5
               </span>
-              <span className="text-[#F4F4F5] text-base font-semibold leading-[1.4] w-full">
-                Are all emergency exits clear and accessible?
+              <span className="text-[#F4F4F5] text-sm sm:text-base font-semibold leading-[1.4] w-full">
+                Zijn alle nooduitgangen vrij en bereikbaar?
               </span>
             </div>
-            <div className="flex items-center h-[52px] bg-[#1C1C1C] border border-[#333333] rounded-xl px-4 w-full">
+            <div className="flex items-center h-[48px] sm:h-[52px] bg-[#1C1C1C] border border-[#333333] rounded-xl px-4 w-full">
               <div className="flex items-center gap-2">
                 <Mic className="w-5 h-5 text-[#E53E3E]" />
-                <span className="text-[#52525B] text-sm">Tap to speak...</span>
+                <span className="text-[#52525B] text-sm">Tik om te spreken...</span>
               </div>
             </div>
             <div className="flex gap-2 w-full flex-wrap">
               <div className="flex items-center gap-1.5 bg-[#1A2E1A] rounded-lg px-2.5 py-1.5">
                 <MapPin className="w-3.5 h-3.5 text-[#22C55E]" />
                 <span className="text-[#22C55E] text-[11px] font-semibold">
-                  GPS logged
+                  GPS gelogd
                 </span>
               </div>
               <div className="flex items-center gap-1.5 bg-[#1A2E1A] rounded-lg px-2.5 py-1.5">
@@ -126,101 +124,144 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section className="flex flex-col items-center py-20 px-12">
+      <section className="flex flex-col items-center py-16 px-5 sm:py-20 sm:px-12">
         <span className="text-white text-xs font-semibold tracking-[1.8px]">
-          HOW IT WORKS
+          HOE HET WERKT
         </span>
-        <h2 className="font-[family-name:var(--font-anton)] text-[44px] text-white text-center leading-[1.1] max-w-[500px] mt-4">
-          Three steps.
+        <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[44px] text-white text-center leading-[1.1] max-w-[500px] mt-4">
+          Drie stappen.
           <br />
-          Zero paperwork.
+          Nul papierwerk.
         </h2>
-        <div className="flex gap-6 pt-10 w-full max-w-[1100px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10 w-full max-w-[1100px]">
           {[
             {
-              num: "01",
-              icon: <QrCode className="w-7 h-7 text-white" />,
-              title: "Scan the QR code",
-              desc: "Every location, machine, or zone gets a unique QR sticker. Workers scan it with their phone — no app download needed.",
+              num: 1,
+              title: "Scan de QR code",
+              visual: (
+                <div className="flex flex-col items-center gap-3">
+                  <div className="w-20 h-20 bg-zinc-100 rounded-2xl flex items-center justify-center">
+                    <QrCode className="w-10 h-10 text-zinc-800" />
+                  </div>
+                  <span className="text-sm font-medium text-zinc-700">Station A-12</span>
+                  <div className="flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-xs font-medium text-zinc-500">
+                    <MapPin className="w-3.5 h-3.5" />
+                    GPS automatisch gelogd
+                  </div>
+                </div>
+              ),
             },
             {
-              num: "02",
-              icon: <Mic className="w-7 h-7 text-white" />,
-              title: "Answer by voice",
-              desc: "Safety questions appear one by one. Tap the mic and speak your answer. No typing, no forms — just talk.",
+              num: 2,
+              title: "Beantwoord de vragenlijst",
+              visual: (
+                <div className="flex flex-col gap-3 w-full">
+                  <div className="text-sm font-semibold text-zinc-800">
+                    Zijn alle uitgangen vrij?
+                  </div>
+                  <div className="rounded-xl bg-red-50 p-3">
+                    <div className="mb-2 text-xs text-zinc-400">Spraakantwoord</div>
+                    <div className="flex items-center gap-2">
+                      <Mic className="w-4 h-4 text-red-500" />
+                      <div className="flex items-end gap-[2px]">
+                        {[12, 18, 10, 20, 14, 22, 11, 16].map((h, j) => (
+                          <div
+                            key={j}
+                            className="w-[3px] rounded-full bg-red-500"
+                            style={{ height: `${h}px` }}
+                          />
+                        ))}
+                      </div>
+                      <span className="text-xs font-semibold text-red-500 ml-1">Opnemen...</span>
+                    </div>
+                  </div>
+                </div>
+              ),
             },
             {
-              num: "03",
-              icon: <ShieldCheck className="w-7 h-7 text-white" />,
-              title: "Done. Everything logged.",
-              desc: "Location, timestamp, worker ID, and all answers are saved automatically. Reports ready for compliance.",
+              num: 3,
+              title: "Volg alles op",
+              visual: (
+                <div className="flex flex-col gap-2 w-full">
+                  {[
+                    { label: "Medewerker", value: "Jan D." },
+                    { label: "Locatie", value: "Station A-12" },
+                    { label: "Tijd", value: "14:32" },
+                    { label: "Status", value: "Afgerond" },
+                  ].map((row) => (
+                    <div key={row.label} className="flex items-center justify-between py-1.5 border-b border-zinc-100 last:border-0">
+                      <span className="text-xs text-zinc-400">{row.label}</span>
+                      <span className="text-xs font-medium text-zinc-700">{row.value}</span>
+                    </div>
+                  ))}
+                </div>
+              ),
             },
           ].map((step) => (
             <div
               key={step.num}
-              className="flex-1 flex flex-col gap-5 bg-[#111111] border border-[#222222] rounded-2xl p-8"
+              className="group flex flex-row rounded-2xl border border-[#222222] bg-[#111111] p-5 sm:p-7 gap-5 sm:gap-6"
             >
-              <span className="font-[family-name:var(--font-anton)] text-[48px] text-[#E53E3E]">
-                {step.num}
-              </span>
-              <div className="w-14 h-14 bg-[#1A1A1A] border border-[#2A2A2A] rounded-xl flex items-center justify-center">
-                {step.icon}
+              <div className="flex w-1/3 shrink-0 flex-col gap-2">
+                <span className="font-[family-name:var(--font-anton)] text-[32px] text-white">
+                  {step.num}
+                </span>
+                <h3 className="text-sm font-medium text-white">{step.title}</h3>
               </div>
-              <span className="text-white text-xl font-bold">{step.title}</span>
-              <p className="text-[#71717A] text-[15px] leading-[1.6]">
-                {step.desc}
-              </p>
+              <div className="flex w-2/3 items-center justify-center rounded-xl bg-white p-5 sm:p-6">
+                <div className="w-full">{step.visual}</div>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* Features */}
-      <section className="flex flex-col items-center py-20 px-12 bg-[#0F0F0F]">
+      <section className="flex flex-col items-center py-16 px-5 sm:py-20 sm:px-12 bg-[#0F0F0F]">
         <span className="text-white text-xs font-semibold tracking-[1.8px]">
-          FEATURES
+          FUNCTIES
         </span>
-        <h2 className="font-[family-name:var(--font-anton)] text-[44px] text-white text-center leading-[1.1] max-w-[600px] mt-4">
-          Built for the field.
+        <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[44px] text-white text-center leading-[1.1] max-w-[600px] mt-4">
+          Gebouwd voor de werf.
           <br />
-          Managed from the office.
+          Beheerd vanuit kantoor.
         </h2>
-        <div className="grid grid-cols-3 gap-6 pt-10 w-full max-w-[1100px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-10 w-full max-w-[1100px]">
           {[
             {
               icon: <LayoutTemplate className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Template Library",
-              desc: "Choose from ready-made LMRA templates or create your own. Deploy them to any location in seconds.",
+              title: "Template Bibliotheek",
+              desc: "Kies uit kant-en-klare LMRA-templates of maak je eigen. Zet ze in seconden live op elke locatie.",
             },
             {
               icon: <MapPin className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Auto Location",
-              desc: "GPS coordinates are captured automatically. Know exactly where each assessment was completed.",
+              title: "Automatische Locatie",
+              desc: "GPS-co\u00F6rdinaten worden automatisch vastgelegd. Weet precies waar elke check is uitgevoerd.",
             },
             {
               icon: <FileText className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Instant Reports",
-              desc: "Every LMRA is logged and exportable. CSV, PDF — ready for audits and compliance reviews.",
+              title: "Directe Rapporten",
+              desc: "Elke LMRA wordt gelogd en is exporteerbaar. CSV, PDF — klaar voor audits en inspecties.",
             },
             {
               icon: <Mic className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Voice-First Input",
-              desc: "Workers speak their answers. No typing with dirty gloves. Speech-to-text handles the rest.",
+              title: "Spraakgestuurd",
+              desc: "Medewerkers spreken hun antwoorden in. Geen getik met vuile handschoenen. Speech-to-text doet de rest.",
             },
             {
               icon: <Settings className="w-7 h-7 text-[#E53E3E]" />,
               title: "Admin Dashboard",
-              desc: "Manage templates, deploy to locations, and monitor compliance. All from one central dashboard.",
+              desc: "Beheer templates, koppel ze aan locaties en monitor naleving. Alles vanuit \u00E9\u00E9n centraal dashboard.",
             },
             {
               icon: <WifiOff className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Works Offline",
-              desc: "No signal on site? No problem. Assessments sync automatically when connection returns.",
+              title: "Werkt Offline",
+              desc: "Geen bereik op de werf? Geen probleem. Checks worden automatisch gesynchroniseerd zodra er weer verbinding is.",
             },
           ].map((feat) => (
             <div
               key={feat.title}
-              className="flex flex-col gap-4 bg-[#111111] border border-[#222222] rounded-2xl p-7"
+              className="flex flex-col gap-4 bg-[#111111] border border-[#222222] rounded-2xl p-6 sm:p-7"
             >
               {feat.icon}
               <span className="text-white text-[17px] font-bold">
@@ -235,46 +276,34 @@ export default function Home() {
       </section>
 
       {/* QR Stickers */}
-      <section className="flex items-center gap-16 p-20">
+      <section className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-5 py-16 sm:p-20">
         <div className="flex flex-col gap-6 flex-1">
           <span className="text-[#E53E3E] text-xs font-semibold tracking-[1.8px]">
             QR STICKERS
           </span>
-          <h2 className="font-[family-name:var(--font-anton)] text-[44px] text-white leading-[1.1] max-w-[500px]">
-            Stick it on your helmet.
+          <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[44px] text-white leading-[1.1] max-w-[500px]">
+            Plak het op je helm.
             <br />
-            Or your toolbox.
+            Of je gereedschapskist.
           </h2>
-          <p className="text-[#A1A1AA] text-[17px] leading-[1.7] max-w-[480px]">
-            Order branded QR stickers that link directly to your LMRA
-            checklists. Weatherproof, industrial-grade, and designed to last.
-            Place them anywhere your crew works.
-          </p>
           <div className="flex flex-col gap-3">
             {[
-              "Weatherproof & UV resistant",
-              "Custom branded with your company logo",
-              "Each sticker links to a specific checklist",
-              "Works on helmets, toolboxes, machines",
+              "Weerbestendig & UV-resistent",
+              "Op maat met jouw bedrijfslogo",
+              "Elke sticker linkt naar een specifieke checklist",
+              "Werkt op helmen, gereedschapskisten, machines",
             ].map((item) => (
               <div key={item} className="flex items-center gap-3">
-                <Check className="w-[18px] h-[18px] text-[#22C55E]" />
+                <Check className="w-[18px] h-[18px] text-white shrink-0" />
                 <span className="text-[#A1A1AA] text-[15px]">{item}</span>
               </div>
             ))}
           </div>
-          <a
-            href="#"
-            className="bg-[#DC2626] text-white text-base font-semibold h-12 px-8 rounded-full flex items-center justify-center gap-2.5 w-fit"
-          >
-            <ShoppingCart className="w-[18px] h-[18px]" />
-            Order Stickers
-          </a>
         </div>
-        <div className="w-[420px] h-[420px] bg-[#111111] border border-[#222222] rounded-3xl flex flex-col items-center justify-center gap-5 shrink-0">
-          <div className="w-[200px] h-[200px] bg-white rounded-2xl flex flex-col items-center justify-center gap-3 p-4">
-            <QrCode className="w-20 h-20 text-[#0A0A0A]" />
-            <span className="font-[family-name:var(--font-anton)] text-base text-[#0A0A0A] text-center tracking-[0.5px]">
+        <div className="w-full sm:w-[340px] lg:w-[420px] aspect-square bg-[#111111] border border-[#222222] rounded-3xl flex flex-col items-center justify-center gap-5 shrink-0">
+          <div className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] bg-white rounded-2xl flex flex-col items-center justify-center gap-3 p-4">
+            <QrCode className="w-16 h-16 sm:w-20 sm:h-20 text-[#0A0A0A]" />
+            <span className="font-[family-name:var(--font-anton)] text-sm sm:text-base text-[#0A0A0A] text-center tracking-[0.5px]">
               RISKY LMRA
             </span>
             <span className="text-[#71717A] text-[11px] text-center">
@@ -282,7 +311,7 @@ export default function Home() {
             </span>
           </div>
           <span className="text-[#52525B] text-[13px] text-center leading-[1.5]">
-            Industrial-grade vinyl
+            Industrieel vinyl
             <br />
             70mm × 70mm
           </span>
@@ -290,20 +319,20 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="flex flex-col items-center py-24 px-12 bg-[#0F0F0F]">
-        <h2 className="font-[family-name:var(--font-anton)] text-[48px] text-white text-center leading-[1.1] max-w-[600px]">
-          Safety starts before
+      <section className="flex flex-col items-center py-20 px-5 sm:py-24 sm:px-12 bg-[#0F0F0F]">
+        <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[48px] text-white text-center leading-[1.1] max-w-[600px]">
+          Veiligheid begint voor
           <br />
-          the first step.
+          de eerste stap.
         </h2>
-        <p className="text-[#A1A1AA] text-lg text-center mt-8">
-          Join hundreds of teams using RISKY LMRA to protect their crews.
+        <p className="text-[#A1A1AA] text-base sm:text-lg text-center mt-6 sm:mt-8">
+          Sluit je aan bij honderden teams die RISKY gebruiken om hun ploegen te beschermen.
         </p>
         <a
           href="#"
-          className="bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center mt-8"
+          className="bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center mt-6 sm:mt-8"
         >
-          Get Started — It&apos;s Free
+          Start nu — het is gratis
         </a>
       </section>
 
@@ -311,11 +340,9 @@ export default function Home() {
       <div className="h-px bg-[#222222] w-full" />
 
       {/* Footer */}
-      <footer className="flex items-center justify-between h-[72px] px-12">
+      <footer className="flex items-center justify-between h-[72px] px-5 sm:px-12">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-[#E53E3E] rounded flex items-center justify-center">
-            <Zap className="w-3.5 h-3.5 text-white" />
-          </div>
+          <img src="/punch-logo.png" alt="RISKY" className="w-6 h-6 rounded" />
           <span className="font-[family-name:var(--font-anton)] text-base text-white tracking-[0.32px]">
             RISKY
           </span>
