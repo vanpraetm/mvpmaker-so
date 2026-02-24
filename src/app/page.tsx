@@ -314,19 +314,6 @@ export default function Home() {
             <br />
             Of je gereedschapskist.
           </h2>
-          <div className="flex flex-col gap-3">
-            {[
-              "Weerbestendig & UV-resistent",
-              "Op maat met jouw bedrijfslogo",
-              "Elke sticker linkt naar een specifieke checklist",
-              "Werkt op helmen, gereedschapskisten, machines",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-3">
-                <Check className="w-[18px] h-[18px] text-white shrink-0" />
-                <span className="text-[#A1A1AA] text-[15px]">{item}</span>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="w-full sm:w-[340px] lg:w-[420px] aspect-square bg-[#111111] border border-[#222222] rounded-3xl flex items-center justify-center overflow-hidden shrink-0">
           <img src="/risky-sticker.png" alt="RISKY QR sticker" className="w-full h-full object-cover rounded-3xl" />
