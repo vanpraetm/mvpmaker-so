@@ -25,11 +25,11 @@ export default function Home() {
           </span>
         </div>
         <div className="flex items-center gap-4 sm:gap-8">
-          <a href="#" className="text-[#A1A1AA] text-[15px] font-medium">
+          <a href="/early-access" className="text-[#A1A1AA] text-[15px] font-medium">
             Inloggen
           </a>
           <a
-            href="#"
+            href="/early-access"
             className="bg-[#DC2626] text-white text-sm font-semibold h-10 px-5 sm:px-6 rounded-full flex items-center justify-center"
           >
             Start nu
@@ -328,21 +328,8 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="w-full sm:w-[340px] lg:w-[420px] aspect-square bg-[#111111] border border-[#222222] rounded-3xl flex flex-col items-center justify-center gap-5 shrink-0">
-          <div className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] bg-white rounded-2xl flex flex-col items-center justify-center gap-3 p-4">
-            <QrCode className="w-16 h-16 sm:w-20 sm:h-20 text-[#0A0A0A]" />
-            <span className="font-[family-name:var(--font-anton)] text-sm sm:text-base text-[#0A0A0A] text-center tracking-[0.5px]">
-              RISKY LMRA
-            </span>
-            <span className="text-[#71717A] text-[11px] text-center">
-              Station A-12
-            </span>
-          </div>
-          <span className="text-[#52525B] text-[13px] text-center leading-[1.5]">
-            Industrieel vinyl
-            <br />
-            70mm × 70mm
-          </span>
+        <div className="w-full sm:w-[340px] lg:w-[420px] aspect-square bg-[#111111] border border-[#222222] rounded-3xl flex items-center justify-center overflow-hidden shrink-0">
+          <img src="/risky-sticker.png" alt="RISKY QR sticker" className="w-full h-full object-cover rounded-3xl" />
         </div>
       </section>
 
@@ -357,7 +344,7 @@ export default function Home() {
           Sluit je aan bij honderden teams die RISKY gebruiken om hun ploegen te beschermen.
         </p>
         <a
-          href="#"
+          href="/early-access"
           className="bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center mt-6 sm:mt-8"
         >
           Start nu — het is gratis
