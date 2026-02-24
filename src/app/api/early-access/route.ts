@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const getResend = () => new Resend(process.env.RESEND_API_KEY);
 
 const VALID_CODES = ["RISKY2026", "EARLYBIRD", "LMRA-BETA"];
 
@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   // Flow 1: Email-only (early access aanvraag)
   if (email && !code) {
     try {
-      await resend.emails.send({
+      await getResend().emails.send({
         from: "RISKY <onboarding@resend.dev>",
         to: "vanpreatmichiel@hotmail.com",
         subject: `Nieuwe early access aanvraag: ${email}`,
