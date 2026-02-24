@@ -1,5 +1,4 @@
 import {
-  Scan,
   Mic,
   LayoutTemplate,
   MapPin,
@@ -20,9 +19,9 @@ export default function Home() {
       {/* Header */}
       <header className="flex items-center justify-between h-[72px] px-5 sm:px-12 border-b border-[#1A1A1A]">
         <div className="flex items-center gap-2.5">
-          <img src="/punch-logo.png" alt="RISKY" className="w-8 h-8 rounded-md" />
+          <img src="/risky-logo.png" alt="Risky" className="h-8" />
           <span className="font-[family-name:var(--font-anton)] text-[22px] text-white tracking-[0.44px]">
-            RISKY
+            Risky
           </span>
         </div>
         <div className="flex items-center gap-4 sm:gap-8">
@@ -57,53 +56,69 @@ export default function Home() {
 
         {/* Phone Mockup */}
         <div className="flex items-center justify-center pt-10 w-full max-w-[1100px]">
-          <div className="w-[280px] h-[510px] sm:w-[320px] sm:h-[580px] bg-[#111111] rounded-[32px] border-2 border-[#2A2A2A] overflow-hidden flex flex-col gap-4 pt-10 sm:pt-12 px-4 sm:px-5 pb-4 sm:pb-5">
-            <div className="flex flex-col items-center gap-2 w-full">
-              <Scan className="w-10 h-10 sm:w-12 sm:h-12 text-[#E53E3E]" />
-              <span className="text-white text-base sm:text-lg font-bold text-center">
-                LMRA Check
-              </span>
-              <span className="text-[#71717A] text-xs text-center w-full">
-                Station A — Waterzuivering Noord
-              </span>
-            </div>
-            <div className="h-px bg-[#222222] w-full" />
-            <div className="flex flex-col gap-3 py-2 w-full">
-              <span className="text-[#71717A] text-[11px] font-medium tracking-[1px]">
-                Vraag 1 van 5
-              </span>
-              <span className="text-[#F4F4F5] text-sm sm:text-base font-semibold leading-[1.4] w-full">
-                Zijn alle nooduitgangen vrij en bereikbaar?
-              </span>
-            </div>
-            <div className="flex items-center h-[48px] sm:h-[52px] bg-[#1C1C1C] border border-[#333333] rounded-xl px-4 w-full">
-              <div className="flex items-center gap-2">
-                <Mic className="w-5 h-5 text-[#E53E3E]" />
-                <span className="text-[#52525B] text-sm">Tik om te spreken...</span>
-              </div>
-            </div>
-            <div className="flex gap-2 w-full flex-wrap">
-              <div className="flex items-center gap-1.5 bg-[#1A2E1A] rounded-lg px-2.5 py-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#22C55E]" />
-                <span className="text-[#22C55E] text-[11px] font-semibold">
-                  GPS gelogd
+          <div className="w-[280px] sm:w-[320px] bg-white rounded-[32px] overflow-hidden flex flex-col p-5 gap-2.5">
+            {/* Logo + Steps */}
+            <div className="flex flex-col gap-2.5 w-full">
+              <div className="flex items-center gap-2.5">
+                <img src="/risky-logoblack.png" alt="Risky" className="h-7" />
+                <span className="font-[family-name:var(--font-anton)] text-[22px] text-[#111111]">
+                  Risky
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 bg-[#1A2E1A] rounded-lg px-2.5 py-1.5">
-                <Clock3 className="w-3.5 h-3.5 text-[#22C55E]" />
-                <span className="text-[#22C55E] text-[11px] font-semibold">
-                  14:32
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-[#1A2E1A] rounded-lg px-2.5 py-1.5">
-                <User className="w-3.5 h-3.5 text-[#22C55E]" />
-                <span className="text-[#22C55E] text-[11px] font-semibold">
-                  Jan D.
-                </span>
+              <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 bg-[#111111] rounded-full px-2.5 py-1">
+                  <div className="w-1.5 h-1.5 bg-[#E53E3E] rounded-full" />
+                  <span className="text-white text-[10px] font-semibold">STOP</span>
+                </div>
+                <div className="w-1.5 h-1.5 bg-[#D4D4D8] rounded-full" />
+                <span className="text-[#A1A1AA] text-[10px] font-medium">THINK</span>
+                <div className="w-1.5 h-1.5 bg-[#D4D4D8] rounded-full" />
+                <span className="text-[#A1A1AA] text-[10px] font-medium">ACT</span>
               </div>
             </div>
-            <div className="w-full bg-[#222222] rounded-sm h-1">
-              <div className="bg-[#E53E3E] rounded-sm h-1 w-[56px]" />
+            {/* Spacer */}
+            <div className="h-[67px] w-full" />
+            {/* Question */}
+            <div className="flex flex-col gap-2.5 w-full px-1">
+              <span className="text-[#111111] text-lg font-bold leading-[1.35]">
+                Heb ik alle info om mijn taak veilig uit te voeren?
+              </span>
+              <div className="flex gap-2.5 pt-2 w-full">
+                <div className="flex items-center justify-center gap-1.5 bg-[#111111] rounded-xl py-3 flex-1">
+                  <Check className="w-4 h-4 text-white" />
+                  <span className="text-white text-sm font-semibold">Ja</span>
+                </div>
+                <div className="flex items-center justify-center gap-1.5 bg-white border border-[#E5E7EB] rounded-xl py-3 flex-1">
+                  <span className="text-[#111111] text-sm">×</span>
+                  <span className="text-[#111111] text-sm font-semibold">Nee</span>
+                </div>
+              </div>
+            </div>
+            {/* Voice Bar */}
+            <div className="flex items-center justify-between h-[52px] bg-white border border-[#E5E7EB] rounded-xl px-4 w-full mt-3 shadow-sm">
+              <Mic className="w-[18px] h-[18px] text-[#E53E3E]" />
+              <span className="text-[#A1A1AA] text-sm">Tap to speak...</span>
+            </div>
+            {/* Tags */}
+            <div className="flex gap-2 w-full">
+              <div className="flex items-center gap-1.5 bg-[#F5F5F5] rounded-full px-2 py-1">
+                <MapPin className="w-3 h-3 text-[#A1A1AA]" />
+                <span className="text-[#71717A] text-[10px] font-medium">GPS gelogd</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-[#F5F5F5] rounded-full px-2 py-1">
+                <Clock3 className="w-3 h-3 text-[#A1A1AA]" />
+                <span className="text-[#71717A] text-[10px] font-medium">14:32</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-[#F5F5F5] rounded-full px-2 py-1">
+                <User className="w-3 h-3 text-[#A1A1AA]" />
+                <span className="text-[#71717A] text-[10px] font-medium">Jan D.</span>
+              </div>
+            </div>
+            {/* Progress */}
+            <div className="w-full pt-3">
+              <div className="w-full bg-[#F0F0F0] rounded-sm h-1.5">
+                <div className="bg-[#E53E3E] rounded-sm h-1.5 w-[56px]" />
+              </div>
             </div>
           </div>
         </div>
@@ -355,9 +370,9 @@ export default function Home() {
       {/* Footer */}
       <footer className="flex items-center justify-between h-[72px] px-5 sm:px-12">
         <div className="flex items-center gap-2">
-          <img src="/punch-logo.png" alt="RISKY" className="w-6 h-6 rounded" />
+          <img src="/risky-logo.png" alt="Risky" className="h-6" />
           <span className="font-[family-name:var(--font-anton)] text-base text-white tracking-[0.32px]">
-            RISKY
+            Risky
           </span>
         </div>
         <span className="text-[#52525B] text-[13px]">
