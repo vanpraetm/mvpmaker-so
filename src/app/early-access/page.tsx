@@ -6,38 +6,93 @@ import { useState } from "react";
 export default function EarlyAccess() {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [codeError, setCodeError] = useState("");
+  const [emailLoading, setEmailLoading] = useState(false);
+  const [codeLoading, setCodeLoading] = useState(false);
+  const [emailSuccess, setEmailSuccess] = useState(false);
+  const [codeSuccess, setCodeSuccess] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleEmailSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setError("");
-    setLoading(true);
+    setEmailError("");
+    setEmailLoading(true);
 
     try {
       const res = await fetch("/api/early-access", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, code }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error);
+        setEmailError(data.error);
         return;
       }
 
-      setSuccess(true);
+      setEmailSuccess(true);
     } catch {
-      setError("Er ging iets mis. Probeer het later opnieuw.");
+      setEmailError("Er ging iets mis. Probeer het later opnieuw.");
     } finally {
-      setLoading(false);
+      setEmailLoading(false);
     }
   }
 
-  if (success) {
+  async function handleCodeSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setCodeError("");
+    setCodeLoading(true);
+
+    try {
+      const res = await fetch("/api/early-access", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setCodeError(data.error);
+        return;
+      }
+
+      setCodeSuccess(true);
+    } catch {
+      setCodeError("Er ging iets mis. Probeer het later opnieuw.");
+    } finally {
+      setCodeLoading(false);
+    }
+  }
+
+  if (emailSuccess) {
+    return (
+      <div className="min-h-screen bg-[#0A0A0A] font-[family-name:var(--font-inter)] flex items-center justify-center px-5">
+        <div className="flex flex-col items-center w-full max-w-[400px]">
+          <img src="/risky-logo.png" alt="Risky" className="h-12" />
+          <span className="font-[family-name:var(--font-anton)] text-[28px] text-white tracking-[0.56px] mt-3">
+            RISKY
+          </span>
+          <h1 className="text-white text-xl font-bold mt-8 text-center">
+            Bedankt!
+          </h1>
+          <p className="text-[#71717A] text-[15px] mt-2 text-center">
+            We nemen snel contact met je op via {email}.
+          </p>
+          <a
+            href="/"
+            className="text-[#52525B] text-sm mt-8"
+          >
+            Terug naar home
+          </a>
+        </div>
+      </div>
+    );
+  }
+
+  if (codeSuccess) {
     return (
       <div className="min-h-screen bg-[#0A0A0A] font-[family-name:var(--font-inter)] flex items-center justify-center px-5">
         <div className="flex flex-col items-center w-full max-w-[400px]">
@@ -48,9 +103,6 @@ export default function EarlyAccess() {
           <h1 className="text-white text-xl font-bold mt-8 text-center">
             Je bent binnen!
           </h1>
-          <p className="text-[#71717A] text-[15px] mt-2 text-center">
-            We nemen snel contact met je op via {email}.
-          </p>
           <a
             href="/"
             className="text-[#52525B] text-sm mt-8"
@@ -71,23 +123,15 @@ export default function EarlyAccess() {
           RISKY
         </span>
 
-        {/* Heading */}
+        {/* Section 1: Vraag early access aan */}
         <h1 className="text-white text-xl font-bold mt-8 text-center">
-          Welkom bij de early crew.
+          Vraag early access aan
         </h1>
         <p className="text-[#71717A] text-[15px] mt-2 text-center">
-          Wil je early access?
+          Laat je e-mailadres achter en we nemen contact met je op.
         </p>
-        <a
-          href="mailto:info@risky.app"
-          className="text-white text-[15px] underline underline-offset-4 mt-1"
-        >
-          Vraag nu toegang aan
-        </a>
 
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full mt-8">
-          {/* Email */}
+        <form onSubmit={handleEmailSubmit} className="flex flex-col gap-4 w-full mt-6">
           <div className="flex flex-col gap-1.5">
             <label className="text-[#A1A1AA] text-sm">E-mailadres</label>
             <div className="flex items-center gap-3 bg-[#18181B] border border-[#333333] rounded-xl h-12 px-4">
@@ -103,9 +147,34 @@ export default function EarlyAccess() {
             </div>
           </div>
 
-          {/* Access Code */}
+          {emailError && (
+            <p className="text-[#DC2626] text-sm text-center">{emailError}</p>
+          )}
+
+          <button
+            type="submit"
+            disabled={emailLoading}
+            className="w-full bg-white text-[#0A0A0A] text-base font-semibold h-12 rounded-full mt-2 cursor-pointer disabled:opacity-50"
+          >
+            {emailLoading ? "Even geduld..." : "Vraag toegang aan"}
+          </button>
+        </form>
+
+        {/* Divider */}
+        <div className="flex items-center gap-4 w-full mt-10">
+          <div className="flex-1 h-px bg-[#333333]" />
+          <span className="text-[#52525B] text-sm">of</span>
+          <div className="flex-1 h-px bg-[#333333]" />
+        </div>
+
+        {/* Section 2: Heb je al een code? */}
+        <h2 className="text-white text-lg font-bold mt-8 text-center">
+          Heb je al een code?
+        </h2>
+
+        <form onSubmit={handleCodeSubmit} className="flex flex-col gap-4 w-full mt-4">
           <div className="flex flex-col gap-1.5">
-            <label className="text-[#A1A1AA] text-sm">Early access code</label>
+            <label className="text-[#A1A1AA] text-sm">Toegangscode</label>
             <div className="flex items-center gap-3 bg-[#18181B] border border-[#333333] rounded-xl h-12 px-4">
               <KeyRound className="w-[18px] h-[18px] text-[#52525B]" />
               <input
@@ -119,25 +188,23 @@ export default function EarlyAccess() {
             </div>
           </div>
 
-          {/* Error */}
-          {error && (
-            <p className="text-[#DC2626] text-sm text-center">{error}</p>
+          {codeError && (
+            <p className="text-[#DC2626] text-sm text-center">{codeError}</p>
           )}
 
-          {/* Submit */}
           <button
             type="submit"
-            disabled={loading}
-            className="w-full bg-white text-[#0A0A0A] text-base font-semibold h-12 rounded-full mt-2 cursor-pointer disabled:opacity-50"
+            disabled={codeLoading}
+            className="w-full bg-transparent text-white text-base font-semibold h-12 rounded-full border border-[#333333] cursor-pointer disabled:opacity-50"
           >
-            {loading ? "Even geduld..." : "Unlock RISKY"}
+            {codeLoading ? "Even geduld..." : "Unlock RISKY"}
           </button>
         </form>
 
         {/* Back */}
         <a
           href="/"
-          className="text-[#52525B] text-sm mt-6"
+          className="text-[#52525B] text-sm mt-8 mb-8"
         >
           Terug naar home
         </a>
