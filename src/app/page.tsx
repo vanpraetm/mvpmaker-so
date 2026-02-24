@@ -21,7 +21,7 @@ export default function Home() {
         <div className="flex items-center gap-2.5">
           <img src="/risky-logo.png" alt="Risky" className="h-8" />
           <span className="font-[family-name:var(--font-anton)] text-[22px] text-white tracking-[0.44px]">
-            Risky
+            RISKY
           </span>
         </div>
         <div className="flex items-center gap-4 sm:gap-8">
@@ -56,13 +56,13 @@ export default function Home() {
 
         {/* Phone Mockup */}
         <div className="flex items-center justify-center pt-10 w-full max-w-[1100px]">
-          <div className="w-[280px] sm:w-[320px] bg-white rounded-[32px] overflow-hidden flex flex-col p-5 gap-2.5">
+          <div className="w-[280px] h-[510px] sm:w-[320px] sm:h-[580px] bg-white rounded-[32px] overflow-hidden flex flex-col p-5 gap-2.5">
             {/* Logo + Steps */}
             <div className="flex flex-col gap-2.5 w-full">
               <div className="flex items-center gap-2.5">
                 <img src="/risky-logoblack.png" alt="Risky" className="h-7" />
                 <span className="font-[family-name:var(--font-anton)] text-[22px] text-[#111111]">
-                  Risky
+                  RISKY
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -372,7 +372,7 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <img src="/risky-logo.png" alt="Risky" className="h-6" />
           <span className="font-[family-name:var(--font-anton)] text-base text-white tracking-[0.32px]">
-            Risky
+            RISKY
           </span>
         </div>
         <span className="text-[#52525B] text-[13px]">
