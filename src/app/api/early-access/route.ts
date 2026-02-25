@@ -12,8 +12,8 @@ export async function POST(request: Request) {
   if (email && !code) {
     try {
       await getResend().emails.send({
-        from: "RISKY <onboarding@resend.dev>",
-        to: "vanpreatmichiel@hotmail.com",
+        from: "RISKY <noreply@mvpmaker.so>",
+        to: "vanpraetmichiel@hotmail.com",
         subject: `Nieuwe early access aanvraag: ${email}`,
         html: `
           <h2>Nieuwe early access aanvraag</h2>
