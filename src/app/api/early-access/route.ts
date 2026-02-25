@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     try {
       await getResend().emails.send({
         from: "RISKY <noreply@mvpmaker.so>",
-        to: "vanpraetmichiel@hotmail.com",
+        to: "vanpraetmichiel@gmail.com",
         subject: `Nieuwe early access aanvraag: ${email}`,
         html: `
           <h2>Nieuwe early access aanvraag</h2>
