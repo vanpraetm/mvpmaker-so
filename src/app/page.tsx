@@ -30,7 +30,7 @@ export default function Home() {
           </a>
           <a
             href="/early-access"
-            className="bg-[#DC2626] text-white text-sm font-semibold h-10 px-5 sm:px-6 rounded-full flex items-center justify-center"
+            className="cta-magnetic bg-[#DC2626] text-white text-sm font-semibold h-10 px-5 sm:px-6 rounded-full flex items-center justify-center"
           >
             Start nu
           </a>
@@ -39,23 +39,23 @@ export default function Home() {
 
       {/* Hero */}
       <section className="flex flex-col items-center pt-16 pb-12 px-5 sm:pt-20 sm:pb-16 sm:px-12">
-        <div className="flex items-center gap-2 border border-[#333333] rounded-full px-4 py-2">
+        <div className="hero-stagger hero-stagger-1 flex items-center gap-2 border border-[#333333] rounded-full px-4 py-2">
           <div className="w-2 h-2 bg-[#E53E3E] rounded-full" />
           <span className="text-[#A1A1AA] text-[13px] font-medium">
             LMRA — Last Minute Risk Assessment
           </span>
         </div>
-        <h1 className="font-[family-name:var(--font-anton)] text-5xl sm:text-[80px] text-white text-center leading-[1.05] tracking-[-1.6px] max-w-[900px] mt-6 sm:mt-8">
+        <h1 className="hero-stagger hero-stagger-2 font-[family-name:var(--font-anton)] text-5xl sm:text-[80px] text-white text-center leading-[1.05] tracking-[-1.6px] max-w-[900px] mt-6 sm:mt-8">
           Veiligheidschecks die w&eacute;l worden ingevuld.
         </h1>
-        <p className="text-[#A1A1AA] text-base sm:text-xl leading-[1.6] text-center max-w-[680px] mt-6 sm:mt-8">
+        <p className="hero-stagger hero-stagger-3 text-[#A1A1AA] text-base sm:text-xl leading-[1.6] text-center max-w-[680px] mt-6 sm:mt-8">
           Risky laat je team snel veiligheidschecks (LMRA&apos;s) invullen
           op de werf via QR-code en stem. Jouw inspectielogboek wordt
           automatisch opgebouwd waardoor je altijd klaar bent voor controle.
         </p>
 
         {/* Phone Mockup */}
-        <div className="flex items-center justify-center pt-10 w-full max-w-[1100px]">
+        <div className="hero-stagger hero-stagger-4 flex items-center justify-center pt-10 w-full max-w-[1100px]">
           <div className="w-[280px] h-[510px] sm:w-[320px] sm:h-[580px] bg-white rounded-[32px] overflow-hidden flex flex-col p-5 gap-2.5">
             {/* Logo + Steps */}
             <div className="flex flex-col gap-2.5 w-full">
@@ -117,7 +117,7 @@ export default function Home() {
             {/* Progress */}
             <div className="w-full pt-3">
               <div className="w-full bg-[#F0F0F0] rounded-sm h-1.5">
-                <div className="bg-[#E53E3E] rounded-sm h-1.5 w-[56px]" />
+                <div className="progress-animate bg-[#E53E3E] rounded-sm h-1.5" />
               </div>
             </div>
           </div>
@@ -168,8 +168,8 @@ export default function Home() {
                         {[12, 18, 10, 20, 14, 22, 11, 16].map((h, j) => (
                           <div
                             key={j}
-                            className="w-[3px] rounded-full bg-red-500"
-                            style={{ height: `${h}px` }}
+                            className="wave-bar w-[3px] rounded-full bg-red-500"
+                            style={{ height: `${h}px`, animationDelay: `${j * 0.15}s` }}
                           />
                         ))}
                       </div>
@@ -289,9 +289,9 @@ export default function Home() {
           ].map((feat) => (
             <div
               key={feat.title}
-              className="flex flex-col gap-4 bg-[#111111] border border-[#222222] rounded-2xl p-6 sm:p-7"
+              className="card-lift flex flex-col gap-4 bg-[#111111] border border-[#222222] rounded-2xl p-6 sm:p-7"
             >
-              {feat.icon}
+              <div className="card-lift-icon w-fit">{feat.icon}</div>
               <span className="text-white text-[17px] font-bold">
                 {feat.title}
               </span>
@@ -332,7 +332,7 @@ export default function Home() {
         </p>
         <a
           href="/early-access"
-          className="bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center mt-6 sm:mt-8"
+          className="cta-magnetic bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center mt-6 sm:mt-8"
         >
           Start nu — het is gratis
         </a>

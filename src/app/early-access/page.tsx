@@ -100,7 +100,8 @@ export default function EarlyAccess() {
           <span className="font-[family-name:var(--font-anton)] text-[28px] text-white tracking-[0.56px] mt-3">
             RISKY
           </span>
-          <h1 className="text-white text-xl font-bold mt-8 text-center">
+          <div className="fist-pop text-5xl mt-8">&#x1F44A;</div>
+          <h1 className="text-white text-xl font-bold mt-4 text-center">
             Je bent binnen!
           </h1>
           <a
