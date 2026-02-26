@@ -327,9 +327,6 @@ export default function Home() {
           <br />
           de eerste stap.
         </h2>
-        <p className="text-[#A1A1AA] text-base sm:text-lg text-center mt-6 sm:mt-8">
-          Sluit je aan bij honderden teams die RISKY gebruiken om hun ploegen te beschermen.
-        </p>
         <a
           href="/early-access"
           className="cta-magnetic bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center mt-6 sm:mt-8"
