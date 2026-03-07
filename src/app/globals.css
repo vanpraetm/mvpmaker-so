@@ -90,3 +90,12 @@ body {
 .fist-pop {
   animation: fist-pop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
+
+/* Spotlight card gradient (mouse-follow) */
+.spotlight-gradient {
+  background: radial-gradient(
+    600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+    rgba(220, 38, 38, 0.06) 0%,
+    transparent 60%
+  );
+}
