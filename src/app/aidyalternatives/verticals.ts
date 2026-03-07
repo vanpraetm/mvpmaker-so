@@ -29,10 +29,11 @@ export const verticals: Record<string, VerticalData> = {
     accentBorder: "border-teal-200",
     buttonBg: "bg-teal-600",
     buttonHover: "hover:bg-teal-700",
-    tagline: "Voor kinesisten met een eigen praktijk",
-    headline: "Terwijl jij behandelt,\nboekt Aidy je volgende pati\u00ebnt.",
+    tagline: "Voor kinesisten zonder secretariaat",
+    headline:
+      "Drie gemiste oproepen per dag.\nAidy neemt ze op via WhatsApp.",
     subheadline:
-      "Je hebt geen secretariaat. Tussen twee sessies door mis je oproepen, vergeet je afspraken te bevestigen, en schiet opvolging erbij in. Aidy regelt dat via WhatsApp \u2014 terwijl jij met je pati\u00ebnt bezig bent.",
+      "Je mist oproepen. Vergeet afspraken te bevestigen. Opvolging schiet erbij in. Aidy regelt dat via WhatsApp, terwijl jij behandelt.",
     painPoints: [
       {
         title: "Je telefoon gaat. Je handen zitten op een rug.",
@@ -40,40 +41,43 @@ export const verticals: Record<string, VerticalData> = {
           "Halverwege een mobilisatie belt iemand voor een afspraak. Je kan niet opnemen. Die pati\u00ebnt belt de praktijk verderop. Dat gebeurt elke week.",
       },
       {
-        title: "Een leeg half uur waar niemand voor betaalt.",
+        title:
+          "Dinsdagmiddag 15u. Lege behandeltafel. Geen herinnering gestuurd.",
         description:
-          "Een pati\u00ebnt vergeet z\u2019n afspraak. Jij staat in een lege behandelkamer. Geen herinnering gestuurd, want wanneer dan? Tussen twee sessies door heb je geen tijd om berichten te sturen.",
+          "Een pati\u00ebnt vergeet z\u2019n afspraak. Jij staat in een lege behandelkamer. Je had een herinnering moeten sturen. Maar wanneer? Tussen twee sessies door is er geen tijd.",
       },
       {
         title: "Na de sessie wil je opvolgen. Na de sessie vergeet je het.",
         description:
-          "Je wil weten of de oefeningen lukken. Of de pijn afneemt. Maar na acht pati\u00ebnten op een dag stuur je dat bericht niet meer. Opvolging wordt een voornemen in plaats van een gewoonte.",
+          "Je wil weten of de oefeningen lukken. Of de pijn afneemt. Maar na acht pati\u00ebnten op een dag stuur je dat bericht niet meer.",
       },
     ],
     features: [
       {
         iconName: "MessageSquare",
-        title: "Pati\u00ebnten boeken via WhatsApp. Ook om 22u.",
+        title:
+          "Pati\u00ebnt stuurt 'Kan ik donderdag?' om 22u. Aidy antwoordt binnen 10 seconden.",
         description:
-          "Een pati\u00ebnt stuurt \u2018Kan ik donderdag terecht?\u2019 Aidy checkt je agenda en stelt een tijdslot voor. Geen telefoontje nodig. Geen app die ze eerst moeten downloaden.",
+          "Aidy checkt je agenda en stelt een tijdslot voor. Geen telefoontje nodig. Geen app die ze eerst moeten downloaden.",
       },
       {
         iconName: "Clock",
-        title: "E\u00e9n herinnering minder vergeten = \u00e9\u00e9n no-show minder.",
+        title:
+          "E\u00e9n herinnering minder vergeten = \u00e9\u00e9n no-show minder.",
         description:
-          "24 uur \u00e9n 1 uur voor de afspraak krijgt je pati\u00ebnt een WhatsApp-bericht. Geen SMS die niemand leest. WhatsApp, waar ze toch al zitten.",
+          "24 uur en 1 uur voor de afspraak krijgt je pati\u00ebnt een WhatsApp-bericht. Niet via SMS die niemand leest. Via WhatsApp, waar ze toch al zitten.",
       },
       {
         iconName: "Calendar",
-        title: "De dag na de sessie: \u2018Hoe voelt het vandaag?\u2019",
+        title: "De dag na de sessie: 'Hoe voelt het vandaag?'",
         description:
-          "Aidy stuurt automatisch een check-in na de behandeling. Je pati\u00ebnt voelt zich gehoord. Jij weet hoe het gaat \u2014 zonder er zelf aan te moeten denken.",
+          "Aidy stuurt automatisch een check-in na de behandeling. Je pati\u00ebnt voelt zich gehoord. Jij weet hoe het gaat. Zonder er zelf aan te denken.",
       },
       {
         iconName: "Shield",
         title: "Pati\u00ebntdata blijft in Europa. Punt.",
         description:
-          "Europese servers. Data-isolatie per pati\u00ebnt. Geen Amerikaans bedrijf dat meeleest. Je voldoet aan de GDPR zonder er iets voor te hoeven doen.",
+          "Europese servers. Data-isolatie per pati\u00ebnt. Geen Amerikaans bedrijf dat meeleest. Je voldoet aan de GDPR zonder er iets voor te doen.",
       },
     ],
     howItWorks: [
@@ -87,7 +91,7 @@ export const verticals: Record<string, VerticalData> = {
         step: 2,
         title: "Deel je Aidy-nummer",
         description:
-          "Pati\u00ebnten sturen een bericht, Aidy plant in op een vrij moment.",
+          "Pati\u00ebnten sturen een bericht. Aidy plant in op een vrij moment.",
       },
       {
         step: 3,
@@ -97,8 +101,8 @@ export const verticals: Record<string, VerticalData> = {
       },
     ],
     roiLine:
-      "E\u00e9n gemiste afspraak minder per maand dekt de kosten. Bij \u20ac40 per sessie verdien je het viervoudig terug.",
-    ctaText: "Probeer het 14 dagen in je praktijk",
+      "E\u00e9n no-show minder per maand = \u20ac40 terug. Aidy kost \u20ac9.",
+    ctaText: "Start gratis in je praktijk",
   },
   huisarts: {
     id: "huisarts",
@@ -110,10 +114,11 @@ export const verticals: Record<string, VerticalData> = {
     accentBorder: "border-blue-200",
     buttonBg: "bg-blue-600",
     buttonHover: "hover:bg-blue-700",
-    tagline: "Voor Belgische huisartsen",
-    headline: "Jouw wachtzaal\nbelt niet meer.",
+    tagline: "Voor huisartsen zonder receptionist",
+    headline:
+      "Tussen twee consultaties:\n4 gemiste oproepen. Aidy beantwoordt ze.",
     subheadline:
-      "Tussen twee consultaties door: 3 gemiste oproepen, 4 WhatsApp-berichten, een doorverwijzing die nog moet. Aidy neemt de telefoon over via WhatsApp. Pati\u00ebnten krijgen antwoord. Jij consulteert.",
+      "Drie gemiste oproepen. Vier WhatsApp-berichten. Een doorverwijzing die nog moet. Aidy neemt de telefoon over via WhatsApp. Pati\u00ebnten krijgen antwoord. Jij consulteert.",
     painPoints: [
       {
         title: "De telefoon rinkelt tijdens je consultatie.",
@@ -121,9 +126,10 @@ export const verticals: Record<string, VerticalData> = {
           "Een pati\u00ebnt belt voor een herhaalvoorschrift. Een andere wil een afspraak verzetten. Ondertussen wacht er iemand in je spreekkamer.",
       },
       {
-        title: "Elk kanaal is een open deur.",
+        title:
+          "Dezelfde pati\u00ebnt belt, appt \u00e9n mailt. Drie keer dezelfde vraag.",
         description:
-          "Dezelfde pati\u00ebnt belt, appt \u00e9n mailt. Drie keer hetzelfde verzoek, drie keer je aandacht. Nergens \u00e9\u00e9n overzicht.",
+          "Drie keer hetzelfde verzoek, drie keer je aandacht. Nergens \u00e9\u00e9n overzicht. Alles verspreid over drie kanalen.",
       },
       {
         title: "Een praktijkassistent kost \u20ac2.500/maand.",
@@ -136,7 +142,7 @@ export const verticals: Record<string, VerticalData> = {
         iconName: "MessageSquare",
         title: "Pati\u00ebnten boeken via WhatsApp",
         description:
-          "Afspraak maken, afspraak verzetten, herhaalvoorschrift aanvragen. Pati\u00ebnten sturen een bericht, Aidy regelt het. Jij ziet het in je agenda.",
+          "Afspraak maken, verzetten, herhaalvoorschrift aanvragen. Pati\u00ebnten sturen een bericht. Aidy regelt het. Jij ziet het in je agenda.",
       },
       {
         iconName: "Clock",
@@ -146,7 +152,8 @@ export const verticals: Record<string, VerticalData> = {
       },
       {
         iconName: "Shield",
-        title: "GDPR en medisch beroepsgeheim",
+        title:
+          "Beroepsgeheim geldt ook digitaal. Aidy dwingt het technisch af.",
         description:
           "Europese servers. Data-isolatie per pati\u00ebnt. Geen data naar de VS. Je voldoet aan de GDPR en aan je deontologische code.",
       },
@@ -168,7 +175,7 @@ export const verticals: Record<string, VerticalData> = {
         step: 2,
         title: "Deel je WhatsApp-nummer",
         description:
-          "Pati\u00ebnten sturen een bericht zoals ze dat nu al doen. Aidy beantwoordt, plant in, en bevestigt.",
+          "Pati\u00ebnten sturen een bericht zoals ze dat nu al doen. Aidy beantwoordt, plant in en bevestigt.",
       },
       {
         step: 3,
@@ -178,8 +185,8 @@ export const verticals: Record<string, VerticalData> = {
       },
     ],
     roiLine:
-      "Een praktijkassistente kost \u20ac2.500/maand. Aidy kost \u20ac9. Doet dezelfde telefoon.",
-    ctaText: "Probeer het gratis in je praktijk",
+      "Een halftijdse receptionist: \u20ac2.500/maand. Aidy doet de telefoon voor \u20ac9.",
+    ctaText: "Start gratis. Eerste pati\u00ebnt boekt vandaag.",
   },
   advocaat: {
     id: "advocaat",
@@ -191,25 +198,28 @@ export const verticals: Record<string, VerticalData> = {
     accentBorder: "border-amber-200",
     buttonBg: "bg-amber-700",
     buttonHover: "hover:bg-amber-800",
-    tagline: "Voor advocaten die alleen of met een klein kantoor werken",
-    headline: "Twee uur per dag aan administratie.\nDie tijd kun je factureren.",
+    tagline: "Voor advocaten zonder paralegal",
+    headline:
+      "Twee uur per dag die je niet factureert.\nBij \u20ac150/uur is dat \u20ac66.000 per jaar.",
     subheadline:
-      "Een gemiddelde advocaat besteedt 30% van de werkdag aan conclusietermijnen bijhouden, cli\u00ebnten terugbellen en uren registreren. Tegen een uurtarief van \u20ac150 is dat \u20ac45.000 per jaar aan gemiste omzet. Aidy doet dat administratieve werk via WhatsApp of Telegram. Jij factureert.",
+      "Conclusietermijnen bijhouden. Cli\u00ebnten terugbellen. Uren registreren. Werk dat niet op je tijdsregistratie staat. Aidy doet dat via WhatsApp of Telegram. Jij factureert.",
     painPoints: [
       {
         title: "Je werkt 10 uur, je factureert er 6.",
         description:
-          "Conclusietermijnen nakijken, rolzittingen in je agenda zetten, een cli\u00ebnt terugbellen over de stand van zaken. Dat is werk. Maar het staat niet op je tijdsregistratie. Bij \u20ac150/uur laat je elke dag \u20ac600 liggen.",
+          "Conclusietermijnen nakijken. Rolzittingen in je agenda zetten. Een cli\u00ebnt terugbellen over de stand van zaken. Bij \u20ac150/uur laat je elke dag \u20ac600 liggen.",
       },
       {
-        title: "Vijftien dossiers. E\u00e9n gemiste conclusietermijn.",
+        title:
+          "Vijftien dossiers. E\u00e9n gemiste conclusietermijn.",
         description:
-          "Je hebt dossier-Janssens met een conclusietermijn op donderdag, dossier-Peeters wacht op stukken van de tegenpartij, en de stagiair vraagt wanneer de rolzitting is. Dat in je hoofd bijhouden werkt tot het een keer niet werkt.",
+          "Dossier-Janssens heeft een conclusietermijn op donderdag. Dossier-Peeters wacht op stukken. De stagiair vraagt wanneer de rolzitting is. Dat in je hoofd bijhouden werkt tot het een keer niet werkt.",
       },
       {
-        title: "Cli\u00ebntdata op een Amerikaanse server is een deontologische fout.",
+        title:
+          "Cli\u00ebntdata op een Amerikaanse server is een deontologische fout.",
         description:
-          "De Orde van Vlaamse Balies is duidelijk: beroepsgeheim geldt ook digitaal. Cli\u00ebntgegevens op servers buiten Europa \u2014 dat is geen technisch detail, dat is een tuchtrechtelijk risico.",
+          "De Orde van Vlaamse Balies is duidelijk: beroepsgeheim geldt ook digitaal. Cli\u00ebntgegevens op servers buiten Europa is een tuchtrechtelijk risico.",
       },
     ],
     features: [
@@ -221,9 +231,10 @@ export const verticals: Record<string, VerticalData> = {
       },
       {
         iconName: "MessageSquare",
-        title: "Cli\u00ebnten appen je. Aidy koppelt het aan het dossier.",
+        title:
+          "Cli\u00ebnt stuurt 'Meester, ik heb die factuur gevonden.' Aidy koppelt het aan het dossier.",
         description:
-          "Je cli\u00ebnt stuurt een WhatsApp: \u2018Meester, ik heb die factuur gevonden.\u2019 Aidy logt dat bericht bij het juiste cli\u00ebntendossier. Jij hoeft niets te kopi\u00ebren.",
+          "Berichten van cli\u00ebnten worden automatisch bij het juiste dossier gelogd. Jij hoeft niets te kopi\u00ebren.",
       },
       {
         iconName: "Shield",
@@ -233,9 +244,10 @@ export const verticals: Record<string, VerticalData> = {
       },
       {
         iconName: "Clock",
-        title: "Tijdsregistratie in 5 seconden",
+        title:
+          "Stuur 'Janssens, 45 min, conclusie'. Aidy logt het.",
         description:
-          "Stuur: \u2018Dossier Janssens, 45 min, conclusie nakijken.\u2019 Klaar. Geen app openen, geen formulier invullen. Eind van de maand exporteer je alles naar je factuur.",
+          "Geen app openen. Geen formulier invullen. Eind van de maand exporteer je alles naar je factuur.",
       },
     ],
     howItWorks: [
@@ -259,8 +271,8 @@ export const verticals: Record<string, VerticalData> = {
       },
     ],
     roiLine:
-      "Een halftijdse secretaresse kost \u20ac1.500/maand. Aidy kost \u20ac9. En Aidy vergeet geen conclusietermijn.",
-    ctaText: "Probeer Aidy 14 dagen gratis",
+      "E\u00e9n gemiste conclusietermijn kan je \u20ac10.000+ kosten. Aidy herinnert je drie dagen vooraf. Voor \u20ac9/maand.",
+    ctaText: "Start gratis. Eerste dossier in 2 minuten gekoppeld.",
   },
   "ceo-kmo": {
     id: "ceo-kmo",
@@ -272,25 +284,28 @@ export const verticals: Record<string, VerticalData> = {
     accentBorder: "border-violet-200",
     buttonBg: "bg-violet-600",
     buttonHover: "hover:bg-violet-700",
-    tagline: "Voor zaakvoerders met 5 tot 25 werknemers",
-    headline: "Je runt een bedrijf met 15 man.\nJe hebt geen stafchef. Nu wel.",
+    tagline: "Voor zaakvoerders die alles zelf doen",
+    headline:
+      "Elke vraag van je team komt bij jou.\nAidy beantwoordt ze.",
     subheadline:
-      "Je doet sales, HR, planning en admin zelf. Je boekhouder belt, je werknemer appt, je klant mailt. Aidy is je digitale stafchef \u2014 via WhatsApp, voor \u20ac9/maand.",
+      "Je doet sales, HR, planning en admin zelf. Je boekhouder belt, je werknemer appt, je klant mailt. Aidy is je digitale rechterhand via WhatsApp. Voor \u20ac9/maand.",
     painPoints: [
       {
-        title: "Maandag 8u. Je weet niet wat er vandaag moet gebeuren.",
+        title:
+          "Maandag 8u. Zes meetings. Drie openstaande offertes. Een werknemer belt over vakantie.",
         description:
-          "Je opent je agenda en ziet 6 meetings. Tussendoor moet je een offerte afwerken, je boekhouder terugbellen en een werknemer antwoorden over vakantiedagen. Je begint nergens aan en eindigt overal halverwege.",
+          "Je opent je agenda en ziet 6 meetings. Tussendoor moet je een offerte afwerken. Je boekhouder terugbellen. Een werknemer antwoorden. Je begint nergens aan en eindigt overal halverwege.",
       },
       {
         title: "Je bent het geheugen van je eigen bedrijf.",
         description:
-          "Hoe zit dat contract? Wat is het nummer van het sociaal secretariaat? Wanneer is die deadline? Elke vraag komt bij jou. Niet omdat je team lui is, maar omdat niemand anders het weet.",
+          "Hoe zit dat contract? Wat is het nummer van het sociaal secretariaat? Wanneer is die deadline? Elke vraag komt bij jou. Niet omdat je team lui is. Niemand anders weet het.",
       },
       {
-        title: "Een office manager kost \u20ac3.500/maand. Jij hebt die \u20ac3.500 niet.",
+        title:
+          "Een office manager kost \u20ac3.500/maand. Jij hebt die \u20ac3.500 niet.",
         description:
-          "Maar je hebt wel dezelfde problemen als een CEO met 200 man. Agenda-chaos, herhaalvragen, opvolging die blijft liggen. Het verschil: jij lost het op door tot 21u door te werken.",
+          "Je hebt dezelfde problemen als een CEO met 200 man. Agenda-chaos. Herhaalvragen. Opvolging die blijft liggen. Jij lost het op door tot 21u door te werken.",
       },
     ],
     features: [
@@ -298,19 +313,20 @@ export const verticals: Record<string, VerticalData> = {
         iconName: "Calendar",
         title: "Elke ochtend om 7u30: je dag op je telefoon.",
         description:
-          "Aidy stuurt je een WhatsApp met je meetings, deadlines en openstaande to-do\u2019s. Geen app openen, geen dashboard. Gewoon een bericht.",
+          "Aidy stuurt je een WhatsApp met je meetings, deadlines en openstaande taken. Geen app openen. Gewoon een bericht.",
       },
       {
         iconName: "MessageSquare",
-        title: "Je werknemers appen Aidy in plaats van jou.",
+        title:
+          "Werknemer vraagt 'Waar staat dat contract?' Aidy antwoordt. Jij merkt er niks van.",
         description:
-          "Waar staat dat document? Wat is het wachtwoord van die tool? Hoe vraag ik verlof aan? Aidy kent je processen en antwoordt direct.",
+          "Aidy kent je processen en antwoordt direct. Geen onderbreking voor jou. Je team krijgt het antwoord in seconden.",
       },
       {
         iconName: "Users",
         title: "Aidy zit in je teamgroep op WhatsApp.",
         description:
-          "Helpt met planning, stuurt herinneringen, volgt afspraken op. Als iemand zegt \u2018ik doe dat morgen\u2019, checkt Aidy morgen of het gebeurd is.",
+          "Helpt met planning, stuurt herinneringen, volgt afspraken op. Als iemand zegt 'ik doe dat morgen', checkt Aidy morgen of het gebeurd is.",
       },
       {
         iconName: "Shield",
@@ -339,8 +355,8 @@ export const verticals: Record<string, VerticalData> = {
       },
     ],
     roiLine:
-      "\u20ac9/maand. Als Aidy je \u00e9\u00e9n uur per week bespaart, verdien je het 10x terug.",
-    ctaText: "Probeer Aidy 14 dagen gratis",
+      "E\u00e9n uur minder herhaalvragen per week. Bij \u20ac100/uur is dat \u20ac400/maand. Aidy kost \u20ac9.",
+    ctaText: "Start gratis. Morgenochtend je eerste briefing.",
   },
 };
 
