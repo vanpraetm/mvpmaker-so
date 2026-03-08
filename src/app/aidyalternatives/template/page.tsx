@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import {
@@ -49,7 +49,7 @@ function SignupForm() {
 
   if (success) {
     return (
-      <div className="flex items-center gap-3 border border-[#2a2a2a] px-6 py-4">
+      <div className="flex items-center gap-3 bg-[#1a1a1a] rounded-xl px-6 py-4">
         <Check className="w-4 h-4 text-[#22C55E]" />
         <p className="text-white text-sm font-[family-name:var(--font-space-grotesk)]">
           Thanks! We&apos;ll reach out at {email}.
@@ -60,7 +60,7 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex gap-0 w-full max-w-lg">
-      <div className="flex items-center gap-3 border border-[#2a2a2a] border-r-0 h-12 px-4 flex-1">
+      <div className="flex items-center gap-3 bg-[#1a1a1a] rounded-l-xl h-12 px-4 flex-1">
         <Mail className="w-4 h-4 text-[#7A7A7A]" />
         <input
           type="email"
@@ -74,7 +74,7 @@ function SignupForm() {
       <button
         type="submit"
         disabled={loading}
-        className="bg-[#E42313] text-white text-sm font-medium font-[family-name:var(--font-space-grotesk)] h-12 px-6 flex items-center gap-2 cursor-pointer disabled:opacity-50 transition-colors hover:bg-[#c91f10] shrink-0"
+        className="bg-[#E42313] text-white text-sm font-medium font-[family-name:var(--font-space-grotesk)] h-12 px-6 flex items-center gap-2 cursor-pointer disabled:opacity-50 transition-colors hover:bg-[#c91f10] shrink-0 rounded-r-xl"
       >
         {loading ? "..." : "Get started"}
         {!loading && <ArrowRight className="w-4 h-4" />}
@@ -87,10 +87,10 @@ function SignupForm() {
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border-b border-[#E8E8E8]">
+    <div className="rounded-xl bg-[#FAFAFA] mb-3">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between py-5 text-left cursor-pointer"
+        className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer"
       >
         <span className="text-[#0D0D0D] text-sm font-medium font-[family-name:var(--font-space-grotesk)]">
           {q}
@@ -100,11 +100,48 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         />
       </button>
       {open && (
-        <p className="text-[#7A7A7A] text-sm leading-relaxed pb-5 font-[family-name:var(--font-inter)]">
+        <p className="text-[#7A7A7A] text-sm leading-relaxed px-6 pb-5 font-[family-name:var(--font-inter)]">
           {a}
         </p>
       )}
     </div>
+  );
+}
+
+function ScrollHeader({ font }: { font: string }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/80 backdrop-blur-xl shadow-sm shadow-black/5"
+          : "bg-white"
+      } ${font}`}
+    >
+      <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[60px] px-10">
+        <span className="text-[#0D0D0D] text-lg font-semibold tracking-tight">
+          Aidy
+        </span>
+        <div className="flex items-center gap-4">
+          <span className="text-[#7A7A7A] text-sm font-medium cursor-pointer hover:text-[#0D0D0D] transition-colors">
+            Sign in
+          </span>
+          <a
+            href="#signup"
+            className="bg-[#E42313] text-white text-sm font-medium h-9 px-5 flex items-center transition-colors hover:bg-[#c91f10] rounded-xl"
+          >
+            Get started
+          </a>
+        </div>
+      </div>
+    </header>
   );
 }
 
@@ -115,27 +152,10 @@ export default function TemplatePage() {
   return (
     <div className={`min-h-screen bg-white ${font}`}>
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white border-b border-[#E8E8E8]">
-        <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[60px] px-10">
-          <span className="text-[#0D0D0D] text-lg font-semibold tracking-tight">
-            Aidy
-          </span>
-          <div className="flex items-center gap-4">
-            <span className="text-[#7A7A7A] text-sm font-medium cursor-pointer hover:text-[#0D0D0D] transition-colors">
-              Sign in
-            </span>
-            <a
-              href="#signup"
-              className="bg-[#E42313] text-white text-sm font-medium h-9 px-5 flex items-center transition-colors hover:bg-[#c91f10]"
-            >
-              Get started
-            </a>
-          </div>
-        </div>
-      </header>
+      <ScrollHeader font={font} />
 
       {/* Hero */}
-      <section className="relative border-b border-[#E8E8E8] overflow-hidden">
+      <section className="relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
@@ -144,7 +164,7 @@ export default function TemplatePage() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="relative max-w-[1280px] mx-auto px-10 pt-24 pb-20">
+        <div className="relative max-w-[1280px] mx-auto px-10 pt-24 pb-24">
           <div className="flex items-center gap-2 mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E42313] animate-pulse" />
             <span className="text-[#E42313] text-xs font-semibold tracking-widest uppercase">
@@ -158,16 +178,16 @@ export default function TemplatePage() {
             Secure, private AI bot hosting for individuals and teams. Every user
             gets their own isolated bot.
           </p>
-          <div className="mt-10 flex items-center gap-0">
+          <div className="mt-10 flex items-center gap-3">
             <a
               href="#pricing"
-              className="text-[#0D0D0D] text-sm font-medium border border-[#E8E8E8] h-12 px-6 flex items-center hover:bg-[#FAFAFA] transition-colors"
+              className="text-[#0D0D0D] text-sm font-medium border border-[#E8E8E8] h-12 px-6 flex items-center hover:bg-[#FAFAFA] transition-colors rounded-xl"
             >
               View plans
             </a>
             <a
               href="#signup"
-              className="bg-[#E42313] text-white text-sm font-medium h-12 px-6 flex items-center gap-2 hover:bg-[#c91f10] transition-colors"
+              className="bg-[#E42313] text-white text-sm font-medium h-12 px-6 flex items-center gap-2 hover:bg-[#c91f10] transition-colors rounded-xl"
             >
               Get started for free
               <ArrowRight className="w-4 h-4" />
@@ -191,15 +211,15 @@ export default function TemplatePage() {
       </section>
 
       {/* How It Works */}
-      <section className="border-b border-[#E8E8E8]">
-        <div className="max-w-[1280px] mx-auto px-10 py-20">
+      <section>
+        <div className="max-w-[1280px] mx-auto px-10 py-24">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             How it works
           </p>
           <h2 className="text-[#0D0D0D] text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-14">
             Up and running in minutes
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               {
                 step: "1",
@@ -217,8 +237,8 @@ export default function TemplatePage() {
                 desc: "Link Gmail, WhatsApp, Telegram, Discord and more. Aidy works where you already are.",
               },
             ].map((s) => (
-              <div key={s.step} className="border border-[#E8E8E8] p-8">
-                <div className="w-10 h-10 bg-[#E42313] text-white flex items-center justify-center text-sm font-semibold mb-6">
+              <div key={s.step} className="rounded-xl shadow-sm shadow-black/5 p-8 bg-white">
+                <div className="w-10 h-10 bg-[#E42313] text-white flex items-center justify-center text-sm font-semibold mb-6 rounded-lg">
                   {s.step}
                 </div>
                 <h3 className="text-[#0D0D0D] text-base font-semibold mb-2">
@@ -234,8 +254,8 @@ export default function TemplatePage() {
       </section>
 
       {/* Features — Bento Grid */}
-      <section className="border-b border-[#E8E8E8] bg-[#FAFAFA]">
-        <div className="max-w-[1280px] mx-auto px-10 py-20">
+      <section className="bg-[#FAFAFA]">
+        <div className="max-w-[1280px] mx-auto px-10 py-24">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             Features
           </p>
@@ -257,7 +277,7 @@ export default function TemplatePage() {
               cta="Try it free"
               className="lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-2"
               background={
-                <div className="absolute right-4 top-4 w-[220px] border border-[#E8E8E8] overflow-hidden opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                <div className="absolute right-4 top-4 w-[220px] rounded-xl overflow-hidden opacity-80 transition-opacity duration-300 group-hover:opacity-100 shadow-sm shadow-black/10">
                   <div className="bg-[#0D0D0D] px-3 py-1.5 flex items-center gap-2">
                     <div className="w-4 h-4 rounded-full bg-[#E42313] flex items-center justify-center">
                       <span className="text-white text-[7px] font-bold">A</span>
@@ -297,7 +317,7 @@ export default function TemplatePage() {
                   {["Friendly", "Professional", "Playful"].map((t) => (
                     <span
                       key={t}
-                      className="text-[#0D0D0D] text-[10px] font-medium border border-[#E8E8E8] bg-white px-2.5 py-1"
+                      className="text-[#0D0D0D] text-[10px] font-medium bg-white shadow-sm shadow-black/5 rounded-lg px-2.5 py-1"
                     >
                       {t}
                     </span>
@@ -343,8 +363,8 @@ export default function TemplatePage() {
       </section>
 
       {/* Security */}
-      <section className="border-b border-[#1a1a1a] bg-[#0D0D0D]">
-        <div className="max-w-[1280px] mx-auto px-10 py-20">
+      <section className="bg-[#0D0D0D]">
+        <div className="max-w-[1280px] mx-auto px-10 py-24">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             Built for security
           </p>
@@ -355,7 +375,7 @@ export default function TemplatePage() {
             Every bot runs in complete isolation. No shared resources, no data
             mixing, no compromises.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#2a2a2a]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 icon: <Lock className="w-5 h-5" />,
@@ -377,12 +397,12 @@ export default function TemplatePage() {
                 title: "Network security",
                 desc: "Default-deny network policies. Your bot only connects to services you explicitly allow.",
               },
-            ].map((item, i) => (
+            ].map((item) => (
               <div
                 key={item.title}
-                className={`p-8 ${i < 3 ? "border-r border-[#2a2a2a]" : ""}`}
+                className="p-8 bg-[#1a1a1a] rounded-xl"
               >
-                <div className="w-10 h-10 bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center text-[#E42313] mb-4">
+                <div className="w-10 h-10 bg-[#252525] flex items-center justify-center text-[#E42313] mb-4 rounded-lg">
                   {item.icon}
                 </div>
                 <h3 className="text-white text-sm font-semibold mb-2">
@@ -407,8 +427,8 @@ export default function TemplatePage() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="border-b border-[#E8E8E8]">
-        <div className="max-w-[1280px] mx-auto px-10 py-20">
+      <section id="pricing">
+        <div className="max-w-[1280px] mx-auto px-10 py-24">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             Pricing
           </p>
@@ -420,9 +440,9 @@ export default function TemplatePage() {
             bot.
           </p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-[#E8E8E8]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Free */}
-            <div className="p-8 border-r border-[#E8E8E8]">
+            <div className="p-8 rounded-xl shadow-sm shadow-black/5 bg-white">
               <p className="text-[#7A7A7A] text-xs mb-1">For personal projects</p>
               <h3 className="text-[#0D0D0D] text-xl font-semibold mb-4">Free</h3>
               <p className="text-[#0D0D0D] text-4xl font-semibold tracking-[-1px] mb-8">
@@ -442,17 +462,17 @@ export default function TemplatePage() {
               </ul>
               <a
                 href="#signup"
-                className="mt-8 block text-center text-[#0D0D0D] text-sm font-medium border border-[#E8E8E8] py-3 hover:bg-[#FAFAFA] transition-colors"
+                className="mt-8 block text-center text-[#0D0D0D] text-sm font-medium border border-[#E8E8E8] py-3 hover:bg-[#FAFAFA] transition-colors rounded-xl"
               >
                 Get started
               </a>
             </div>
 
             {/* Pro */}
-            <div className="p-8 border-r border-[#E8E8E8] bg-[#FAFAFA]">
+            <div className="p-8 rounded-xl shadow-md shadow-black/10 bg-white ring-2 ring-[#E42313]/10 relative">
               <div className="flex items-center justify-between mb-1">
                 <p className="text-[#7A7A7A] text-xs">For growing teams</p>
-                <span className="text-[#E42313] text-xs font-semibold border border-[#E42313] px-2 py-0.5">
+                <span className="text-[#E42313] text-xs font-semibold bg-[#E42313]/10 rounded-full px-3 py-0.5">
                   Most popular
                 </span>
               </div>
@@ -480,14 +500,14 @@ export default function TemplatePage() {
               </ul>
               <a
                 href="#signup"
-                className="mt-8 block text-center bg-[#E42313] text-white text-sm font-medium py-3 hover:bg-[#c91f10] transition-colors"
+                className="mt-8 block text-center bg-[#E42313] text-white text-sm font-medium py-3 hover:bg-[#c91f10] transition-colors rounded-xl"
               >
                 Get started
               </a>
             </div>
 
             {/* Enterprise */}
-            <div className="p-8">
+            <div className="p-8 rounded-xl shadow-sm shadow-black/5 bg-white">
               <p className="text-[#7A7A7A] text-xs mb-1">For large organizations</p>
               <h3 className="text-[#0D0D0D] text-xl font-semibold mb-4">
                 Enterprise
@@ -514,7 +534,7 @@ export default function TemplatePage() {
               </ul>
               <a
                 href="#signup"
-                className="mt-8 block text-center text-[#0D0D0D] text-sm font-medium border border-[#E8E8E8] py-3 hover:bg-[#FAFAFA] transition-colors"
+                className="mt-8 block text-center text-[#0D0D0D] text-sm font-medium border border-[#E8E8E8] py-3 hover:bg-[#FAFAFA] transition-colors rounded-xl"
               >
                 Contact us
               </a>
@@ -524,8 +544,8 @@ export default function TemplatePage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-b border-[#E8E8E8]">
-        <div className="max-w-[800px] mx-auto px-10 py-20">
+      <section>
+        <div className="max-w-[800px] mx-auto px-10 py-24">
           <h2 className="text-[#0D0D0D] text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-10">
             Got questions?
           </h2>
@@ -553,7 +573,7 @@ export default function TemplatePage() {
       </section>
 
       {/* CTA */}
-      <section id="signup" className="relative bg-[#0D0D0D] border-b border-[#1a1a1a] overflow-hidden">
+      <section id="signup" className="relative bg-[#0D0D0D] overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -562,7 +582,7 @@ export default function TemplatePage() {
             backgroundSize: "60px 60px",
           }}
         />
-        <div className="relative max-w-[1280px] mx-auto px-10 py-20">
+        <div className="relative max-w-[1280px] mx-auto px-10 py-24">
           <div className="max-w-xl">
             <h2 className="text-white text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-3">
               Ready to get started?
@@ -576,7 +596,7 @@ export default function TemplatePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-[#E8E8E8]">
+      <footer>
         <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[60px] px-10">
           <div className="flex items-center gap-6">
             <span className="text-[#0D0D0D] text-sm font-semibold">Aidy</span>
