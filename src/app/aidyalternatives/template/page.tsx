@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
 import {
   Shield,
   Lock,
@@ -11,6 +12,10 @@ import {
   Mail,
   Check,
   ChevronDown,
+  Users,
+  Brain,
+  Calendar,
+  MessageCircle,
 } from "lucide-react";
 
 function SignupForm() {
@@ -44,9 +49,9 @@ function SignupForm() {
 
   if (success) {
     return (
-      <div className="flex items-center gap-3 border border-[#E8E8E8] px-6 py-4">
+      <div className="flex items-center gap-3 border border-[#2a2a2a] px-6 py-4">
         <Check className="w-4 h-4 text-[#22C55E]" />
-        <p className="text-[#0D0D0D] text-sm font-[family-name:var(--font-space-grotesk)]">
+        <p className="text-white text-sm font-[family-name:var(--font-space-grotesk)]">
           Thanks! We&apos;ll reach out at {email}.
         </p>
       </div>
@@ -55,15 +60,15 @@ function SignupForm() {
 
   return (
     <form onSubmit={handleSubmit} className="flex gap-0 w-full max-w-lg">
-      <div className="flex items-center gap-3 border border-[#E8E8E8] border-r-0 h-12 px-4 flex-1">
-        <Mail className="w-4 h-4 text-[#B0B0B0]" />
+      <div className="flex items-center gap-3 border border-[#2a2a2a] border-r-0 h-12 px-4 flex-1">
+        <Mail className="w-4 h-4 text-[#7A7A7A]" />
         <input
           type="email"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Your email address"
-          className="bg-transparent text-[#0D0D0D] text-sm font-[family-name:var(--font-space-grotesk)] placeholder:text-[#B0B0B0] outline-none flex-1"
+          className="bg-transparent text-white text-sm font-[family-name:var(--font-space-grotesk)] placeholder:text-[#7A7A7A] outline-none flex-1"
         />
       </div>
       <button
@@ -130,17 +135,26 @@ export default function TemplatePage() {
       </header>
 
       {/* Hero */}
-      <section className="border-b border-[#E8E8E8]">
-        <div className="max-w-[1280px] mx-auto px-10 pt-20 pb-16">
+      <section className="relative border-b border-[#E8E8E8] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#0D0D0D 1px, transparent 1px), linear-gradient(90deg, #0D0D0D 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="relative max-w-[1280px] mx-auto px-10 pt-24 pb-20">
           <div className="flex items-center gap-2 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E42313] animate-pulse" />
             <span className="text-[#E42313] text-xs font-semibold tracking-widest uppercase">
               Enterprise grade security
             </span>
           </div>
-          <h1 className="text-[#0D0D0D] text-5xl lg:text-[64px] font-medium tracking-[-1px] leading-[1.1] max-w-[800px]">
+          <h1 className="text-[#0D0D0D] text-5xl lg:text-[72px] font-medium tracking-[-2px] leading-[1.05] max-w-[800px]">
             Your personal AI agent in the cloud
           </h1>
-          <p className={`text-[#7A7A7A] text-base mt-6 max-w-xl leading-relaxed ${fontBody}`}>
+          <p className={`text-[#7A7A7A] text-lg mt-6 max-w-xl leading-relaxed ${fontBody}`}>
             Secure, private AI bot hosting for individuals and teams. Every user
             gets their own isolated bot.
           </p>
@@ -159,10 +173,19 @@ export default function TemplatePage() {
               <ArrowRight className="w-4 h-4" />
             </a>
           </div>
-          <div className={`mt-12 flex items-center gap-8 text-[#B0B0B0] text-xs ${fontBody}`}>
-            <span>Built and hosted in Europe</span>
-            <span>Secure infrastructure</span>
-            <span>Designed for privacy</span>
+          <div className={`mt-14 flex items-center gap-6 text-[#B0B0B0] text-xs ${fontBody}`}>
+            <span className="flex items-center gap-2">
+              <Globe className="w-3.5 h-3.5" />
+              Built and hosted in Europe
+            </span>
+            <span className="flex items-center gap-2">
+              <Shield className="w-3.5 h-3.5" />
+              Secure infrastructure
+            </span>
+            <span className="flex items-center gap-2">
+              <Lock className="w-3.5 h-3.5" />
+              Designed for privacy
+            </span>
           </div>
         </div>
       </section>
@@ -210,8 +233,8 @@ export default function TemplatePage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="border-b border-[#E8E8E8]">
+      {/* Features — Bento Grid */}
+      <section className="border-b border-[#E8E8E8] bg-[#FAFAFA]">
         <div className="max-w-[1280px] mx-auto px-10 py-20">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             Features
@@ -224,103 +247,115 @@ export default function TemplatePage() {
             you do.
           </p>
 
-          {/* Top row: 3 columns */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 border border-[#E8E8E8] mb-8">
-            <div className="p-8 border-r border-[#E8E8E8]">
-              <h3 className="text-[#0D0D0D] text-lg font-semibold mb-2">
-                Your personal AI, always ready
-              </h3>
-              <p className={`text-[#7A7A7A] text-sm leading-relaxed mb-6 ${fontBody}`}>
-                Chat in real time with your own private bot. It remembers
-                context and gets smarter over time.
-              </p>
-              <div className="bg-[#FAFAFA] border border-[#E8E8E8] p-4">
-                <p className={`text-[#0D0D0D] text-sm ${fontBody}`}>
-                  Good morning! You have 3 unread emails and a meeting at 2pm.
-                </p>
-              </div>
-            </div>
-            <div className="p-8 border-r border-[#E8E8E8] flex flex-col items-center text-center">
-              <h3 className="text-[#0D0D0D] text-lg font-semibold mb-2">
-                Meet Aidy
-              </h3>
-              <p className={`text-[#7A7A7A] text-sm mb-6 ${fontBody}`}>
-                Your personal AI assistant in the cloud
-              </p>
-              <div className="w-48 h-48 bg-[#FAFAFA] border border-[#E8E8E8] flex items-center justify-center">
-                <span className="text-[#B0B0B0] text-xs">Screenshot</span>
-              </div>
-            </div>
-            <div className="p-8">
-              <h3 className="text-[#0D0D0D] text-lg font-semibold mb-2">
-                Make it yours
-              </h3>
-              <p className={`text-[#7A7A7A] text-sm leading-relaxed mb-6 ${fontBody}`}>
-                Shape your bot&apos;s personality to match your style.
-              </p>
-              <div className="flex gap-2">
-                {["Friendly", "Professional", "Playful"].map((t) => (
-                  <span
-                    key={t}
-                    className="text-[#0D0D0D] text-xs font-medium border border-[#E8E8E8] px-3 py-1.5"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+          <BentoGrid className="lg:grid-rows-3">
+            {/* Chat — tall left card with mock chat UI */}
+            <BentoCard
+              name="Your personal AI, always ready"
+              description="Chat in real time with your own private bot. It remembers context and gets smarter over time."
+              Icon={MessageCircle}
+              href="#signup"
+              cta="Try it free"
+              className="lg:row-start-1 lg:row-end-4 lg:col-start-1 lg:col-end-2"
+              background={
+                <div className="absolute right-4 top-4 w-[220px] border border-[#E8E8E8] overflow-hidden opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="bg-[#0D0D0D] px-3 py-1.5 flex items-center gap-2">
+                    <div className="w-4 h-4 rounded-full bg-[#E42313] flex items-center justify-center">
+                      <span className="text-white text-[7px] font-bold">A</span>
+                    </div>
+                    <span className="text-white text-[10px] font-medium">Aidy</span>
+                    <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+                  </div>
+                  <div className="p-2 space-y-1.5 bg-white">
+                    <div className="bg-[#F5F5F5] px-2.5 py-1.5 rounded-lg rounded-tl-none max-w-[85%]">
+                      <p className={`text-[#0D0D0D] text-[10px] leading-snug ${fontBody}`}>
+                        Good morning! You have 3 unread emails and a meeting at 2pm.
+                      </p>
+                    </div>
+                    <div className="bg-[#E42313] px-2.5 py-1.5 rounded-lg rounded-tr-none max-w-[70%] ml-auto">
+                      <p className="text-white text-[10px] leading-snug">Summarize the emails</p>
+                    </div>
+                    <div className="bg-[#F5F5F5] px-2.5 py-1.5 rounded-lg rounded-tl-none max-w-[85%]">
+                      <p className={`text-[#0D0D0D] text-[10px] leading-snug ${fontBody}`}>
+                        Done! Here&apos;s your summary...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              }
+            />
 
-          {/* Bottom row: 4 cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#E8E8E8]">
-            {[
-              {
-                title: "Built for teams",
-                desc: "Everyone gets their own isolated bot.",
-              },
-              {
-                title: "Adaptive reasoning",
-                desc: "Use standard reasoning for speed. Switch to advanced for complex tasks.",
-              },
-              {
-                title: "Your schedule, sorted",
-                desc: "Views your calendar and helps manage events.",
-              },
-              {
-                title: "Chat on the go",
-                desc: "Reach your bot from your favourite messenger.",
-              },
-            ].map((f, i) => (
-              <div
-                key={f.title}
-                className={`p-6 ${i < 3 ? "border-r border-[#E8E8E8]" : ""}`}
-              >
-                <h3 className="text-[#0D0D0D] text-sm font-semibold mb-2">
-                  {f.title}
-                </h3>
-                <p className={`text-[#7A7A7A] text-xs leading-relaxed ${fontBody}`}>
-                  {f.desc}
-                </p>
-              </div>
-            ))}
-          </div>
+            {/* Personality — top center */}
+            <BentoCard
+              name="Make it yours"
+              description="Shape your bot's personality to match your style."
+              Icon={Brain}
+              href="#signup"
+              cta="Get started"
+              className="lg:col-start-2 lg:col-end-3 lg:row-start-1 lg:row-end-3"
+              background={
+                <div className="absolute right-4 top-4 flex gap-2 opacity-70 transition-opacity duration-300 group-hover:opacity-100">
+                  {["Friendly", "Professional", "Playful"].map((t) => (
+                    <span
+                      key={t}
+                      className="text-[#0D0D0D] text-[10px] font-medium border border-[#E8E8E8] bg-white px-2.5 py-1"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              }
+            />
+
+            {/* Teams — bottom center */}
+            <BentoCard
+              name="Built for teams"
+              description="Everyone gets their own isolated bot. Invite members, manage access."
+              Icon={Users}
+              href="#pricing"
+              cta="View plans"
+              className="lg:col-start-2 lg:col-end-3 lg:row-start-3 lg:row-end-4"
+              background={<div />}
+            />
+
+            {/* Calendar — top right */}
+            <BentoCard
+              name="Your schedule, sorted"
+              description="Views your calendar and helps manage events."
+              Icon={Calendar}
+              href="#signup"
+              cta="Connect calendar"
+              className="lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2"
+              background={<div />}
+            />
+
+            {/* Adaptive reasoning — bottom right tall */}
+            <BentoCard
+              name="Adaptive reasoning"
+              description="Use standard reasoning for speed. Switch to advanced for complex tasks."
+              Icon={Brain}
+              href="#signup"
+              cta="Learn more"
+              className="lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4"
+              background={<div />}
+            />
+          </BentoGrid>
         </div>
       </section>
 
       {/* Security */}
-      <section className="border-b border-[#E8E8E8]">
+      <section className="border-b border-[#1a1a1a] bg-[#0D0D0D]">
         <div className="max-w-[1280px] mx-auto px-10 py-20">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             Built for security
           </p>
-          <h2 className="text-[#0D0D0D] text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-4">
+          <h2 className="text-white text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-4">
             Your data stays yours
           </h2>
           <p className={`text-[#7A7A7A] text-base mb-14 ${fontBody}`}>
             Every bot runs in complete isolation. No shared resources, no data
             mixing, no compromises.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#E8E8E8]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-[#2a2a2a]">
             {[
               {
                 icon: <Lock className="w-5 h-5" />,
@@ -345,12 +380,12 @@ export default function TemplatePage() {
             ].map((item, i) => (
               <div
                 key={item.title}
-                className={`p-8 ${i < 3 ? "border-r border-[#E8E8E8]" : ""}`}
+                className={`p-8 ${i < 3 ? "border-r border-[#2a2a2a]" : ""}`}
               >
-                <div className="w-10 h-10 bg-[#FAFAFA] border border-[#E8E8E8] flex items-center justify-center text-[#0D0D0D] mb-4">
+                <div className="w-10 h-10 bg-[#1a1a1a] border border-[#2a2a2a] flex items-center justify-center text-[#E42313] mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-[#0D0D0D] text-sm font-semibold mb-2">
+                <h3 className="text-white text-sm font-semibold mb-2">
                   {item.title}
                 </h3>
                 <p className={`text-[#7A7A7A] text-xs leading-relaxed ${fontBody}`}>
@@ -518,15 +553,25 @@ export default function TemplatePage() {
       </section>
 
       {/* CTA */}
-      <section id="signup" className="bg-[#FAFAFA] border-b border-[#E8E8E8]">
-        <div className="max-w-[1280px] mx-auto px-10 py-20">
-          <h2 className="text-[#0D0D0D] text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-3">
-            Ready to get started?
-          </h2>
-          <p className={`text-[#7A7A7A] text-base mb-8 ${fontBody}`}>
-            Start free. Upgrade any time.
-          </p>
-          <SignupForm />
+      <section id="signup" className="relative bg-[#0D0D0D] border-b border-[#1a1a1a] overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+        <div className="relative max-w-[1280px] mx-auto px-10 py-20">
+          <div className="max-w-xl">
+            <h2 className="text-white text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-3">
+              Ready to get started?
+            </h2>
+            <p className={`text-[#7A7A7A] text-base mb-8 ${fontBody}`}>
+              Start free. No credit card required. Upgrade any time.
+            </p>
+            <SignupForm />
+          </div>
         </div>
       </section>
 
