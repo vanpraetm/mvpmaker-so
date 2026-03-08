@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
+import { AnimatedGroup } from "@/components/ui/animated-group";
 import {
   Shield,
   Lock,
@@ -16,7 +17,38 @@ import {
   Brain,
   Calendar,
   MessageCircle,
+  Menu,
+  X,
+  SendHorizonal,
 } from "lucide-react";
+
+const heroVariants = {
+  container: {
+    visible: {
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.75,
+      },
+    },
+  },
+  item: {
+    hidden: {
+      opacity: 0,
+      filter: "blur(12px)",
+      y: 12,
+    },
+    visible: {
+      opacity: 1,
+      filter: "blur(0px)",
+      y: 0,
+      transition: {
+        type: "spring" as const,
+        bounce: 0.3,
+        duration: 1.5,
+      },
+    },
+  },
+};
 
 function SignupForm() {
   const [email, setEmail] = useState("");
@@ -108,40 +140,152 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
+const menuItems = [
+  { name: "Features", href: "#features" },
+  { name: "Security", href: "#security" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "FAQ", href: "#faq" },
+];
+
 function ScrollHeader({ font }: { font: string }) {
+  const [menuState, setMenuState] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
+    const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/80 backdrop-blur-xl shadow-sm shadow-black/5"
-          : "bg-white"
-      } ${font}`}
-    >
-      <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[60px] px-10">
-        <span className="text-[#0D0D0D] text-lg font-semibold tracking-tight">
-          Aidy
-        </span>
-        <div className="flex items-center gap-4">
-          <span className="text-[#7A7A7A] text-sm font-medium cursor-pointer hover:text-[#0D0D0D] transition-colors">
-            Sign in
-          </span>
-          <a
-            href="#signup"
-            className="bg-[#E42313] text-white text-sm font-medium h-9 px-5 flex items-center transition-colors hover:bg-[#c91f10] rounded-xl"
-          >
-            Get started
-          </a>
+    <header className={font}>
+      <nav
+        data-state={menuState ? "active" : undefined}
+        className="fixed group z-50 w-full px-2"
+      >
+        <div
+          className={`mx-auto mt-2 max-w-[1280px] px-6 transition-all duration-300 lg:px-12 ${
+            scrolled
+              ? "max-w-4xl rounded-2xl border border-[#E8E8E8] bg-white/50 backdrop-blur-lg px-5 shadow-sm shadow-black/5 lg:px-5"
+              : ""
+          }`}
+        >
+          <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
+            <div className="flex w-full justify-between lg:w-auto">
+              <span className="text-[#0D0D0D] text-lg font-semibold tracking-tight">
+                Aidy
+              </span>
+              <button
+                onClick={() => setMenuState(!menuState)}
+                aria-label={menuState ? "Close Menu" : "Open Menu"}
+                className="relative z-20 -m-2.5 -mr-4 block cursor-pointer p-2.5 lg:hidden"
+              >
+                <Menu className="group-data-[state=active]:rotate-180 group-data-[state=active]:scale-0 group-data-[state=active]:opacity-0 m-auto size-6 duration-200" />
+                <X className="group-data-[state=active]:rotate-0 group-data-[state=active]:scale-100 group-data-[state=active]:opacity-100 absolute inset-0 m-auto size-6 -rotate-180 scale-0 opacity-0 duration-200" />
+              </button>
+            </div>
+
+            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+              <ul className="flex gap-8 text-sm">
+                {menuItems.map((item) => (
+                  <li key={item.name}>
+                    <a
+                      href={item.href}
+                      className="text-[#7A7A7A] hover:text-[#0D0D0D] block duration-150"
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-white group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-[#E8E8E8] p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none">
+              <div className="lg:hidden">
+                <ul className="space-y-6 text-base">
+                  {menuItems.map((item) => (
+                    <li key={item.name}>
+                      <a
+                        href={item.href}
+                        className="text-[#7A7A7A] hover:text-[#0D0D0D] block duration-150"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
+                <a
+                  href="#"
+                  className={`text-[#7A7A7A] text-sm font-medium h-9 px-4 flex items-center justify-center border border-[#E8E8E8] rounded-xl hover:bg-[#FAFAFA] transition-colors ${
+                    scrolled ? "lg:hidden" : ""
+                  }`}
+                >
+                  Sign in
+                </a>
+                <a
+                  href="#signup"
+                  className={`bg-[#E42313] text-white text-sm font-medium h-9 px-5 flex items-center justify-center rounded-xl hover:bg-[#c91f10] transition-colors ${
+                    scrolled ? "lg:hidden" : ""
+                  }`}
+                >
+                  Get started
+                </a>
+                <a
+                  href="#signup"
+                  className={`bg-[#E42313] text-white text-sm font-medium h-9 px-5 items-center justify-center rounded-xl hover:bg-[#c91f10] transition-colors hidden ${
+                    scrolled ? "lg:inline-flex" : ""
+                  }`}
+                >
+                  Get started
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+function AidyChatPreview({ fontBody }: { fontBody: string }) {
+  return (
+    <div className="relative space-y-3 rounded-[1rem] bg-[#FAFAFA] p-4">
+      <div className="flex items-center gap-1.5 text-[#E42313]">
+        <MessageCircle className="size-5" />
+        <div className="text-sm font-medium">Recent chats</div>
+      </div>
+      <div className="space-y-3">
+        <div className={`text-[#0D0D0D] border-b border-[#E8E8E8] pb-3 text-sm font-medium ${fontBody}`}>
+          Aidy handled 12 messages today across 3 channels.
+        </div>
+        <div className="space-y-3">
+          <div className="space-y-1">
+            <div className="space-x-1">
+              <span className="text-[#0D0D0D] align-baseline text-xl font-medium">
+                47
+              </span>
+              <span className="text-[#7A7A7A] text-xs">Messages/day</span>
+            </div>
+            <div className="flex h-5 items-center rounded-lg bg-gradient-to-l from-[#E42313] to-[#ff6b5e] px-2 text-xs text-white">
+              This week
+            </div>
+          </div>
+          <div className="space-y-1">
+            <div className="space-x-1">
+              <span className="text-[#0D0D0D] align-baseline text-xl font-medium">
+                23
+              </span>
+              <span className="text-[#7A7A7A] text-xs">Messages/day</span>
+            </div>
+            <div className="text-[#7A7A7A] bg-[#F0F0F0] flex h-5 w-2/3 items-center rounded-lg px-2 text-xs">
+              Last week
+            </div>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
   );
 }
 
@@ -155,58 +299,86 @@ export default function TemplatePage() {
       <ScrollHeader font={font} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "linear-gradient(#0D0D0D 1px, transparent 1px), linear-gradient(90deg, #0D0D0D 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
-          }}
-        />
-        <div className="relative max-w-[1280px] mx-auto px-10 pt-24 pb-24">
-          <div className="flex items-center gap-2 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E42313] animate-pulse" />
-            <span className="text-[#E42313] text-xs font-semibold tracking-widest uppercase">
-              Enterprise grade security
-            </span>
+      <section className="overflow-hidden">
+        <div className="relative mx-auto max-w-6xl px-6 pt-32 lg:pb-16 lg:pt-48">
+          <div className="relative z-10 mx-auto max-w-4xl text-center">
+            <AnimatedGroup variants={heroVariants}>
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E42313] animate-pulse" />
+                <span className="text-[#E42313] text-xs font-semibold tracking-widest uppercase">
+                  Enterprise grade security
+                </span>
+              </div>
+
+              <h1 className="text-balance text-[#0D0D0D] text-4xl font-medium sm:text-5xl md:text-6xl lg:text-[72px] tracking-[-2px] leading-[1.05]">
+                Your personal AI agent in the cloud
+              </h1>
+
+              <p className={`mx-auto mt-6 max-w-2xl text-pretty text-lg text-[#7A7A7A] leading-relaxed ${fontBody}`}>
+                Secure, private AI bot hosting for individuals and teams. Every
+                user gets their own isolated bot.
+              </p>
+
+              <form
+                action=""
+                className="mt-12 mx-auto max-w-sm"
+                onSubmit={(e) => e.preventDefault()}
+              >
+                <div className="bg-white has-[input:focus]:ring-[#E8E8E8] relative grid grid-cols-[1fr_auto] pr-1.5 items-center rounded-[1rem] border border-[#E8E8E8] shadow shadow-black/5 has-[input:focus]:ring-2">
+                  <Mail className="pointer-events-none absolute inset-y-0 left-4 my-auto size-4 text-[#B0B0B0]" />
+                  <input
+                    placeholder="Your mail address"
+                    className={`h-12 w-full bg-transparent pl-12 focus:outline-none text-sm text-[#0D0D0D] placeholder:text-[#B0B0B0] ${fontBody}`}
+                    type="email"
+                  />
+                  <div>
+                    <a
+                      href="#signup"
+                      className="bg-[#E42313] text-white text-sm font-medium h-9 px-4 inline-flex items-center gap-2 rounded-[0.5rem] hover:bg-[#c91f10] transition-colors"
+                    >
+                      <span className="hidden md:block">Get Started</span>
+                      <SendHorizonal
+                        className="relative mx-auto size-5 md:hidden"
+                        strokeWidth={2}
+                      />
+                    </a>
+                  </div>
+                </div>
+              </form>
+
+              <div
+                aria-hidden
+                className="relative mx-auto mt-32 max-w-2xl text-left"
+              >
+                <div className="bg-white border-[#E8E8E8]/50 absolute inset-0 mx-auto w-80 -translate-x-3 -translate-y-12 rounded-[2rem] border p-2 [mask-image:linear-gradient(to_bottom,#000_50%,transparent_90%)] sm:-translate-x-6">
+                  <div className="relative h-96 overflow-hidden rounded-[1.5rem] border border-[#E8E8E8] p-2 pb-12 before:absolute before:inset-0 before:bg-[repeating-linear-gradient(-45deg,#E8E8E8,#E8E8E8_1px,transparent_1px,transparent_6px)] before:opacity-50" />
+                </div>
+                <div className="bg-[#FAFAFA] border-[#E8E8E8]/50 mx-auto w-80 translate-x-4 rounded-[2rem] border p-2 backdrop-blur-3xl [mask-image:linear-gradient(to_bottom,#000_50%,transparent_90%)] sm:translate-x-8">
+                  <div className="bg-white space-y-2 overflow-hidden rounded-[1.5rem] border border-[#E8E8E8] p-2 shadow-xl">
+                    <AidyChatPreview fontBody={fontBody} />
+                    <div className="bg-[#FAFAFA] rounded-[1rem] p-4 pb-16" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] mix-blend-overlay [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
+              </div>
+            </AnimatedGroup>
           </div>
-          <h1 className="text-[#0D0D0D] text-5xl lg:text-[72px] font-medium tracking-[-2px] leading-[1.05] max-w-[800px]">
-            Your personal AI agent in the cloud
-          </h1>
-          <p className={`text-[#7A7A7A] text-lg mt-6 max-w-xl leading-relaxed ${fontBody}`}>
-            Secure, private AI bot hosting for individuals and teams. Every user
-            gets their own isolated bot.
-          </p>
-          <div className="mt-10 flex items-center gap-3">
-            <a
-              href="#pricing"
-              className="text-[#0D0D0D] text-sm font-medium border border-[#E8E8E8] h-12 px-6 flex items-center hover:bg-[#FAFAFA] transition-colors rounded-xl"
-            >
-              View plans
-            </a>
-            <a
-              href="#signup"
-              className="bg-[#E42313] text-white text-sm font-medium h-12 px-6 flex items-center gap-2 hover:bg-[#c91f10] transition-colors rounded-xl"
-            >
-              Get started for free
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-          <div className={`mt-14 flex items-center gap-6 text-[#B0B0B0] text-xs ${fontBody}`}>
-            <span className="flex items-center gap-2">
-              <Globe className="w-3.5 h-3.5" />
-              Built and hosted in Europe
-            </span>
-            <span className="flex items-center gap-2">
-              <Shield className="w-3.5 h-3.5" />
-              Secure infrastructure
-            </span>
-            <span className="flex items-center gap-2">
-              <Lock className="w-3.5 h-3.5" />
-              Designed for privacy
-            </span>
-          </div>
+        </div>
+
+        {/* Trust badges */}
+        <div className={`flex items-center justify-center gap-6 text-[#B0B0B0] text-xs pb-16 ${fontBody}`}>
+          <span className="flex items-center gap-2">
+            <Globe className="w-3.5 h-3.5" />
+            Built and hosted in Europe
+          </span>
+          <span className="flex items-center gap-2">
+            <Shield className="w-3.5 h-3.5" />
+            Secure infrastructure
+          </span>
+          <span className="flex items-center gap-2">
+            <Lock className="w-3.5 h-3.5" />
+            Designed for privacy
+          </span>
         </div>
       </section>
 
@@ -254,7 +426,7 @@ export default function TemplatePage() {
       </section>
 
       {/* Features — Bento Grid */}
-      <section className="bg-[#FAFAFA]">
+      <section id="features" className="bg-[#FAFAFA]">
         <div className="max-w-[1280px] mx-auto px-10 py-24">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             Features
@@ -363,7 +535,7 @@ export default function TemplatePage() {
       </section>
 
       {/* Security */}
-      <section className="bg-[#0D0D0D]">
+      <section id="security" className="bg-[#0D0D0D]">
         <div className="max-w-[1280px] mx-auto px-10 py-24">
           <p className="text-[#E42313] text-xs font-semibold tracking-widest uppercase mb-3">
             Built for security
@@ -544,7 +716,7 @@ export default function TemplatePage() {
       </section>
 
       {/* FAQ */}
-      <section>
+      <section id="faq">
         <div className="max-w-[800px] mx-auto px-10 py-24">
           <h2 className="text-[#0D0D0D] text-3xl lg:text-[40px] font-medium tracking-[-1px] mb-10">
             Got questions?

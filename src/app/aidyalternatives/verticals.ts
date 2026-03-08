@@ -14,6 +14,7 @@ export type VerticalData = {
   painPoints: { title: string; description: string }[];
   features: { iconName: string; title: string; description: string }[];
   howItWorks: { step: number; title: string; description: string }[];
+  faq: { q: string; a: string }[];
   roiLine: string;
   ctaText: string;
 };
@@ -100,6 +101,28 @@ export const verticals: Record<string, VerticalData> = {
           "Herinnering voor de afspraak, check-in na de sessie. Jij doet niks.",
       },
     ],
+    faq: [
+      {
+        q: "Werkt Aidy met mijn praktijksoftware?",
+        a: "Aidy koppelt met Google Calendar en de meeste online agenda's. Directe integratie met specifieke praktijksoftware (zoals Crossuite of Cally) staat op de roadmap.",
+      },
+      {
+        q: "Kunnen patiënten echt afspraken boeken via WhatsApp?",
+        a: "Ja. De patiënt stuurt een bericht, Aidy checkt je beschikbaarheid en stelt een tijdslot voor. De patiënt bevestigt, klaar. Geen app nodig.",
+      },
+      {
+        q: "Wat als een patiënt buiten mijn werkuren een bericht stuurt?",
+        a: "Aidy antwoordt 24/7. Als iemand om 22u een afspraak wil, krijgen ze direct een voorstel voor het eerstvolgende vrije moment.",
+      },
+      {
+        q: "Hoe zit het met GDPR en patiëntgegevens?",
+        a: "Alle data staat op Europese servers. Elke gebruiker heeft een volledig geïsoleerde omgeving. Geen data wordt gedeeld of gebruikt voor training.",
+      },
+      {
+        q: "Wat kost Aidy?",
+        a: "Je start gratis met pay-as-you-go credits. Het Pro-plan kost €9/maand en bevat alles wat een solo-praktijk nodig heeft.",
+      },
+    ],
     roiLine:
       "E\u00e9n no-show minder per maand = \u20ac40 terug. Aidy kost \u20ac9.",
     ctaText: "Start gratis in je praktijk",
@@ -182,6 +205,28 @@ export const verticals: Record<string, VerticalData> = {
         title: "Jij ziet alles in je overzicht",
         description:
           "Afspraken, berichten, aanvragen. Alles gelogd. Niets valt weg.",
+      },
+    ],
+    faq: [
+      {
+        q: "Werkt Aidy voor groepspraktijken met meerdere artsen?",
+        a: "Ja. Elke arts krijgt een eigen bot. Aidy weet wie wanneer werkt en plant patiënten bij de juiste arts in.",
+      },
+      {
+        q: "Kunnen patiënten herhaalvoorschriften aanvragen via Aidy?",
+        a: "Ja. De patiënt stuurt een bericht, Aidy logt de aanvraag en stuurt je een melding. Jij keurt goed wanneer het je past.",
+      },
+      {
+        q: "Wat als een patiënt dringende klachten meldt?",
+        a: "Aidy is geen medisch hulpmiddel en stelt geen diagnoses. Bij urgente berichten krijg je direct een notificatie zodat je zelf kan beslissen.",
+      },
+      {
+        q: "Is Aidy GDPR-compliant voor medische gegevens?",
+        a: "Alle data staat op Europese servers met volledige isolatie per gebruiker. Er wordt geen data gedeeld of gebruikt voor AI-training.",
+      },
+      {
+        q: "Wat kost Aidy voor een huisartsenpraktijk?",
+        a: "Gratis starten met pay-as-you-go. Pro kost €9/maand per arts. Vergelijk dat met €2.500/maand voor een halftijdse receptionist.",
       },
     ],
     roiLine:
@@ -270,6 +315,28 @@ export const verticals: Record<string, VerticalData> = {
           "Berichten van cli\u00ebnten worden automatisch gekoppeld aan hun dossier. Jij ziet per dossier alle communicatie op \u00e9\u00e9n plek.",
       },
     ],
+    faq: [
+      {
+        q: "Kan Aidy conclusietermijnen automatisch ophalen?",
+        a: "Je voert de termijnen eenmalig in per dossier. Aidy herinnert je drie dagen en één dag vooraf. Automatisch ophalen uit het Belgisch Staatsblad staat op de roadmap.",
+      },
+      {
+        q: "Is het veilig om cliëntgegevens via WhatsApp te delen?",
+        a: "Aidy verwerkt berichten op Europese servers met volledige data-isolatie. Geen data wordt gedeeld met derden of gebruikt voor training. Je voldoet aan de GDPR en deontologische code.",
+      },
+      {
+        q: "Werkt Aidy voor een heel advocatenkantoor?",
+        a: "Ja. Elke advocaat krijgt een eigen geïsoleerde bot. Dossiers en termijnen worden per advocaat beheerd.",
+      },
+      {
+        q: "Kan ik mijn tijdsregistratie exporteren?",
+        a: "Ja. Aidy logt uren per dossier. Eind van de maand exporteer je alles als CSV of koppel je het aan je facturatiesoftware.",
+      },
+      {
+        q: "Wat kost Aidy?",
+        a: "Gratis starten. Pro kost €9/maand. Vergelijk: één gemiste conclusietermijn kan je €10.000+ kosten.",
+      },
+    ],
     roiLine:
       "E\u00e9n gemiste conclusietermijn kan je \u20ac10.000+ kosten. Aidy herinnert je drie dagen vooraf. Voor \u20ac9/maand.",
     ctaText: "Start gratis. Eerste dossier in 2 minuten gekoppeld.",
@@ -352,6 +419,28 @@ export const verticals: Record<string, VerticalData> = {
         title: "Vanaf dag 2: briefing, antwoorden, opvolging",
         description:
           "Je krijgt elke ochtend je briefing. Je team stelt vragen aan Aidy. Jij doet het werk dat omzet oplevert.",
+      },
+    ],
+    faq: [
+      {
+        q: "Kan mijn team ook vragen stellen aan Aidy?",
+        a: "Ja. Aidy kan in je WhatsApp-groep zitten en vragen van je team beantwoorden op basis van de processen en informatie die je hebt ingevoerd.",
+      },
+      {
+        q: "Hoe weet Aidy hoe mijn bedrijf werkt?",
+        a: "Je vertelt Aidy eenmalig je processen, contacten en vaste afspraken. Aidy onthoudt het en gebruikt het om vragen te beantwoorden en taken op te volgen.",
+      },
+      {
+        q: "Vervangt Aidy een office manager?",
+        a: "Aidy neemt het repetitieve werk over: herinneringen, herhaalvragen, dagelijkse briefings. Voor strategische beslissingen en menselijk contact blijf jij nodig.",
+      },
+      {
+        q: "Is mijn bedrijfsdata veilig?",
+        a: "Alle data op Europese servers, volledig geïsoleerd per gebruiker. Geen data wordt gedeeld met derden of gebruikt voor AI-training. GDPR-compliant.",
+      },
+      {
+        q: "Wat kost Aidy voor een KMO?",
+        a: "Gratis starten. Pro kost €9/maand per gebruiker. Vergelijk: een office manager kost €3.500/maand.",
       },
     ],
     roiLine:
