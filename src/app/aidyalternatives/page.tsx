@@ -3,6 +3,9 @@ import {
   Stethoscope,
   Scale,
   Building2,
+  Brain,
+  Calculator,
+  Smile,
   ArrowRight,
   Shield,
   Globe,
@@ -17,6 +20,9 @@ const icons: Record<string, ReactNode> = {
   Stethoscope: <Stethoscope className="w-6 h-6" />,
   Scale: <Scale className="w-6 h-6" />,
   Building2: <Building2 className="w-6 h-6" />,
+  Brain: <Brain className="w-6 h-6" />,
+  Calculator: <Calculator className="w-6 h-6" />,
+  Smile: <Smile className="w-6 h-6" />,
 };
 
 export default function AidyAlternativesHub() {

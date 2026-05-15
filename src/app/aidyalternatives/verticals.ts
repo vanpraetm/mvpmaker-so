@@ -20,219 +20,116 @@ export type VerticalData = {
 };
 
 export const verticals: Record<string, VerticalData> = {
-  kinesist: {
-    id: "kinesist",
-    label: "Kinesist",
-    iconName: "Activity",
-    accentColor: "text-teal-600",
-    accentColorHex: "#0d9488",
-    accentBg: "bg-teal-50",
-    accentBorder: "border-teal-200",
-    buttonBg: "bg-teal-600",
-    buttonHover: "hover:bg-teal-700",
-    tagline: "Voor kinesisten zonder secretariaat",
+  therapeut: {
+    id: "therapeut",
+    label: "Therapeut",
+    iconName: "Brain",
+    accentColor: "text-rose-600",
+    accentColorHex: "#e11d48",
+    accentBg: "bg-rose-50",
+    accentBorder: "border-rose-200",
+    buttonBg: "bg-rose-600",
+    buttonHover: "hover:bg-rose-700",
+    tagline: "Voor therapeuten en psychologen",
     headline:
-      "Drie gemiste oproepen per dag.\nAidy neemt ze op via WhatsApp.",
+      "Je agenda, berichten en administratie.\nAidy regelt het.",
     subheadline:
-      "Je mist oproepen. Vergeet afspraken te bevestigen. Opvolging schiet erbij in. Aidy regelt dat via WhatsApp, terwijl jij behandelt.",
+      "Je werkt solo of met een kleine groep. Elke werkdag begint met een volle agenda en eindigt met een stapel berichten die je nog moet beantwoorden. Geen secretaresse, geen buffer. Aidy neemt dat werk over.",
     painPoints: [
       {
-        title: "Je telefoon gaat. Je handen zitten op een rug.",
+        title: "Afspraken kosten je meer tijd dan de sessie zelf.",
         description:
-          "Halverwege een mobilisatie belt iemand voor een afspraak. Je kan niet opnemen. Die pati\u00ebnt belt de praktijk verderop. Dat gebeurt elke week.",
+          "Een cli\u00ebnt stuurt een WhatsApp om te annuleren. Een andere vraagt een nieuwe afspraak via email. Een derde staat op de wachtlijst en wil weten wanneer er een plek vrijkomt. Elk berichtje is klein, maar samen kosten ze uren per week.",
       },
       {
-        title:
-          "Dinsdagmiddag 15u. Lege behandeltafel. Geen herinnering gestuurd.",
+        title: "Na de sessie begint het papierwerk.",
         description:
-          "Een pati\u00ebnt vergeet z\u2019n afspraak. Jij staat in een lege behandelkamer. Je had een herinnering moeten sturen. Maar wanneer? Tussen twee sessies door is er geen tijd.",
+          "Verslagen schrijven, attesten opstellen voor de mutualiteit, doorverwijsbrieven opmaken voor de huisarts. Het werk stopt niet als de cli\u00ebnt de deur uitloopt.",
       },
       {
-        title: "Na de sessie wil je opvolgen. Na de sessie vergeet je het.",
+        title: "Cli\u00ebnten verwachten snel antwoord.",
         description:
-          "Je wil weten of de oefeningen lukken. Of de pijn afneemt. Maar na acht pati\u00ebnten op een dag stuur je dat bericht niet meer.",
+          "Vragen over facturen, terugbetalingsprocedures, attesten voor arbeidsongeschiktheid. Cli\u00ebnten sturen ze doorheen de dag. Elk bericht dat je niet meteen beantwoordt, stapelt op.",
       },
     ],
     features: [
-      {
-        iconName: "MessageSquare",
-        title:
-          "Pati\u00ebnt stuurt 'Kan ik donderdag?' om 22u. Aidy antwoordt binnen 10 seconden.",
-        description:
-          "Aidy checkt je agenda en stelt een tijdslot voor. Geen telefoontje nodig. Geen app die ze eerst moeten downloaden.",
-      },
-      {
-        iconName: "Clock",
-        title:
-          "E\u00e9n herinnering minder vergeten = \u00e9\u00e9n no-show minder.",
-        description:
-          "24 uur en 1 uur voor de afspraak krijgt je pati\u00ebnt een WhatsApp-bericht. Niet via SMS die niemand leest. Via WhatsApp, waar ze toch al zitten.",
-      },
       {
         iconName: "Calendar",
-        title: "De dag na de sessie: 'Hoe voelt het vandaag?'",
-        description:
-          "Aidy stuurt automatisch een check-in na de behandeling. Je pati\u00ebnt voelt zich gehoord. Jij weet hoe het gaat. Zonder er zelf aan te denken.",
-      },
-      {
-        iconName: "Shield",
-        title: "Pati\u00ebntdata blijft in Europa. Punt.",
-        description:
-          "Europese servers. Data-isolatie per pati\u00ebnt. Geen Amerikaans bedrijf dat meeleest. Je voldoet aan de GDPR zonder er iets voor te doen.",
-      },
-    ],
-    howItWorks: [
-      {
-        step: 1,
-        title: "Verbind je agenda",
-        description:
-          "Google Calendar of je praktijksoftware. Duurt twee minuten.",
-      },
-      {
-        step: 2,
-        title: "Deel je Aidy-nummer",
-        description:
-          "Pati\u00ebnten sturen een bericht. Aidy plant in op een vrij moment.",
-      },
-      {
-        step: 3,
-        title: "Aidy herinnert en volgt op",
-        description:
-          "Herinnering voor de afspraak, check-in na de sessie. Jij doet niks.",
-      },
-    ],
-    faq: [
-      {
-        q: "Werkt Aidy met mijn praktijksoftware?",
-        a: "Aidy koppelt met Google Calendar en de meeste online agenda's. Directe integratie met specifieke praktijksoftware (zoals Crossuite of Cally) staat op de roadmap.",
-      },
-      {
-        q: "Kunnen patiënten echt afspraken boeken via WhatsApp?",
-        a: "Ja. De patiënt stuurt een bericht, Aidy checkt je beschikbaarheid en stelt een tijdslot voor. De patiënt bevestigt, klaar. Geen app nodig.",
-      },
-      {
-        q: "Wat als een patiënt buiten mijn werkuren een bericht stuurt?",
-        a: "Aidy antwoordt 24/7. Als iemand om 22u een afspraak wil, krijgen ze direct een voorstel voor het eerstvolgende vrije moment.",
-      },
-      {
-        q: "Hoe zit het met GDPR en patiëntgegevens?",
-        a: "Alle data staat op Europese servers. Elke gebruiker heeft een volledig geïsoleerde omgeving. Geen data wordt gedeeld of gebruikt voor training.",
-      },
-      {
-        q: "Wat kost Aidy?",
-        a: "Je start gratis met pay-as-you-go credits. Het Pro-plan kost €9/maand en bevat alles wat een solo-praktijk nodig heeft.",
-      },
-    ],
-    roiLine:
-      "E\u00e9n no-show minder per maand = \u20ac40 terug. Aidy kost \u20ac9.",
-    ctaText: "Start gratis in je praktijk",
-  },
-  huisarts: {
-    id: "huisarts",
-    label: "Huisarts",
-    iconName: "Stethoscope",
-    accentColor: "text-blue-600",
-    accentColorHex: "#2563eb",
-    accentBg: "bg-blue-50",
-    accentBorder: "border-blue-200",
-    buttonBg: "bg-blue-600",
-    buttonHover: "hover:bg-blue-700",
-    tagline: "Voor huisartsen zonder receptionist",
-    headline:
-      "Tussen twee consultaties:\n4 gemiste oproepen. Aidy beantwoordt ze.",
-    subheadline:
-      "Drie gemiste oproepen. Vier WhatsApp-berichten. Een doorverwijzing die nog moet. Aidy neemt de telefoon over via WhatsApp. Pati\u00ebnten krijgen antwoord. Jij consulteert.",
-    painPoints: [
-      {
-        title: "De telefoon rinkelt tijdens je consultatie.",
-        description:
-          "Een pati\u00ebnt belt voor een herhaalvoorschrift. Een andere wil een afspraak verzetten. Ondertussen wacht er iemand in je spreekkamer.",
-      },
-      {
         title:
-          "Dezelfde pati\u00ebnt belt, appt \u00e9n mailt. Drie keer dezelfde vraag.",
+          "Aidy plant, verplaatst en volgt op, zonder dat jij ertussen moet.",
         description:
-          "Drie keer hetzelfde verzoek, drie keer je aandacht. Nergens \u00e9\u00e9n overzicht. Alles verspreid over drie kanalen.",
+          "Cli\u00ebnten kunnen via WhatsApp of email een afspraak aanvragen, annuleren of verplaatsen. Aidy regelt de agenda, stuurt bevestigingen en houdt je wachtlijst bij. Als er een plek vrijkomt, neemt Aidy contact op met de volgende persoon.",
       },
       {
-        title: "Een praktijkassistent kost \u20ac2.500/maand.",
+        iconName: "FileText",
+        title: "Attesten en brieven in minuten, niet na een avond typen.",
         description:
-          "Een halftijdse secretaresse kost meer dan wat de meeste solo-praktijken aankunnen. Maar zelf de telefoon doen tussen consultaties is geen plan.",
+          "Je geeft Aidy de informatie: naam, periode, diagnose, reden. Aidy stelt het document op in de juiste vorm. Attest voor de mutualiteit, doorverwijsbrief, bevestiging van arbeidsongeschiktheid. Jij leest na en stuurt door.",
       },
-    ],
-    features: [
       {
         iconName: "MessageSquare",
-        title: "Pati\u00ebnten boeken via WhatsApp",
+        title: "Cli\u00ebntvragen beantwoord, ook als jij in sessie bent.",
         description:
-          "Afspraak maken, verzetten, herhaalvoorschrift aanvragen. Pati\u00ebnten sturen een bericht. Aidy regelt het. Jij ziet het in je agenda.",
-      },
-      {
-        iconName: "Clock",
-        title: "Automatische herinneringen, minder no-shows",
-        description:
-          "24 uur voor de afspraak krijgt de pati\u00ebnt een herinnering via WhatsApp. No-shows dalen. Je uren blijven gevuld.",
+          "Aidy weet wanneer je beschikbaar bent en wat de antwoorden zijn op veelgestelde vragen over facturen, terugbetalingen en afspraken. Cli\u00ebnten krijgen een antwoord, ook als jij er niet bij bent.",
       },
       {
         iconName: "Shield",
-        title:
-          "Beroepsgeheim geldt ook digitaal. Aidy dwingt het technisch af.",
+        title: "Cli\u00ebntgegevens op Europese servers. GDPR ingebakken.",
         description:
-          "Europese servers. Data-isolatie per pati\u00ebnt. Geen data naar de VS. Je voldoet aan de GDPR en aan je deontologische code.",
-      },
-      {
-        iconName: "Users",
-        title: "Gebouwd voor groepspraktijken",
-        description:
-          "Drie artsen, twee dagen wachtdienst, wisselende beschikbaarheid. Aidy weet wie wanneer werkt en plant correct in.",
+          "Gegevens worden niet gedeeld met derden en niet gebruikt voor AI-training. Volledige data-isolatie per gebruiker. Geen Amerikaans bedrijf dat meeleest.",
       },
     ],
     howItWorks: [
       {
         step: 1,
-        title: "Koppel je agenda",
+        title: "Verbind je agenda en WhatsApp",
         description:
-          "Verbind je praktijkagenda. Stel je consultatie-uren en wachtdiensten in. Duurt 5 minuten.",
+          "Google Calendar of Outlook. Duurt minder dan een uur. Je krijgt hulp bij de onboarding.",
       },
       {
         step: 2,
-        title: "Deel je WhatsApp-nummer",
+        title: "Stel in wat Aidy mag afhandelen",
         description:
-          "Pati\u00ebnten sturen een bericht zoals ze dat nu al doen. Aidy beantwoordt, plant in en bevestigt.",
+          "Welke vragen Aidy zelf mag beantwoorden en welke aan jou worden doorgestuurd. Jij bepaalt de grenzen.",
       },
       {
         step: 3,
-        title: "Jij ziet alles in je overzicht",
+        title: "Aidy werkt, jij behandelt",
         description:
-          "Afspraken, berichten, aanvragen. Alles gelogd. Niets valt weg.",
+          "Afspraken worden ingepland, berichten beantwoord, attesten klaargezet. Jij ziet alleen wat jouw aandacht vraagt.",
       },
     ],
     faq: [
       {
-        q: "Werkt Aidy voor groepspraktijken met meerdere artsen?",
-        a: "Ja. Elke arts krijgt een eigen bot. Aidy weet wie wanneer werkt en plant patiënten bij de juiste arts in.",
+        q: "Werkt Aidy met mijn bestaande agenda?",
+        a: "Ja. Aidy koppelt met Google Calendar en Outlook. Je hoeft niets te veranderen aan hoe je nu werkt.",
       },
       {
-        q: "Kunnen patiënten herhaalvoorschriften aanvragen via Aidy?",
-        a: "Ja. De patiënt stuurt een bericht, Aidy logt de aanvraag en stuurt je een melding. Jij keurt goed wanneer het je past.",
+        q: "Hoe weet Aidy wat het mag zeggen tegen cli\u00ebnten?",
+        a: "Jij bepaalt dat. Bij de start stel je in welke vragen Aidy zelf mag beantwoorden en welke aan jou worden doorgestuurd. Je houdt altijd de controle.",
       },
       {
-        q: "Wat als een patiënt dringende klachten meldt?",
-        a: "Aidy is geen medisch hulpmiddel en stelt geen diagnoses. Bij urgente berichten krijg je direct een notificatie zodat je zelf kan beslissen.",
+        q: "Is dit GDPR-conform? Cli\u00ebntgegevens zijn gevoelig.",
+        a: "Aidy verwerkt gegevens op Europese servers en werkt conform de GDPR-vereisten. Gegevens worden niet gedeeld met derden en niet gebruikt voor AI-training.",
       },
       {
-        q: "Is Aidy GDPR-compliant voor medische gegevens?",
-        a: "Alle data staat op Europese servers met volledige isolatie per gebruiker. Er wordt geen data gedeeld of gebruikt voor AI-training.",
+        q: "Moet ik technisch onderlegd zijn om dit te gebruiken?",
+        a: "Nee. Als je WhatsApp gebruikt, kun je met Aidy werken. De setup duurt minder dan een uur, en je krijgt hulp bij de onboarding.",
       },
       {
-        q: "Wat kost Aidy voor een huisartsenpraktijk?",
-        a: "Gratis starten met pay-as-you-go. Pro kost €9/maand per arts. Vergelijk dat met €2.500/maand voor een halftijdse receptionist.",
+        q: "Wat als een cli\u00ebnt iets vraagt dat Aidy niet aankan?",
+        a: "Aidy geeft het door aan jou. Je krijgt een melding met de vraag en de context. Niets valt tussen de mazen.",
+      },
+      {
+        q: "Wat kost het?",
+        a: "Aidy kost een vast bedrag per maand, zonder verborgen kosten per bericht of per actie. Je begint met een gratis proefperiode van 14 dagen.",
       },
     ],
     roiLine:
-      "Een halftijdse receptionist: \u20ac2.500/maand. Aidy doet de telefoon voor \u20ac9.",
-    ctaText: "Start gratis. Eerste pati\u00ebnt boekt vandaag.",
+      "Drie uur per week bespaard op admin. Dat is \u00e9\u00e9n extra sessie per dag. Aidy kost minder dan \u00e9\u00e9n gemiste afspraak.",
+    ctaText: "Minder administratie. Zelfde zorg.",
   },
+
   advocaat: {
     id: "advocaat",
     label: "Advocaat",
@@ -243,210 +140,444 @@ export const verticals: Record<string, VerticalData> = {
     accentBorder: "border-amber-200",
     buttonBg: "bg-amber-700",
     buttonHover: "hover:bg-amber-800",
-    tagline: "Voor advocaten zonder paralegal",
+    tagline: "Voor advocaten en kantoren",
     headline:
-      "Twee uur per dag die je niet factureert.\nBij \u20ac150/uur is dat \u20ac66.000 per jaar.",
+      "Uw administratie loopt.\nUw cli\u00ebnten ook.",
     subheadline:
-      "Conclusietermijnen bijhouden. Cli\u00ebnten terugbellen. Uren registreren. Werk dat niet op je tijdsregistratie staat. Aidy doet dat via WhatsApp of Telegram. Jij factureert.",
+      "Elke dag gaan er uren verloren aan intake-mails beantwoorden, documenten najagen en dossiers samenvatten. Uren die u niet kan factureren. Aidy neemt die taken over, via WhatsApp, Outlook en uw bestaande tools.",
     painPoints: [
       {
-        title: "Je werkt 10 uur, je factureert er 6.",
+        title: "Intake is een bottleneck.",
         description:
-          "Conclusietermijnen nakijken. Rolzittingen in je agenda zetten. Een cli\u00ebnt terugbellen over de stand van zaken. Bij \u20ac150/uur laat je elke dag \u20ac600 liggen.",
+          "Inbound komt via mail, WhatsApp, portalen en telefoon door elkaar. Elk nieuw dossier vraagt manueel werk: conflict check, KYC, intakegesprek inplannen, eerste briefing. Er is geen systeem. U bent het systeem.",
       },
       {
-        title:
-          "Vijftien dossiers. E\u00e9n gemiste conclusietermijn.",
+        title: "Opvolging eet uw agenda op.",
         description:
-          "Dossier-Janssens heeft een conclusietermijn op donderdag. Dossier-Peeters wacht op stukken. De stagiair vraagt wanneer de rolzitting is. Dat in je hoofd bijhouden werkt tot het een keer niet werkt.",
+          "Cli\u00ebnten leveren documenten te laat aan. Facturen blijven onbetaald. Deadlines naderen. U stuurt reminders die genegeerd worden, en u stuurt ze nog een keer. Dit is geen advocatenwerk, maar u doet het toch.",
       },
       {
-        title:
-          "Cli\u00ebntdata op een Amerikaanse server is een deontologische fout.",
+        title: "Communicatie kost meer tijd dan de inhoud.",
         description:
-          "De Orde van Vlaamse Balies is duidelijk: beroepsgeheim geldt ook digitaal. Cli\u00ebntgegevens op servers buiten Europa is een tuchtrechtelijk risico.",
+          "Een partnerbrief samenvatten. Een cli\u00ebnt bijpraten na een zitting. Een lang e-maildossier omzetten in drie zinnen voor een collega die het overneemt. Elk van die taken duurt langer dan ze zou mogen.",
       },
     ],
     features: [
       {
-        iconName: "Calendar",
-        title: "Conclusietermijnen en rolzittingen per dossier",
-        description:
-          "Aidy kent de termijnen van elk dossier. Drie dagen voor een conclusietermijn krijg je een bericht. De ochtend van een rolzitting ook.",
-      },
-      {
         iconName: "MessageSquare",
         title:
-          "Cli\u00ebnt stuurt 'Meester, ik heb die factuur gevonden.' Aidy koppelt het aan het dossier.",
+          "Intake gaat vanzelf, van eerste contact tot gepland gesprek.",
         description:
-          "Berichten van cli\u00ebnten worden automatisch bij het juiste dossier gelogd. Jij hoeft niets te kopi\u00ebren.",
+          "Een nieuwe cli\u00ebnt stuurt een bericht. Aidy herkent de aanvraag, vraagt de nodige informatie op, voert een eerste conflict check uit en plant het intakegesprek in uw agenda. U ziet het resultaat, u hoeft het proces niet te begeleiden.",
+      },
+      {
+        iconName: "Clock",
+        title:
+          "Documenten en betalingen achtervolgen zonder er zelf achteraan te gaan.",
+        description:
+          "Aidy houdt bij wat ontbreekt per dossier. Ontbrekend uittreksel, onbetaalde provisienota, nog te tekenen volmacht. Het stuurt automatisch reminders, escaleert als er geen reactie komt, en rapporteert aan u als er actie nodig is.",
+      },
+      {
+        iconName: "FileText",
+        title: "Dossiers samenvatten in seconden, niet in een half uur.",
+        description:
+          "Een cli\u00ebnt belt voor een update. Een collega neemt een zaak over. Aidy trekt de relevante informatie samen uit uw DMS, mails en notities, en geeft u een heldere samenvatting. U leest, u praat, klaar.",
       },
       {
         iconName: "Shield",
         title: "Beroepsgeheim. Technisch afgedwongen.",
         description:
-          "Europese hosting. Data-isolatie: jouw dossiers zijn onzichtbaar voor andere gebruikers, voor ons, voor iedereen. Geen training op jouw data.",
-      },
-      {
-        iconName: "Clock",
-        title:
-          "Stuur 'Janssens, 45 min, conclusie'. Aidy logt het.",
-        description:
-          "Geen app openen. Geen formulier invullen. Eind van de maand exporteer je alles naar je factuur.",
+          "Europese hosting. Data-isolatie per gebruiker. Uw dossiers zijn onzichtbaar voor andere gebruikers, voor ons, voor iedereen. Geen training op uw data. GDPR-compliant met verwerkersovereenkomst.",
       },
     ],
     howItWorks: [
       {
         step: 1,
-        title: "Koppel je kalender en dossiers",
+        title: "Koppel uw tools",
         description:
-          "Voeg je actieve dossiers toe met conclusietermijnen en roldata. Duurt 10 minuten voor je hele kantoor.",
+          "Outlook, WhatsApp en uw DMS. Duurt een tot twee weken van onboarding, afhankelijk van de integraties.",
       },
       {
         step: 2,
-        title: "Werk via chat",
+        title: "Configureer de grenzen",
         description:
-          "Registreer uren, check termijnen, plan een overleg. Allemaal via een WhatsApp- of Telegram-bericht aan Aidy.",
+          "Wat doet Aidy zelf, wat legt het u voor? Operationele taken voert Aidy uit. Juridisch oordeel blijft bij u.",
       },
       {
         step: 3,
-        title: "Cli\u00ebnten bereiken je via messenger",
+        title: "Aidy handelt af, u factureert",
         description:
-          "Berichten van cli\u00ebnten worden automatisch gekoppeld aan hun dossier. Jij ziet per dossier alle communicatie op \u00e9\u00e9n plek.",
+          "Intake, opvolging, reminders, samenvattingen. Alles wat geen juridisch oordeel vereist, doet Aidy.",
       },
     ],
     faq: [
       {
-        q: "Kan Aidy conclusietermijnen automatisch ophalen?",
-        a: "Je voert de termijnen eenmalig in per dossier. Aidy herinnert je drie dagen en één dag vooraf. Automatisch ophalen uit het Belgisch Staatsblad staat op de roadmap.",
+        q: "Werkt Aidy met mijn bestaande tools?",
+        a: "Aidy integreert met Outlook, WhatsApp en gangbare DMS-systemen die in Belgische kantoren gebruikt worden. Bij onboarding kijken we samen welke koppelingen relevant zijn voor uw werkwijze.",
       },
       {
-        q: "Is het veilig om cliëntgegevens via WhatsApp te delen?",
-        a: "Aidy verwerkt berichten op Europese servers met volledige data-isolatie. Geen data wordt gedeeld met derden of gebruikt voor training. Je voldoet aan de GDPR en deontologische code.",
+        q: "Wie heeft toegang tot mijn dossierdata?",
+        a: "Uw data blijft bij u. Aidy werkt met de toegangsrechten die u instelt en slaat geen dossierinhoud op buiten uw eigen systemen.",
       },
       {
-        q: "Werkt Aidy voor een heel advocatenkantoor?",
-        a: "Ja. Elke advocaat krijgt een eigen geïsoleerde bot. Dossiers en termijnen worden per advocaat beheerd.",
+        q: "Wat doet Aidy wel en wat niet?",
+        a: "Aidy voert operationele taken uit: communiceren, opvolgen, samenvatten, inplannen. Aidy schrijft geen juridische conclusies, geeft geen advies en vervangt geen inhoudelijk oordeel.",
       },
       {
-        q: "Kan ik mijn tijdsregistratie exporteren?",
-        a: "Ja. Aidy logt uren per dossier. Eind van de maand exporteer je alles als CSV of koppel je het aan je facturatiesoftware.",
+        q: "Moet ik mijn manier van werken aanpassen?",
+        a: "Nee. Aidy past zich aan uw kanalen en gewoontes aan. Als u WhatsApp gebruikt voor cli\u00ebntcommunicatie en Outlook voor intern, blijft dat zo.",
       },
       {
-        q: "Wat kost Aidy?",
-        a: "Gratis starten. Pro kost €9/maand. Vergelijk: één gemiste conclusietermijn kan je €10.000+ kosten.",
+        q: "Is dit GDPR-conform voor een advocatenkantoor?",
+        a: "Ja. We werken met een verwerkersovereenkomst en de opzet voldoet aan de vereisten voor vertrouwelijke beroepsgegevens. Uw stafhouder hoeft niet wakker te liggen van Aidy.",
+      },
+      {
+        q: "Wat kost het?",
+        a: "Neem contact op voor een demo. We laten zien wat Aidy concreet afhandelt in uw kantoor, op basis van uw werkwijze.",
       },
     ],
     roiLine:
-      "E\u00e9n gemiste conclusietermijn kan je \u20ac10.000+ kosten. Aidy herinnert je drie dagen vooraf. Voor \u20ac9/maand.",
-    ctaText: "Start gratis. Eerste dossier in 2 minuten gekoppeld.",
+      "Een advocaat met een tarief van \u20ac250/uur die 3 uur per dag aan admin verliest, laat \u20ac150.000 per jaar liggen. Aidy wint die uren terug.",
+    ctaText: "Elke dag wachten kost u uren die u niet terugkrijgt.",
   },
-  "ceo-kmo": {
-    id: "ceo-kmo",
-    label: "CEO / KMO",
-    iconName: "Building2",
-    accentColor: "text-violet-600",
-    accentColorHex: "#7c3aed",
-    accentBg: "bg-violet-50",
-    accentBorder: "border-violet-200",
-    buttonBg: "bg-violet-600",
-    buttonHover: "hover:bg-violet-700",
-    tagline: "Voor zaakvoerders die alles zelf doen",
+
+  accountant: {
+    id: "accountant",
+    label: "Accountant",
+    iconName: "Calculator",
+    accentColor: "text-emerald-600",
+    accentColorHex: "#059669",
+    accentBg: "bg-emerald-50",
+    accentBorder: "border-emerald-200",
+    buttonBg: "bg-emerald-600",
+    buttonHover: "hover:bg-emerald-700",
+    tagline: "Voor accountants en fiduciaires",
     headline:
-      "Elke vraag van je team komt bij jou.\nAidy beantwoordt ze.",
+      "Aidy handelt de cli\u00ebntco\u00f6rdinatie af.\nZodat jij kan boekhouden.",
     subheadline:
-      "Je doet sales, HR, planning en admin zelf. Je boekhouder belt, je werknemer appt, je klant mailt. Aidy is je digitale rechterhand via WhatsApp. Voor \u20ac9/maand.",
+      "Facturen opvolgen, afspraken inplannen, documenten opvragen, deadlines communiceren. Voor een gemiddeld kantoor kost dit uren per dag. Aidy doet het over WhatsApp, email en je agenda, zonder dat jij ertussen moet zitten.",
     painPoints: [
       {
-        title:
-          "Maandag 8u. Zes meetings. Drie openstaande offertes. Een werknemer belt over vakantie.",
+        title: "Per-cli\u00ebnt opvolging schaalt niet.",
         description:
-          "Je opent je agenda en ziet 6 meetings. Tussendoor moet je een offerte afwerken. Je boekhouder terugbellen. Een werknemer antwoorden. Je begint nergens aan en eindigt overal halverwege.",
+          "Een kantoor van tien medewerkers beheert honderden dossiers tegelijk. Elk dossier heeft zijn eigen ritme: ontbrekende facturen, UBO-updates, handtekeningen die maanden op zich laten wachten. De opvolging is repetitief, maar elke cli\u00ebnt verwacht persoonlijk contact.",
       },
       {
-        title: "Je bent het geheugen van je eigen bedrijf.",
+        title: "Cli\u00ebnten bereik je op tien verschillende plekken.",
         description:
-          "Hoe zit dat contract? Wat is het nummer van het sociaal secretariaat? Wanneer is die deadline? Elke vraag komt bij jou. Niet omdat je team lui is. Niemand anders weet het.",
+          "Sommige cli\u00ebnten mailen. Anderen sturen berichten via WhatsApp. Documenten staan verspreid over drives, portalen en emailbijlagen. Elke dag spend je tijd aan het samenrapen van informatie die verspreid staat over kanalen die nooit met elkaar praten.",
       },
       {
-        title:
-          "Een office manager kost \u20ac3.500/maand. Jij hebt die \u20ac3.500 niet.",
+        title: "BTW-kwartalen en jaarafsluiting drukken alles dubbel.",
         description:
-          "Je hebt dezelfde problemen als een CEO met 200 man. Agenda-chaos. Herhaalvragen. Opvolging die blijft liggen. Jij lost het op door tot 21u door te werken.",
+          "Twee keer per jaar verveelvoudigt het co\u00f6rdinatiewerk precies op het moment dat de boekhoudkundige druk ook piekt. Cli\u00ebnten reageren traag. Documenten zijn onvolledig. En de deadlines wachten niet.",
+      },
+    ],
+    features: [
+      {
+        iconName: "Clock",
+        title:
+          "Aidy volgt ontbrekende documenten op, zonder dat jij eraan denkt.",
+        description:
+          "Je geeft eenmalig aan wat je nodig hebt per dossier. Aidy stuurt reminders op het juiste moment, via het kanaal dat de cli\u00ebnt gebruikt. Als een cli\u00ebnt niet reageert, escaleert Aidy. Jij ziet alleen de uitzonderingen.",
+      },
+      {
+        iconName: "MessageSquare",
+        title: "Cli\u00ebntvragen over BTW en deadlines beantwoordt Aidy zelf.",
+        description:
+          "\"Wanneer is mijn BTW-aangifte?\" \"Wat moet ik aanleveren voor de jaarafsluiting?\" Dat zijn vragen die geen boekhoudkundige expertise vragen, maar wel tijd kosten. Aidy beantwoordt ze direct via WhatsApp of email.",
+      },
+      {
+        iconName: "Users",
+        title:
+          "Tijdens piekperiodes schaalt Aidy mee zonder extra personeel.",
+        description:
+          "In het eerste kwartaal verdubbelt het volume aan cli\u00ebntcontact. Aidy verwerkt dat zonder dat het kantoor hoeft op te schalen. Herinneringen gaan op tijd. Vragen worden beantwoord. Afspraken worden ingepland.",
+      },
+      {
+        iconName: "Shield",
+        title: "GDPR-compliant. Alle data in Europa.",
+        description:
+          "Je bepaalt zelf welke informatie Aidy kan inzien en gebruiken. Alle data blijft in je eigen omgeving. Geen data wordt gedeeld met derden.",
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: "Verbind email, WhatsApp en kalender",
+        description:
+          "Gmail, Outlook, WhatsApp Business, Google Calendar. Een basisconfiguratie staat in een dag.",
+      },
+      {
+        step: 2,
+        title: "Geef instructies in gewone taal",
+        description:
+          "Configureer werkstromen via gewone taal, niet via technische instellingen. Geen IT-team nodig.",
+      },
+      {
+        step: 3,
+        title: "Aidy voert uit, jij boekhoudt",
+        description:
+          "Cli\u00ebnten opvolgen, documenten opvragen, afspraken inplannen, vragen beantwoorden. Aidy handelt het af.",
+      },
+    ],
+    faq: [
+      {
+        q: "Past Aidy in de tools die mijn kantoor al gebruikt?",
+        a: "Aidy verbindt zich met Gmail, Outlook, WhatsApp Business en Google Calendar. Bestaande drives en portalen kun je koppelen via integraties. Er is geen migratie nodig.",
+      },
+      {
+        q: "Heeft Aidy toegang tot mijn cli\u00ebntgegevens?",
+        a: "Je bepaalt zelf welke informatie Aidy kan inzien en gebruiken. Aidy werkt conform GDPR. Alle data blijft in je eigen omgeving.",
+      },
+      {
+        q: "Wat als een cli\u00ebnt een vraag stelt die Aidy niet kan beantwoorden?",
+        a: "Aidy geeft de vraag door aan de juiste medewerker, met de context erbij. Aidy handelt niet af wat buiten zijn bevoegdheid valt.",
+      },
+      {
+        q: "Hoe lang duurt de implementatie?",
+        a: "Een basisconfiguratie staat in een dag. Aidy heeft geen IT-team nodig. Je configureert werkstromen via gewone taal, niet via technische instellingen.",
+      },
+      {
+        q: "Is Aidy bruikbaar voor een solo-kantoor?",
+        a: "Ja. De meerwaarde is het grootst voor wie weinig tijd heeft voor opvolging maar toch veel cli\u00ebnten bedient.",
+      },
+      {
+        q: "Wat kost Aidy?",
+        a: "Aidy werkt op abonnementsbasis per kantoor, niet per seat. Neem contact op voor een offerte op maat.",
+      },
+    ],
+    roiLine:
+      "180 dossiers, vier medewerkers. De helft van de tijd ging naar opvolging. Aidy draait dat om.",
+    ctaText: "Minder co\u00f6rdinatie. Meer boekhouden.",
+  },
+
+  tandarts: {
+    id: "tandarts",
+    label: "Tandarts",
+    iconName: "Smile",
+    accentColor: "text-sky-600",
+    accentColorHex: "#0284c7",
+    accentBg: "bg-sky-50",
+    accentBorder: "border-sky-200",
+    buttonBg: "bg-sky-600",
+    buttonHover: "hover:bg-sky-700",
+    tagline: "Voor tandartspraktijken",
+    headline:
+      "Je agenda vol houden kost je meer tijd\ndan tandartswerk doen.",
+    subheadline:
+      "Je praktijk draait op afspraken. Maar het beheren ervan, de no-show opvolging, de wachtlijst bijhouden, de herinneringen sturen, dat doet niemand systematisch. Aidy neemt dat werk over via WhatsApp, email en je agenda.",
+    painPoints: [
+      {
+        title: "Afsprakenbeheer is handwerk geworden.",
+        description:
+          "Een pati\u00ebnt zegt af via WhatsApp. Je assistente ziet het bericht tussen twee consultaties. Ze probeert iemand van de wachtlijst te bellen. Die neemt niet op. De stoel blijft leeg. Dit scenario speelt zich meerdere keren per week af.",
+      },
+      {
+        title: "Recalls en preventie vallen tussen de plooien.",
+        description:
+          "Je weet dat mevrouw Janssen al anderhalf jaar niet meer is langsgekomen. Maar haar opbellen staat nooit bovenaan de lijst. Resultaat: pati\u00ebnten verdwijnen langzaam uit je praktijk zonder dat je het merkt.",
+      },
+      {
+        title: "Administratieve opvolging stopt bij de consultatie.",
+        description:
+          "Een behandelplan uitleggen duurt vijf minuten. Het daarna schriftelijk bevestigen, de kostenraming doorsturen, het attest opmaken en de factuur opvolgen, dat duurt veel langer. En het wordt te vaak uitgesteld.",
       },
     ],
     features: [
       {
         iconName: "Calendar",
-        title: "Elke ochtend om 7u30: je dag op je telefoon.",
+        title: "No-shows worden automatisch opgevuld.",
         description:
-          "Aidy stuurt je een WhatsApp met je meetings, deadlines en openstaande taken. Geen app openen. Gewoon een bericht.",
+          "Wanneer een pati\u00ebnt afzegt via WhatsApp of email, reageert Aidy meteen. Het bekijkt de wachtlijst, neemt contact op met de volgende pati\u00ebnt en herplaatst de afspraak. De stoel blijft gevuld.",
       },
       {
-        iconName: "MessageSquare",
+        iconName: "Clock",
+        title: "Recalls lopen zonder dat jij eraan denkt.",
+        description:
+          "Zes maanden na een behandeling stuurt Aidy automatisch een herinnering. Pati\u00ebnten die niet reageren krijgen een follow-up. Wie al lang niet meer is langsgekomen, wordt persoonlijk aangeschreven. In jouw naam, in jouw toon.",
+      },
+      {
+        iconName: "FileText",
         title:
-          "Werknemer vraagt 'Waar staat dat contract?' Aidy antwoordt. Jij merkt er niks van.",
+          "Administratieve opvolging stopt niet meer na de consultatie.",
         description:
-          "Aidy kent je processen en antwoordt direct. Geen onderbreking voor jou. Je team krijgt het antwoord in seconden.",
-      },
-      {
-        iconName: "Users",
-        title: "Aidy zit in je teamgroep op WhatsApp.",
-        description:
-          "Helpt met planning, stuurt herinneringen, volgt afspraken op. Als iemand zegt 'ik doe dat morgen', checkt Aidy morgen of het gebeurd is.",
+          "Na een behandeling kan Aidy de kostenraming versturen, het behandelplan samenvatten en herinneringen sturen voor openstaande facturen. Attesten en mutualiteitsformulieren worden klaargezet. Jij bevestigt waar nodig.",
       },
       {
         iconName: "Shield",
-        title: "Je data blijft in Europa. Punt.",
+        title: "GDPR-conform. Pati\u00ebntdata blijft in Europa.",
         description:
-          "Europese servers, data-isolatie per gebruiker, GDPR-compliant. Geen Amerikaans bedrijf dat meeleest.",
+          "Alle data wordt verwerkt conform Europese regelgeving. Pati\u00ebntgegevens worden niet gedeeld met derden en blijven binnen beveiligde Europese infrastructuur.",
       },
     ],
     howItWorks: [
       {
         step: 1,
-        title: "Koppel je agenda en WhatsApp",
-        description: "Duurt 5 minuten. Aidy leert je routines kennen.",
+        title: "Koppel je agenda",
+        description:
+          "Verbind je bestaande praktijkagenda. De meeste praktijken zijn binnen \u00e9\u00e9n werkdag operationeel.",
       },
       {
         step: 2,
-        title: "Vertel Aidy hoe je bedrijf werkt",
+        title: "Stel in hoe Aidy werkt",
         description:
-          "Processen, contacten, vaste afspraken. E\u00e9nmalig. Aidy onthoudt het.",
+          "Welke berichten Aidy beantwoordt, wanneer recalls verstuurd worden, hoe de wachtlijst werkt. Eenmalige setup.",
       },
       {
         step: 3,
-        title: "Vanaf dag 2: briefing, antwoorden, opvolging",
+        title: "Aidy draait, de stoel blijft vol",
         description:
-          "Je krijgt elke ochtend je briefing. Je team stelt vragen aan Aidy. Jij doet het werk dat omzet oplevert.",
+          "No-shows worden opgevuld, recalls verstuurd, opvolging loopt. Jij en je assistente focussen op klinisch werk.",
       },
     ],
     faq: [
       {
-        q: "Kan mijn team ook vragen stellen aan Aidy?",
-        a: "Ja. Aidy kan in je WhatsApp-groep zitten en vragen van je team beantwoorden op basis van de processen en informatie die je hebt ingevoerd.",
+        q: "Werkt Aidy met mijn bestaande agenda?",
+        a: "Ja. Aidy koppelt met de meest gebruikte agenda's in Belgische tandartspraktijken. Je hoeft je werkwijze niet aan te passen.",
       },
       {
-        q: "Hoe weet Aidy hoe mijn bedrijf werkt?",
-        a: "Je vertelt Aidy eenmalig je processen, contacten en vaste afspraken. Aidy onthoudt het en gebruikt het om vragen te beantwoorden en taken op te volgen.",
+        q: "Wie beantwoordt de berichten, AI of een mens?",
+        a: "Aidy is volledig AI. Voor standaardvragen en afsprakenbeheer werkt het autonoom. Voor uitzonderingen of complexe situaties schakelt het je of je assistente in.",
       },
       {
-        q: "Vervangt Aidy een office manager?",
-        a: "Aidy neemt het repetitieve werk over: herinneringen, herhaalvragen, dagelijkse briefings. Voor strategische beslissingen en menselijk contact blijf jij nodig.",
+        q: "Wat als een pati\u00ebnt een vraag stelt die Aidy niet kan beantwoorden?",
+        a: "Aidy herkent wanneer een vraag buiten zijn scope valt. Je assistente of jijzelf wordt ingeschakeld voor alles wat medisch oordeel vereist.",
       },
       {
-        q: "Is mijn bedrijfsdata veilig?",
-        a: "Alle data op Europese servers, volledig geïsoleerd per gebruiker. Geen data wordt gedeeld met derden of gebruikt voor AI-training. GDPR-compliant.",
+        q: "Is dit GDPR-conform?",
+        a: "Ja. Alle data wordt verwerkt conform Europese regelgeving. Pati\u00ebntgegevens worden niet gedeeld met derden en blijven binnen beveiligde Europese infrastructuur.",
       },
       {
-        q: "Wat kost Aidy voor een KMO?",
-        a: "Gratis starten. Pro kost €9/maand per gebruiker. Vergelijk: een office manager kost €3.500/maand.",
+        q: "Hoeveel tijd kost de opstart?",
+        a: "De meeste praktijken zijn binnen \u00e9\u00e9n werkdag operationeel. We begeleiden de setup en passen Aidy aan op jouw situatie.",
+      },
+      {
+        q: "Wat kost het?",
+        a: "Aidy werkt op maandbasis, zonder jaarcontract. De eerste maand is gratis. Geen verborgen kosten.",
       },
     ],
     roiLine:
-      "E\u00e9n uur minder herhaalvragen per week. Bij \u20ac100/uur is dat \u20ac400/maand. Aidy kost \u20ac9.",
-    ctaText: "Start gratis. Morgenochtend je eerste briefing.",
+      "Een lege stoel kost je \u20ac80-150. Aidy vult no-shows automatisch op. De eerste maand is gratis.",
+    ctaText: "Elke week die je wacht, zijn er no-shows die je had kunnen vermijden.",
+  },
+
+  kinesist: {
+    id: "kinesist",
+    label: "Kinesist",
+    iconName: "Activity",
+    accentColor: "text-teal-600",
+    accentColorHex: "#0d9488",
+    accentBg: "bg-teal-50",
+    accentBorder: "border-teal-200",
+    buttonBg: "bg-teal-600",
+    buttonHover: "hover:bg-teal-700",
+    tagline: "Voor kinesisten en kinesitherapeuten",
+    headline:
+      "Aidy beheert je agenda, WhatsApp\nen administratie. Jij behandelt.",
+    subheadline:
+      "Je werkt in blokken van 30 minuten. Elke onderbreking kost je een sessie. Maar de berichten stoppen niet. Aidy neemt het communicatiewerk over dat nu tussen je sessies lekt.",
+    painPoints: [
+      {
+        title: "Afspraken verschuiven nooit op een handig moment.",
+        description:
+          "Iemand stuurt om 7u18 een berichtje dat ze niet kunnen komen. Je zit dan al bij je eerste pati\u00ebnt. Tegen de tijd dat je reageert, is je gat in de agenda al verloren. En de wachtlijst? Die staat ergens in een notitie.",
+      },
+      {
+        title: "Elke reeks is een planningspuzzel.",
+        description:
+          "Een arts stuurt een doorverwijzing voor 18 sessies. Dat betekent 18 aparte tijdslots inplannen, rekening houden met het schema van de pati\u00ebnt, en daarna nog opvolgen of het voorschrift nog geldig is. Administratie die niets oplevert.",
+      },
+      {
+        title: "Pati\u00ebnten sturen vragen die je pas 's avonds ziet.",
+        description:
+          "\"Mag ik de oefening ook staand doen?\" \"Wanneer is mijn volgende afspraak?\" \"Heb je het attest al doorgestuurd?\" Elk bericht is onschuldig. Allemaal samen eten ze een uur van je avond.",
+      },
+    ],
+    features: [
+      {
+        iconName: "Calendar",
+        title:
+          "Reeksen worden ingepland zonder dat jij erbij hoeft.",
+        description:
+          "Een nieuwe doorverwijzing komt binnen. Aidy leest de informatie, contacteert de pati\u00ebnt, stelt tijdslots voor op basis van jouw agenda en boekt de volledige reeks. Als het voorschrift een vervaldatum heeft, houdt Aidy dat bij.",
+      },
+      {
+        iconName: "Clock",
+        title: "Annulaties vullen zichzelf op.",
+        description:
+          "Iemand zegt een afspraak af. Aidy kijkt in de wachtlijst, stuurt de eerste persoon een bericht, wacht op bevestiging en past de agenda aan. Als die niet kan, gaat het bericht naar de volgende.",
+      },
+      {
+        iconName: "MessageSquare",
+        title:
+          "Vragen van pati\u00ebnten beantwoordt Aidy op basis van wat jij hebt ingesteld.",
+        description:
+          "Oefeningen, nabehandelingsinstructies, attestaanvragen, agendavragen: Aidy beantwoordt ze via WhatsApp of email met de informatie die jij hebt opgegeven. Wat Aidy niet zeker weet, legt het voor aan jou.",
+      },
+      {
+        iconName: "Shield",
+        title: "GDPR-conform. Geen medische dossiers opgeslagen.",
+        description:
+          "Pati\u00ebntgegevens worden verwerkt conform de GDPR. Aidy slaat geen medische dossiers op en werkt enkel met de informatie die nodig is voor communicatie en planning.",
+      },
+    ],
+    howItWorks: [
+      {
+        step: 1,
+        title: "Verbind je agenda",
+        description:
+          "Google Calendar of Outlook. De meeste gangbare agenda-tools worden ondersteund.",
+      },
+      {
+        step: 2,
+        title: "Stel de regels in",
+        description:
+          "Welke oefeningen Aidy mag doorsturen, hoe het annulaties afhandelt, welke vragen het moet escaleren.",
+      },
+      {
+        step: 3,
+        title: "Aidy handelt af, jij behandelt",
+        description:
+          "Reeksen worden ingepland, annulaties opgevuld, vragen beantwoord. Jij ziet je agenda gevuld en je berichten afgehandeld.",
+      },
+    ],
+    faq: [
+      {
+        q: "Werkt Aidy met mijn huidige agenda?",
+        a: "Aidy integreert met Google Calendar en Outlook. De meeste gangbare agenda-tools worden ondersteund.",
+      },
+      {
+        q: "Wat als een pati\u00ebnt een vraag stelt die Aidy niet kan beantwoorden?",
+        a: "Aidy stuurt je de vraag door met de context, zodat jij snel kunt reageren. Pati\u00ebnten krijgen altijd een antwoord.",
+      },
+      {
+        q: "Hoe weet Aidy wat het wel en niet mag zeggen?",
+        a: "Jij stelt dat in bij de start. Welke oefeningen het mag doorsturen, hoe het annulaties moet afhandelen, welke vragen het moet escaleren. Je blijft in controle.",
+      },
+      {
+        q: "Is dit conform de GDPR-regels voor medische praktijken?",
+        a: "Ja. Pati\u00ebntgegevens worden verwerkt conform de GDPR. Aidy slaat geen medische dossiers op en werkt enkel met de informatie die nodig is voor communicatie en planning.",
+      },
+      {
+        q: "Moet ik mijn pati\u00ebnten iets uitleggen?",
+        a: "Weinig. Pati\u00ebnten krijgen een kort bericht dat je met een digitale assistent werkt voor planning en communicatie. De meeste vinden het sneller dan een voicemail.",
+      },
+      {
+        q: "Wat kost het?",
+        a: "Aidy werkt op abonnementsbasis. Voor een solo-praktijk starten we aan een tarief dat lager ligt dan een halve dag freelance administratieve hulp per maand. Eerste maand gratis.",
+      },
+    ],
+    roiLine:
+      "E\u00e9n annulatie per week opgevuld = \u20ac160/maand terug. Aidy kost minder dan dat.",
+    ctaText: "Minder berichten. Meer sessies. Zelfde werkdag.",
   },
 };
 
-export const verticalOrder = ["kinesist", "huisarts", "advocaat", "ceo-kmo"];
+export const verticalOrder = [
+  "therapeut",
+  "advocaat",
+  "accountant",
+  "tandarts",
+  "kinesist",
+];
