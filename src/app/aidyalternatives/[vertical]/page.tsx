@@ -25,6 +25,10 @@ import {
   Menu,
   X,
   SendHorizonal,
+  Brain,
+  Calculator,
+  Smile,
+  FileText,
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { verticals } from "../verticals";
@@ -40,6 +44,10 @@ const iconMap: Record<string, React.ElementType> = {
   Shield,
   Clock,
   Users,
+  Brain,
+  Calculator,
+  Smile,
+  FileText,
 };
 
 const iconRenderMap: Record<string, (cls: string) => ReactNode> = {
@@ -52,6 +60,10 @@ const iconRenderMap: Record<string, (cls: string) => ReactNode> = {
   Shield: (cls) => <Shield className={cls} />,
   Clock: (cls) => <Clock className={cls} />,
   Users: (cls) => <Users className={cls} />,
+  Brain: (cls) => <Brain className={cls} />,
+  Calculator: (cls) => <Calculator className={cls} />,
+  Smile: (cls) => <Smile className={cls} />,
+  FileText: (cls) => <FileText className={cls} />,
 };
 
 import type { Variants } from "framer-motion";
@@ -327,48 +339,59 @@ const chatMessages: Record<
   string,
   { from: "bot" | "user"; text: string }[]
 > = {
-  kinesist: [
+  therapeut: [
     {
       from: "bot",
-      text: "Nieuwe aanvraag: Jan wil een afspraak op donderdag 14u.",
+      text: "Sophie V. wil haar afspraak van donderdag verplaatsen. Zal ik vrijdag 10u voorstellen?",
     },
-    { from: "user", text: "Plan hem maar in" },
+    { from: "user", text: "Ja, plan maar in" },
     {
       from: "bot",
-      text: "Gedaan! Jan krijgt een bevestiging via WhatsApp.",
-    },
-  ],
-  huisarts: [
-    {
-      from: "bot",
-      text: "3 nieuwe berichten: 1 herhaalvoorschrift, 2 afspraken.",
-    },
-    { from: "user", text: "Voorschrift goedkeuren" },
-    {
-      from: "bot",
-      text: "Goedgekeurd. Patiënt is verwittigd.",
+      text: "Gedaan. Sophie krijgt een bevestiging. Wachtlijst-plek donderdag is ingevuld door Thomas D.",
     },
   ],
   advocaat: [
     {
       from: "bot",
-      text: "Conclusietermijn dossier-Janssens: over 3 dagen.",
+      text: "Dossier Claeys: KYC-documenten nog niet ontvangen. Zal ik een herinnering sturen?",
     },
-    { from: "user", text: "Janssens, 2u, conclusie schrijven" },
+    { from: "user", text: "Ja, via WhatsApp" },
     {
       from: "bot",
-      text: "Gelogd: 2u op dossier-Janssens.",
+      text: "Verstuurd. Ik volg op als er na 3 dagen geen reactie is.",
     },
   ],
-  "ceo-kmo": [
+  accountant: [
     {
       from: "bot",
-      text: "Goedemorgen! 4 meetings vandaag, 2 openstaande offertes.",
+      text: "BTW-kwartaal: 12 cliënten hebben nog ontbrekende facturen. Herinneringen versturen?",
     },
-    { from: "user", text: "Herinner Tim aan het rapport" },
+    { from: "user", text: "Ja, stuur ze allemaal" },
     {
       from: "bot",
-      text: "Gedaan. Tim krijgt een bericht.",
+      text: "12 herinneringen verstuurd via WhatsApp. Ik rapporteer wie niet reageert binnen 48u.",
+    },
+  ],
+  tandarts: [
+    {
+      from: "bot",
+      text: "Annulatie: mevr. Peeters kan niet om 14u. Wachtlijst-patiënt De Smedt is beschikbaar.",
+    },
+    { from: "user", text: "Plan De Smedt in" },
+    {
+      from: "bot",
+      text: "Ingepland. De Smedt krijgt een bevestiging. Geen lege stoel.",
+    },
+  ],
+  kinesist: [
+    {
+      from: "bot",
+      text: "Nieuwe doorverwijzing: 18 sessies voor Jan Willems. Zal ik de reeks inplannen?",
+    },
+    { from: "user", text: "Ja, dinsdag en donderdag 9u" },
+    {
+      from: "bot",
+      text: "Reeks ingepland. Jan krijgt een bevestiging met alle data. Voorschrift vervalt op 15/06.",
     },
   ],
 };
