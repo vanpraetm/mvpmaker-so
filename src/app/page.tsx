@@ -1,355 +1,423 @@
-import {
-  Mic,
-  LayoutTemplate,
-  MapPin,
-  FileText,
-  Settings,
-  WifiOff,
-  QrCode,
-  Check,
+"use client";
 
-  Clock3,
-  User,
-  AlertTriangle,
-} from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+
+/* ─────────────────────────────────────────────────────
+ * DATA
+ * ───────────────────────────────────────────────────── */
+
+const PROJECTS = [
+  {
+    title: "RISKY",
+    tagline: "Veiligheidschecks die wél worden ingevuld.",
+    description:
+      "LMRA mobile app voor de bouw. Scan QR, beantwoord per stem, automatisch gelogd.",
+    href: "/risky",
+    logo: "/risky-logo.png",
+    status: "Live",
+  },
+  {
+    title: "PUNCH",
+    tagline: "Track your trainings, beat your records.",
+    description:
+      "Boxing & fitness logging app. Simple, fast, with progress over time.",
+    href: "https://punch.mvpmaker.so",
+    logo: "/punch-logo.png",
+    status: "Beta",
+  },
+  {
+    title: "Aidy",
+    tagline: "AI agents per vertical, niet algemeen.",
+    description:
+      "Sector-specifieke AI assistants die de jargon en context al kennen.",
+    href: "/aidyalternatives",
+    logo: "/aidy/aidy-logo.webp",
+    status: "Concept",
+  },
+];
+
+/* ─────────────────────────────────────────────────────
+ * PAGE
+ * ───────────────────────────────────────────────────── */
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] font-[family-name:var(--font-inter)]">
-      {/* Header */}
-      <header className="flex items-center justify-between h-[72px] px-5 sm:px-12 border-b border-[#1A1A1A]">
-        <div className="flex items-center gap-2.5">
-          <img src="/risky-logo.png" alt="Risky" className="h-8" />
-          <span className="font-[family-name:var(--font-anton)] text-[22px] text-white tracking-[0.44px]">
-            RISKY
-          </span>
-        </div>
-        <div className="flex items-center gap-4 sm:gap-8">
-          <a href="/early-access" className="text-[#A1A1AA] text-[15px] font-medium">
-            Inloggen
-          </a>
-          <a
-            href="/early-access"
-            className="cta-magnetic bg-[#DC2626] text-white text-sm font-semibold h-10 px-5 sm:px-6 rounded-full flex items-center justify-center"
-          >
-            Start nu
-          </a>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <section className="flex flex-col items-center pt-16 pb-12 px-5 sm:pt-20 sm:pb-16 sm:px-12">
-        <div className="hero-stagger hero-stagger-1 flex items-center gap-2 border border-[#333333] rounded-full px-4 py-2">
-          <div className="w-2 h-2 bg-[#E53E3E] rounded-full" />
-          <span className="text-[#A1A1AA] text-[13px] font-medium">
-            LMRA — Last Minute Risk Assessment
-          </span>
-        </div>
-        <h1 className="hero-stagger hero-stagger-2 font-[family-name:var(--font-anton)] text-5xl sm:text-[80px] text-white text-center leading-[1.05] tracking-[-1.6px] max-w-[900px] mt-6 sm:mt-8">
-          Veiligheidschecks die w&eacute;l worden ingevuld.
-        </h1>
-        <p className="hero-stagger hero-stagger-3 text-[#A1A1AA] text-base sm:text-xl leading-[1.6] text-center max-w-[680px] mt-6 sm:mt-8">
-          Risky laat je team snel veiligheidschecks (LMRA&apos;s) invullen
-          op de werf via QR-code en stem. Jouw inspectielogboek wordt
-          automatisch opgebouwd waardoor je altijd klaar bent voor controle.
-        </p>
-
-        {/* Phone Mockup */}
-        <div className="hero-stagger hero-stagger-4 flex items-center justify-center pt-10 w-full max-w-[1100px]">
-          <div className="w-[280px] h-[510px] sm:w-[320px] sm:h-[580px] bg-white rounded-[32px] overflow-hidden flex flex-col p-5 gap-2.5">
-            {/* Logo + Steps */}
-            <div className="flex flex-col gap-2.5 w-full">
-              <div className="flex items-center gap-2.5">
-                <img src="/risky-logoblack.png" alt="Risky" className="h-7" />
-                <span className="font-[family-name:var(--font-anton)] text-[22px] text-[#111111]">
-                  RISKY
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <div className="flex items-center gap-1.5 bg-[#111111] rounded-full px-2.5 py-1">
-                  <div className="w-1.5 h-1.5 bg-[#E53E3E] rounded-full" />
-                  <span className="text-white text-[10px] font-semibold">STOP</span>
-                </div>
-                <div className="w-1.5 h-1.5 bg-[#D4D4D8] rounded-full" />
-                <span className="text-[#A1A1AA] text-[10px] font-medium">THINK</span>
-                <div className="w-1.5 h-1.5 bg-[#D4D4D8] rounded-full" />
-                <span className="text-[#A1A1AA] text-[10px] font-medium">ACT</span>
-              </div>
-            </div>
-            {/* Spacer */}
-            <div className="h-[67px] w-full" />
-            {/* Question */}
-            <div className="flex flex-col gap-2.5 w-full px-1">
-              <span className="text-[#111111] text-lg font-bold leading-[1.35]">
-                Heb ik alle info om mijn taak veilig uit te voeren?
-              </span>
-              <div className="flex gap-2.5 pt-2 w-full">
-                <div className="flex items-center justify-center gap-1.5 bg-[#111111] rounded-xl py-3 flex-1">
-                  <Check className="w-4 h-4 text-white" />
-                  <span className="text-white text-sm font-semibold">Ja</span>
-                </div>
-                <div className="flex items-center justify-center gap-1.5 bg-white border border-[#E5E7EB] rounded-xl py-3 flex-1">
-                  <span className="text-[#111111] text-sm">×</span>
-                  <span className="text-[#111111] text-sm font-semibold">Nee</span>
-                </div>
-              </div>
-            </div>
-            {/* Voice Bar */}
-            <div className="flex items-center justify-between h-[52px] bg-white border border-[#E5E7EB] rounded-xl px-4 w-full mt-3 shadow-sm">
-              <Mic className="w-[18px] h-[18px] text-[#E53E3E]" />
-              <span className="text-[#A1A1AA] text-sm">Tap to speak...</span>
-            </div>
-            {/* Tags */}
-            <div className="flex gap-2 w-full">
-              <div className="flex items-center gap-1.5 bg-[#F5F5F5] rounded-full px-2 py-1">
-                <MapPin className="w-3 h-3 text-[#A1A1AA]" />
-                <span className="text-[#71717A] text-[10px] font-medium">GPS gelogd</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-[#F5F5F5] rounded-full px-2 py-1">
-                <Clock3 className="w-3 h-3 text-[#A1A1AA]" />
-                <span className="text-[#71717A] text-[10px] font-medium">14:32</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-[#F5F5F5] rounded-full px-2 py-1">
-                <User className="w-3 h-3 text-[#A1A1AA]" />
-                <span className="text-[#71717A] text-[10px] font-medium">Jan D.</span>
-              </div>
-            </div>
-            {/* Progress */}
-            <div className="w-full pt-3">
-              <div className="w-full bg-[#F0F0F0] rounded-sm h-1.5">
-                <div className="progress-animate bg-[#E53E3E] rounded-sm h-1.5" />
-              </div>
-            </div>
+    <div className="min-h-screen bg-[#FAFAF7] font-[family-name:var(--font-inter)] text-[#111111]">
+      <main className="max-w-[1100px] mx-auto px-5 sm:px-10 pt-10 sm:pt-16 pb-24">
+        {/* ───── HERO ───── */}
+        <section>
+          {/* Profile + greeting row */}
+          <div className="flex items-center gap-4 sm:gap-6">
+            <LogoBox
+              src="/michiel.jpg"
+              alt="Michiel Van Praet"
+              size={88}
+              radius={20}
+              fallback="MV"
+            />
+            <h1 className="font-[family-name:var(--font-space-grotesk)] text-[44px] sm:text-[64px] font-medium tracking-[-1.6px] leading-[1]">
+              Hey <span className="inline-block">👋</span> I&apos;m Michiel
+            </h1>
           </div>
-        </div>
-      </section>
 
-      {/* How It Works */}
-      <section className="flex flex-col items-center py-16 px-5 sm:py-20 sm:px-12">
-        <span className="text-white text-xs font-semibold tracking-[1.8px]">
-          HOE HET WERKT
-        </span>
-        <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[44px] text-white text-center leading-[1.1] max-w-[500px] mt-4">
-          Drie stappen.
-          <br />
-          Nul papierwerk.
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-10 w-full max-w-[1100px]">
-          {[
-            {
-              num: 1,
-              title: "Scan de QR code",
-              visual: (
-                <div className="flex flex-col items-center gap-3">
-                  <div className="w-20 h-20 bg-zinc-100 rounded-2xl flex items-center justify-center">
-                    <QrCode className="w-10 h-10 text-zinc-800" />
-                  </div>
-                  <span className="text-sm font-medium text-zinc-700">Station A-12</span>
-                  <div className="flex items-center gap-2 rounded-full border border-zinc-200 px-4 py-2 text-xs font-medium text-zinc-500">
-                    <MapPin className="w-3.5 h-3.5" />
-                    GPS automatisch gelogd
-                  </div>
-                </div>
-              ),
-            },
-            {
-              num: 2,
-              title: "Beantwoord de vragenlijst",
-              visual: (
-                <div className="flex flex-col gap-3 w-full">
-                  <div className="text-sm font-semibold text-zinc-800">
-                    Zijn alle uitgangen vrij?
-                  </div>
-                  <div className="rounded-xl bg-red-50 p-3">
-                    <div className="mb-2 text-xs text-zinc-400">Spraakantwoord</div>
-                    <div className="flex items-center gap-2">
-                      <Mic className="w-4 h-4 text-red-500" />
-                      <div className="flex items-end gap-[2px]">
-                        {[12, 18, 10, 20, 14, 22, 11, 16].map((h, j) => (
-                          <div
-                            key={j}
-                            className="wave-bar w-[3px] rounded-full bg-red-500"
-                            style={{ height: `${h}px`, animationDelay: `${j * 0.15}s` }}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-xs font-semibold text-red-500 ml-1">Opnemen...</span>
-                    </div>
-                  </div>
-                </div>
-              ),
-            },
-            {
-              num: 3,
-              title: "Volg alles op",
-              visual: (
-                <div className="flex flex-col gap-2 w-full">
-                  {[
-                    { label: "Medewerker", value: "Jan D." },
-                    { label: "Locatie", value: "Station A-12" },
-                    { label: "Tijd", value: "14:32" },
-                    { label: "Status", value: "Afgerond" },
-                  ].map((row) => (
-                    <div key={row.label} className="flex items-center justify-between py-1.5 border-b border-zinc-100 last:border-0">
-                      <span className="text-xs text-zinc-400">{row.label}</span>
-                      <span className="text-xs font-medium text-zinc-700">{row.value}</span>
-                    </div>
-                  ))}
-                </div>
-              ),
-            },
-            {
-              num: 4,
-              title: "Rapporteer bij incidenten",
-              visual: (
-                <div className="flex flex-col gap-3 w-full">
-                  <div className="flex items-center gap-2 rounded-lg bg-red-50 px-3 py-2">
-                    <AlertTriangle className="w-4 h-4 text-red-500 shrink-0" />
-                    <span className="text-xs font-semibold text-red-600">Bijna-ongeval</span>
-                  </div>
-                  <div className="text-sm font-semibold text-zinc-800">
-                    Stelling niet vastgezet
-                  </div>
-                  <div className="text-xs text-zinc-400 leading-[1.5]">
-                    &quot;De stelling op niveau 2 was niet geborgd. Meteen gemeld en afgezet.&quot;
-                  </div>
-                  <div className="flex items-center justify-between pt-1">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-5 h-5 rounded-full bg-zinc-200 flex items-center justify-center">
-                        <User className="w-3 h-3 text-zinc-500" />
-                      </div>
-                      <span className="text-[11px] font-medium text-zinc-500">Jan D.</span>
-                    </div>
-                    <span className="text-[11px] text-zinc-400">Vandaag, 14:47</span>
-                  </div>
-                </div>
-              ),
-            },
-          ].map((step) => (
-            <div
-              key={step.num}
-              className="group flex flex-row rounded-2xl border border-[#222222] bg-[#111111] p-5 sm:p-7 gap-5 sm:gap-6"
-            >
-              <div className="flex w-1/3 shrink-0 flex-col gap-2">
-                <span className="font-[family-name:var(--font-anton)] text-[32px] text-white">
-                  {step.num}
-                </span>
-                <h3 className="text-sm font-medium text-white">{step.title}</h3>
-              </div>
-              <div className="flex w-2/3 items-center justify-center rounded-xl bg-white p-5 sm:p-6">
-                <div className="w-full">{step.visual}</div>
-              </div>
+          {/* Body — bio (left) + Wanna chat (right) */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-16 mt-14 sm:mt-20">
+            {/* LEFT: bio with inline logo boxes */}
+            <div className="space-y-7 sm:space-y-9 text-[#6B6B63] text-[20px] sm:text-[22px] leading-[1.5]">
+              <BioLine>
+                <span>Currently PM at</span>
+                <LogoBox
+                  src="/o2o-logo.png"
+                  alt="o2o bicycle leasing"
+                  href="https://o2o.be"
+                  fallback="o2o"
+                />
+                <span>previously at</span>
+                <LogoBox
+                  src="/bundl-logo.png"
+                  alt="bundl"
+                  href="https://bundl.com"
+                  fallback="bundl"
+                />
+              </BioLine>
+
+              <BioLine>
+                <span>I build apps</span>
+                <LogoGroup>
+                  <LogoBox
+                    src="/risky-logo.png"
+                    alt="RISKY"
+                    href="/risky"
+                    fallback="RISKY"
+                  />
+                  <LogoBox
+                    src="/punch-logo.png"
+                    alt="PUNCH"
+                    href="https://punch.mvpmaker.so"
+                    fallback="PUNCH"
+                  />
+                  <LogoBox
+                    src="/aidy/aidy-logo.webp"
+                    alt="Aidy"
+                    href="/aidyalternatives"
+                    fallback="Aidy"
+                  />
+                </LogoGroup>
+              </BioLine>
+
+              <BioLine>
+                <span>and share my journey on</span>
+                <LogoGroup>
+                  <LogoBox
+                    href="https://x.com/michielvanpraet"
+                    alt="X"
+                    icon={<XIcon />}
+                  />
+                  <LogoBox
+                    href="https://www.linkedin.com/in/michielvanpraet/"
+                    alt="LinkedIn"
+                    icon={<LinkedInIcon />}
+                  />
+                </LogoGroup>
+              </BioLine>
+
+              <BioLine>
+                <span>View my portfolio</span>
+                <LogoBox
+                  href="/portfolio.pdf"
+                  alt="Portfolio PDF"
+                  icon={<PdfIcon />}
+                />
+              </BioLine>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Features */}
-      <section className="flex flex-col items-center py-16 px-5 sm:py-20 sm:px-12 bg-[#0F0F0F]">
-        <span className="text-white text-xs font-semibold tracking-[1.8px]">
-          FUNCTIES
-        </span>
-        <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[44px] text-white text-center leading-[1.1] max-w-[600px] mt-4">
-          Gebouwd voor de werf.
-          <br />
-          Beheerd vanuit kantoor.
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-10 w-full max-w-[1100px]">
-          {[
-            {
-              icon: <LayoutTemplate className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Template Bibliotheek",
-              desc: "Kies uit kant-en-klare LMRA-templates of maak je eigen. Zet ze in seconden live op elke locatie.",
-            },
-            {
-              icon: <MapPin className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Automatische Locatie",
-              desc: "GPS-co\u00F6rdinaten worden automatisch vastgelegd. Weet precies waar elke check is uitgevoerd.",
-            },
-            {
-              icon: <FileText className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Directe Rapporten",
-              desc: "Elke LMRA wordt gelogd en is exporteerbaar. CSV, PDF — klaar voor audits en inspecties.",
-            },
-            {
-              icon: <Mic className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Spraakgestuurd",
-              desc: "Medewerkers spreken hun antwoorden in. Geen getik met vuile handschoenen. Speech-to-text doet de rest.",
-            },
-            {
-              icon: <Settings className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Admin Dashboard",
-              desc: "Beheer templates, koppel ze aan locaties en monitor naleving. Alles vanuit \u00E9\u00E9n centraal dashboard.",
-            },
-            {
-              icon: <WifiOff className="w-7 h-7 text-[#E53E3E]" />,
-              title: "Werkt Offline",
-              desc: "Geen bereik op de werf? Geen probleem. Checks worden automatisch gesynchroniseerd zodra er weer verbinding is.",
-            },
-          ].map((feat) => (
-            <div
-              key={feat.title}
-              className="card-lift flex flex-col gap-4 bg-[#111111] border border-[#222222] rounded-2xl p-6 sm:p-7"
-            >
-              <div className="card-lift-icon w-fit">{feat.icon}</div>
-              <span className="text-white text-[17px] font-bold">
-                {feat.title}
-              </span>
-              <p className="text-[#71717A] text-sm leading-[1.6]">
-                {feat.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+            {/* RIGHT: Wanna chat? */}
+            <aside className="lg:sticky lg:top-10 lg:self-start">
+              <div className="hidden lg:block h-px bg-[#EAE7DE] mb-7" />
+              <div className="flex items-center gap-4">
+                <span className="text-[#6B6B63] text-[20px]">Wanna chat?</span>
+                <LogoBox
+                  href="mailto:michiel.van.praet@o2o.be"
+                  alt="Gmail"
+                  icon={<GmailIcon />}
+                />
+                <LogoBox
+                  href="https://cal.com/michielvanpraet"
+                  alt="Cal.com"
+                  icon={<CalIcon />}
+                />
+              </div>
+            </aside>
+          </div>
+        </section>
 
-      {/* QR Stickers */}
-      <section className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 px-5 py-16 sm:p-20">
-        <div className="flex flex-col gap-6 flex-1">
-          <span className="text-[#E53E3E] text-xs font-semibold tracking-[1.8px]">
-            QR STICKERS
-          </span>
-          <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[44px] text-white leading-[1.1] max-w-[500px]">
-            Plak het op je helm.
-            <br />
-            Of je gereedschapskist.
-          </h2>
-        </div>
-        <div className="w-full sm:w-[340px] lg:w-[420px] aspect-square bg-[#111111] border border-[#222222] rounded-3xl flex items-center justify-center overflow-hidden shrink-0">
-          <img src="/risky-sticker.png" alt="RISKY QR sticker" className="w-full h-full object-cover rounded-3xl" />
-        </div>
-      </section>
+        {/* ───── PROJECTS ───── */}
+        <section id="projects" className="mt-32 sm:mt-40 scroll-mt-8">
+          <div className="h-px bg-[#EAE7DE] mb-16" />
+          <SectionHeader
+            eyebrow="Things I build"
+            title="Apps I've shipped"
+            description="Side projects and full products. Each one was a real bet — some worked, some taught me something."
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+            {PROJECTS.map((p) => (
+              <ProjectCard key={p.title} {...p} />
+            ))}
+          </div>
+        </section>
+      </main>
 
-      {/* Final CTA */}
-      <section className="flex flex-col items-center py-20 px-5 sm:py-24 sm:px-12 bg-[#0F0F0F]">
-        <h2 className="font-[family-name:var(--font-anton)] text-3xl sm:text-[48px] text-white text-center leading-[1.1] max-w-[600px]">
-          Veiligheid begint voor
-          <br />
-          de eerste stap.
-        </h2>
-        <a
-          href="/early-access"
-          className="cta-magnetic bg-[#DC2626] text-white text-base font-semibold h-[52px] px-9 rounded-full flex items-center justify-center mt-6 sm:mt-8"
-        >
-          Start nu — het is gratis
-        </a>
-      </section>
-
-      {/* Divider */}
-      <div className="h-px bg-[#222222] w-full" />
-
-      {/* Footer */}
-      <footer className="flex items-center justify-between h-[72px] px-5 sm:px-12">
-        <div className="flex items-center gap-2">
-          <img src="/risky-logo.png" alt="Risky" className="h-6" />
-          <span className="font-[family-name:var(--font-anton)] text-base text-white tracking-[0.32px]">
-            RISKY
+      {/* ───── FOOTER ───── */}
+      <footer className="border-t border-[#EAE7DE]">
+        <div className="max-w-[1100px] mx-auto px-5 sm:px-10 h-[64px] flex items-center justify-start">
+          <span className="text-[13px] text-[#6B6B63]">
+            © 2026 Michiel Van Praet
           </span>
         </div>
-        <span className="text-[#52525B] text-[13px]">
-          © 2026 RISKY. All rights reserved.
-        </span>
       </footer>
     </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
+ * LOGO BOX — the core zevi pattern
+ * ───────────────────────────────────────────────────── */
+
+function LogoBox({
+  src,
+  alt,
+  href,
+  icon,
+  size = 56,
+  radius = 14,
+  fallback,
+}: {
+  src?: string;
+  alt: string;
+  href?: string;
+  icon?: React.ReactNode;
+  size?: number;
+  radius?: number;
+  fallback?: string;
+}) {
+  const [imgError, setImgError] = useState(false);
+
+  const content = (
+    <div
+      className="bg-white border border-[#EAE7DE] flex items-center justify-center overflow-hidden shrink-0"
+      style={{
+        width: size,
+        height: size,
+        borderRadius: radius,
+        boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
+      }}
+    >
+      {icon ? (
+        <div className="flex items-center justify-center w-full h-full p-3">
+          {icon}
+        </div>
+      ) : src && !imgError ? (
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover"
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <span className="text-[13px] font-semibold text-[#111111] px-2 text-center leading-tight">
+          {fallback || alt}
+        </span>
+      )}
+    </div>
+  );
+
+  if (!href) {
+    return <span className="inline-block align-middle">{content}</span>;
+  }
+
+  const isExternal = href.startsWith("http") || href.startsWith("mailto");
+
+  return (
+    <a
+      href={href}
+      target={isExternal && !href.startsWith("mailto") ? "_blank" : undefined}
+      rel={isExternal && !href.startsWith("mailto") ? "noopener noreferrer" : undefined}
+      aria-label={alt}
+      title={alt}
+      className="inline-block align-middle hover:-translate-y-0.5 transition-transform duration-150"
+    >
+      {content}
+    </a>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
+ * BIO LINE — text + inline logo boxes
+ * ───────────────────────────────────────────────────── */
+
+function BioLine({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
+      {children}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
+ * LOGO GROUP — clustered logo boxes (slight overlap)
+ * ───────────────────────────────────────────────────── */
+
+function LogoGroup({ children }: { children: React.ReactNode }) {
+  return <div className="flex items-center -space-x-2">{children}</div>;
+}
+
+/* ─────────────────────────────────────────────────────
+ * BRAND ICONS
+ * ───────────────────────────────────────────────────── */
+
+function XIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-[#111111]" aria-hidden>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-[#0A66C2]" aria-hidden>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
+function GmailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-full h-full" aria-hidden>
+      <path fill="#4285F4" d="M3 6.5v11A1.5 1.5 0 004.5 19H7V9.345l5 3.75 5-3.75V19h2.5a1.5 1.5 0 001.5-1.5v-11A1.5 1.5 0 0019.5 5H19l-7 5.25L5 5h-.5A1.5 1.5 0 003 6.5z" />
+      <path fill="#34A853" d="M3 6.5L12 13l9-6.5V17.5A1.5 1.5 0 0119.5 19H17V9.345l-5 3.75-5-3.75V19H4.5A1.5 1.5 0 013 17.5v-11z" />
+      <path fill="#FBBC04" d="M17 9.345V19h2.5a1.5 1.5 0 001.5-1.5v-11L17 9.345z" />
+      <path fill="#EA4335" d="M3 6.5v11A1.5 1.5 0 004.5 19H7V9.345L3 6.5z" />
+      <path fill="#C5221F" d="M3 6.5l9 6.75 9-6.75A1.5 1.5 0 0019.5 5H4.5A1.5 1.5 0 003 6.5z" />
+    </svg>
+  );
+}
+
+function CalIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden>
+      <rect x="3" y="5" width="18" height="16" rx="3" stroke="#111111" strokeWidth="1.6" />
+      <path d="M3 9h18" stroke="#111111" strokeWidth="1.6" />
+      <path d="M8 3v4M16 3v4" stroke="#111111" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PdfIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden>
+      <path
+        d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z"
+        stroke="#111111"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path d="M14 3v5h5" stroke="#111111" strokeWidth="1.6" strokeLinejoin="round" />
+      <text x="12" y="17" textAnchor="middle" fontSize="5.5" fontWeight="700" fill="#DC2626">
+        PDF
+      </text>
+    </svg>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
+ * SECTION HEADER
+ * ───────────────────────────────────────────────────── */
+
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: React.ReactNode;
+  description: string;
+}) {
+  return (
+    <div className="max-w-[680px]">
+      <div className="text-xs font-semibold tracking-[1.8px] text-[#6B6B63] uppercase mb-3">
+        {eyebrow}
+      </div>
+      <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl sm:text-4xl font-medium tracking-[-0.8px] leading-[1.1]">
+        {title}
+      </h2>
+      <p className="text-[16px] sm:text-[17px] leading-[1.6] text-[#6B6B63] mt-3">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
+ * PROJECT CARD
+ * ───────────────────────────────────────────────────── */
+
+function ProjectCard({
+  title,
+  tagline,
+  description,
+  href,
+  logo,
+  status,
+}: {
+  title: string;
+  tagline: string;
+  description: string;
+  href: string;
+  logo: string;
+  status: string;
+}) {
+  const isExternal = href.startsWith("http");
+  const [imgError, setImgError] = useState(false);
+  return (
+    <a
+      href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
+      className="group flex flex-col gap-4 bg-white border border-[#EAE7DE] rounded-2xl p-6 hover:-translate-y-0.5 transition-all"
+      style={{
+        boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
+      }}
+    >
+      <div className="flex items-center justify-between">
+        <div className="w-11 h-11 rounded-xl bg-[#F4F1E8] flex items-center justify-center overflow-hidden">
+          {imgError ? (
+            <span className="text-[11px] font-bold text-[#111111]">{title}</span>
+          ) : (
+            <img
+              src={logo}
+              alt={title}
+              className="w-8 h-8 object-contain"
+              onError={() => setImgError(true)}
+            />
+          )}
+        </div>
+        <span className="text-[11px] font-medium tracking-wider uppercase text-[#6B6B63] bg-[#F4F1E8] px-2 py-0.5 rounded-md">
+          {status}
+        </span>
+      </div>
+      <div>
+        <h3 className="font-[family-name:var(--font-space-grotesk)] text-[20px] font-medium tracking-[-0.3px]">
+          {title}
+        </h3>
+        <p className="text-[15px] font-medium text-[#3A3A35] mt-1">{tagline}</p>
+      </div>
+      <p className="text-[14px] leading-[1.55] text-[#6B6B63]">{description}</p>
+      <div className="flex items-center gap-1.5 text-sm font-medium text-[#111111] mt-1 group-hover:gap-2.5 transition-all">
+        Open
+        <ArrowUpRight className="w-4 h-4" />
+      </div>
+    </a>
   );
 }
