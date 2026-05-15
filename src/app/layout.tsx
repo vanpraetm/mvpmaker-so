@@ -19,9 +19,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "RISKY LMRA — Scan. Speak. Safe.",
+  title: "Michiel Van Praet — mvpmaker.so",
   description:
-    "Your crew scans a QR code, answers safety questions by voice, and gets back to work. Location, time, and answers — all logged automatically.",
+    "Venture builder & PM. Currently at o2o bicycle leasing, previously at bundl. I build apps like RISKY and PUNCH.",
 };
 
 export default function RootLayout({
