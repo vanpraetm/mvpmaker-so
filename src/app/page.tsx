@@ -61,82 +61,79 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Body — bio (left) + Wanna chat (right) */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-16 mt-14 sm:mt-20">
-            {/* LEFT: bio with inline logo boxes */}
-            <div className="space-y-7 sm:space-y-9 text-[#6B6B63] text-[20px] sm:text-[22px] leading-[1.5]">
-              <BioLine>
-                <span>Currently PM at</span>
+          {/* Body — bio with inline logo boxes */}
+          <div className="mt-14 sm:mt-20 max-w-[680px] space-y-7 sm:space-y-9 text-[#6B6B63] text-[20px] sm:text-[22px] leading-[1.5]">
+            <BioLine>
+              <span>Currently Product Manager at</span>
+              <LogoBox
+                src="/o2o-logo.png"
+                alt="o2o bicycle leasing"
+                href="https://o2o.be"
+                fallback="o2o"
+              />
+              <span>previously at</span>
+              <LogoBox
+                src="/bundl-logo.png"
+                alt="bundl"
+                href="https://bundl.com"
+                fallback="bundl"
+              />
+            </BioLine>
+
+            <BioLine>
+              <span>I build apps</span>
+              <LogoGroup>
                 <LogoBox
-                  src="/o2o-logo.png"
-                  alt="o2o bicycle leasing"
-                  href="https://o2o.be"
-                  fallback="o2o"
+                  src="/risky-logo.png"
+                  alt="RISKY"
+                  href="/risky"
+                  fallback="RISKY"
                 />
-                <span>previously at</span>
                 <LogoBox
-                  src="/bundl-logo.png"
-                  alt="bundl"
-                  href="https://bundl.com"
-                  fallback="bundl"
+                  src="/punch-logo.png"
+                  alt="PUNCH"
+                  href="https://punch.mvpmaker.so"
+                  fallback="PUNCH"
                 />
-              </BioLine>
-
-              <BioLine>
-                <span>I build apps</span>
-                <LogoGroup>
-                  <LogoBox
-                    src="/risky-logo.png"
-                    alt="RISKY"
-                    href="/risky"
-                    fallback="RISKY"
-                  />
-                  <LogoBox
-                    src="/punch-logo.png"
-                    alt="PUNCH"
-                    href="https://punch.mvpmaker.so"
-                    fallback="PUNCH"
-                  />
-                  <LogoBox
-                    src="/aidy/aidy-logo.webp"
-                    alt="Aidy"
-                    href="/aidyalternatives"
-                    fallback="Aidy"
-                  />
-                </LogoGroup>
-              </BioLine>
-
-              <BioLine>
-                <span>and share my journey on</span>
-                <LogoGroup>
-                  <LogoBox
-                    href="https://x.com/michielvanpraet"
-                    alt="X"
-                    icon={<XIcon />}
-                  />
-                  <LogoBox
-                    href="https://www.linkedin.com/in/michielvanpraet/"
-                    alt="LinkedIn"
-                    icon={<LinkedInIcon />}
-                  />
-                </LogoGroup>
-              </BioLine>
-
-              <BioLine>
-                <span>View my portfolio</span>
                 <LogoBox
-                  href="/portfolio.pdf"
-                  alt="Portfolio PDF"
-                  icon={<PdfIcon />}
+                  src="/aidy/aidy-logo.webp"
+                  alt="Aidy"
+                  href="/aidyalternatives"
+                  fallback="Aidy"
                 />
-              </BioLine>
-            </div>
+              </LogoGroup>
+            </BioLine>
 
-            {/* RIGHT: Wanna chat? */}
-            <aside className="lg:sticky lg:top-10 lg:self-start">
-              <div className="hidden lg:block h-px bg-[#EAE7DE] mb-7" />
-              <div className="flex items-center gap-4">
-                <span className="text-[#6B6B63] text-[20px]">Wanna chat?</span>
+            <BioLine>
+              <span>and share my journey on</span>
+              <LogoGroup>
+                <LogoBox
+                  href="https://x.com/michielvanpraet"
+                  alt="X"
+                  icon={<XIcon />}
+                />
+                <LogoBox
+                  href="https://www.linkedin.com/in/michielvanpraet/"
+                  alt="LinkedIn"
+                  icon={<LinkedInIcon />}
+                />
+              </LogoGroup>
+            </BioLine>
+
+            <BioLine>
+              <span>View my portfolio</span>
+              <LogoBox
+                href="/portfolio.pdf"
+                alt="Portfolio PDF"
+                icon={<PdfIcon />}
+              />
+            </BioLine>
+
+            {/* Wanna chat? — sits as the last bio line */}
+            <div className="pt-2">
+              <div className="h-px bg-[#EAE7DE] mb-7" />
+              <BioLine>
+                <span>Wanna chat?</span>
                 <LogoBox
                   href="mailto:michiel.van.praet@o2o.be"
                   alt="Gmail"
@@ -147,8 +144,8 @@ export default function Home() {
                   alt="Cal.com"
                   icon={<CalIcon />}
                 />
-              </div>
-            </aside>
+              </BioLine>
+            </div>
           </div>
         </section>
 
