@@ -62,7 +62,7 @@ export default function Home() {
                 <LogoBox
                   src="/risky-logo.png"
                   alt="RISKY"
-                  href="/risky"
+                  href="https://risky.mvpmaker.so"
                   fallback="RISKY"
                 />
                 <LogoBox
