@@ -64,12 +64,14 @@ export default function Home() {
                   alt="RISKY"
                   href="https://risky.mvpmaker.so"
                   fallback="RISKY"
+                  padded
                 />
                 <LogoBox
                   src="/punch-logo.png"
                   alt="PUNCH"
                   href="https://punch.mvpmaker.so"
                   fallback="PUNCH"
+                  padded
                 />
               </LogoGroup>
             </BioLine>
@@ -150,6 +152,7 @@ function LogoBox({
   size = 56,
   radius = 14,
   fallback,
+  padded = false,
 }: {
   src?: string;
   alt: string;
@@ -158,6 +161,7 @@ function LogoBox({
   size?: number;
   radius?: number;
   fallback?: string;
+  padded?: boolean;
 }) {
   const [imgError, setImgError] = useState(false);
 
@@ -179,7 +183,11 @@ function LogoBox({
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-contain p-2"
+          className={
+            padded
+              ? "w-full h-full object-contain p-2"
+              : "w-full h-full object-cover"
+          }
           onError={() => setImgError(true)}
         />
       ) : (
