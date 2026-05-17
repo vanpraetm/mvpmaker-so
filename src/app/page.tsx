@@ -60,7 +60,7 @@ export default function Home() {
               <span>I build apps</span>
               <LogoGroup>
                 <LogoBox
-                  src="/risky-logo.png"
+                  src="/risky-logoblack.png"
                   alt="RISKY"
                   href="https://risky.mvpmaker.so"
                   fallback="RISKY"
@@ -179,7 +179,7 @@ function LogoBox({
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain p-2"
           onError={() => setImgError(true)}
         />
       ) : (
