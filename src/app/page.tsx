@@ -131,22 +131,24 @@ export default function Home() {
               <div className="h-px bg-[#EAE7DE] mb-7" />
               <BioLine>
                 <span>Wanna chat?</span>
-                <LogoBox
-                  href="mailto:michiel.van.praet@o2o.be"
-                  alt="Mail"
-                  icon={
-                    <img
-                      src="/notionmaillogo.webp"
-                      alt="Mail"
-                      className="w-full h-full object-contain"
-                    />
-                  }
-                />
-                <LogoBox
-                  href="https://cal.com/michielvanpraet"
-                  alt="Cal.com"
-                  src="/callogo.svg"
-                />
+                <LogoGroup>
+                  <LogoBox
+                    href="mailto:michiel.van.praet@o2o.be"
+                    alt="Mail"
+                    icon={
+                      <img
+                        src="/notionmaillogo.webp"
+                        alt="Mail"
+                        className="w-full h-full object-contain"
+                      />
+                    }
+                  />
+                  <LogoBox
+                    href="https://cal.com/michielvanpraet"
+                    alt="Cal.com"
+                    src="/callogo.svg"
+                  />
+                </LogoGroup>
               </BioLine>
             </div>
           </div>
