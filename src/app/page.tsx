@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Children, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────
@@ -271,7 +271,23 @@ function BioLine({ children }: { children: React.ReactNode }) {
  * ───────────────────────────────────────────────────── */
 
 function LogoGroup({ children }: { children: React.ReactNode }) {
-  return <div className="flex items-center -space-x-2">{children}</div>;
+  const items = Children.toArray(children);
+  return (
+    <div className="flex items-center group/cluster">
+      {items.map((child, i) => (
+        <div
+          key={i}
+          className={
+            i === 0
+              ? "transition-all duration-300 ease-out"
+              : "-ml-3 group-hover/cluster:ml-1 transition-all duration-300 ease-out"
+          }
+        >
+          {child}
+        </div>
+      ))}
+    </div>
+  );
 }
 
 /* ─────────────────────────────────────────────────────
