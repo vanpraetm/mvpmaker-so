@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Michiel Van Praet — mvpmaker.so",
+  title: "Michiel Van Praet | Product Builder",
   description:
     "Venture builder & PM. Currently at o2o bicycle leasing, previously at bundl. I build apps like RISKY and PUNCH.",
 };
