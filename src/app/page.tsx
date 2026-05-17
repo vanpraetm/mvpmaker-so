@@ -66,17 +66,27 @@ export default function Home() {
             <BioLine>
               <span>Currently Product Manager at</span>
               <LogoBox
-                src="/o2o-logo.png"
-                alt="o2o bicycle leasing"
                 href="https://o2o.be"
-                fallback="o2o"
+                alt="o2o bicycle leasing"
+                icon={
+                  <img
+                    src="/o2ologo.png"
+                    alt="o2o bicycle leasing"
+                    className="w-full h-full object-contain"
+                  />
+                }
               />
               <span>previously at</span>
               <LogoBox
-                src="/bundl-logo.png"
-                alt="bundl"
                 href="https://bundl.com"
-                fallback="bundl"
+                alt="bundl"
+                icon={
+                  <img
+                    src="/Bundllogo.svg"
+                    alt="bundl"
+                    className="w-full h-full object-contain"
+                  />
+                }
               />
             </BioLine>
 
@@ -95,29 +105,16 @@ export default function Home() {
                   href="https://punch.mvpmaker.so"
                   fallback="PUNCH"
                 />
-                <LogoBox
-                  src="/aidy/aidy-logo.webp"
-                  alt="Aidy"
-                  href="/aidyalternatives"
-                  fallback="Aidy"
-                />
               </LogoGroup>
             </BioLine>
 
             <BioLine>
               <span>and share my journey on</span>
-              <LogoGroup>
-                <LogoBox
-                  href="https://x.com/michielvanpraet"
-                  alt="X"
-                  icon={<XIcon />}
-                />
-                <LogoBox
-                  href="https://www.linkedin.com/in/michielvanpraet/"
-                  alt="LinkedIn"
-                  icon={<LinkedInIcon />}
-                />
-              </LogoGroup>
+              <LogoBox
+                href="https://www.linkedin.com/in/michielvanpraet/"
+                alt="LinkedIn"
+                icon={<LinkedInIcon />}
+              />
             </BioLine>
 
             <BioLine>
@@ -136,13 +133,19 @@ export default function Home() {
                 <span>Wanna chat?</span>
                 <LogoBox
                   href="mailto:michiel.van.praet@o2o.be"
-                  alt="Gmail"
-                  icon={<GmailIcon />}
+                  alt="Mail"
+                  icon={
+                    <img
+                      src="/notionmaillogo.webp"
+                      alt="Mail"
+                      className="w-full h-full object-contain"
+                    />
+                  }
                 />
                 <LogoBox
                   href="https://cal.com/michielvanpraet"
                   alt="Cal.com"
-                  icon={<CalIcon />}
+                  src="/callogo.svg"
                 />
               </BioLine>
             </div>
@@ -273,40 +276,10 @@ function LogoGroup({ children }: { children: React.ReactNode }) {
  * BRAND ICONS
  * ───────────────────────────────────────────────────── */
 
-function XIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-[#111111]" aria-hidden>
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
-    </svg>
-  );
-}
-
 function LinkedInIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-[#0A66C2]" aria-hidden>
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  );
-}
-
-function GmailIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="w-full h-full" aria-hidden>
-      <path fill="#4285F4" d="M3 6.5v11A1.5 1.5 0 004.5 19H7V9.345l5 3.75 5-3.75V19h2.5a1.5 1.5 0 001.5-1.5v-11A1.5 1.5 0 0019.5 5H19l-7 5.25L5 5h-.5A1.5 1.5 0 003 6.5z" />
-      <path fill="#34A853" d="M3 6.5L12 13l9-6.5V17.5A1.5 1.5 0 0119.5 19H17V9.345l-5 3.75-5-3.75V19H4.5A1.5 1.5 0 013 17.5v-11z" />
-      <path fill="#FBBC04" d="M17 9.345V19h2.5a1.5 1.5 0 001.5-1.5v-11L17 9.345z" />
-      <path fill="#EA4335" d="M3 6.5v11A1.5 1.5 0 004.5 19H7V9.345L3 6.5z" />
-      <path fill="#C5221F" d="M3 6.5l9 6.75 9-6.75A1.5 1.5 0 0019.5 5H4.5A1.5 1.5 0 003 6.5z" />
-    </svg>
-  );
-}
-
-function CalIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden>
-      <rect x="3" y="5" width="18" height="16" rx="3" stroke="#111111" strokeWidth="1.6" />
-      <path d="M3 9h18" stroke="#111111" strokeWidth="1.6" />
-      <path d="M8 3v4M16 3v4" stroke="#111111" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }
