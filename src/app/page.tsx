@@ -67,7 +67,7 @@ export default function Home() {
                   padded
                 />
                 <LogoBox
-                  src="/punch-logo.png"
+                  src="/punch-logoblack.svg"
                   alt="PUNCH"
                   href="https://punch.mvpmaker.so"
                   fallback="PUNCH"
