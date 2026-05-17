@@ -1,41 +1,7 @@
 "use client";
 
 import { Children, useState } from "react";
-import { ArrowUpRight } from "lucide-react";
-
-/* ─────────────────────────────────────────────────────
- * DATA
- * ───────────────────────────────────────────────────── */
-
-const PROJECTS = [
-  {
-    title: "RISKY",
-    tagline: "Veiligheidschecks die wél worden ingevuld.",
-    description:
-      "LMRA mobile app voor de bouw. Scan QR, beantwoord per stem, automatisch gelogd.",
-    href: "/risky",
-    logo: "/risky-logo.png",
-    status: "Live",
-  },
-  {
-    title: "PUNCH",
-    tagline: "Track your trainings, beat your records.",
-    description:
-      "Boxing & fitness logging app. Simple, fast, with progress over time.",
-    href: "https://punch.mvpmaker.so",
-    logo: "/punch-logo.png",
-    status: "Beta",
-  },
-  {
-    title: "Aidy",
-    tagline: "AI agents per vertical, niet algemeen.",
-    description:
-      "Sector-specifieke AI assistants die de jargon en context al kennen.",
-    href: "/aidyalternatives",
-    logo: "/aidy/aidy-logo.webp",
-    status: "Concept",
-  },
-];
+import { Link as LinkIcon } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────
  * PAGE
@@ -43,8 +9,8 @@ const PROJECTS = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FAFAF7] font-[family-name:var(--font-inter)] text-[#111111]">
-      <main className="max-w-[1100px] mx-auto px-5 sm:px-10 pt-10 sm:pt-16 pb-24">
+    <div className="min-h-screen flex flex-col bg-[#FAFAF7] font-[family-name:var(--font-inter)] text-[#111111]">
+      <main className="flex-1 w-full max-w-[1100px] mx-auto px-5 sm:px-10 pt-10 sm:pt-16 pb-24">
         {/* ───── HERO ───── */}
         <section>
           {/* Profile + greeting row */}
@@ -66,7 +32,7 @@ export default function Home() {
             <BioLine>
               <span>Currently Product Manager at</span>
               <LogoBox
-                href="https://o2o.be"
+                href="https://www.o2o.be/nl"
                 alt="o2o bicycle leasing"
                 icon={
                   <img
@@ -78,7 +44,7 @@ export default function Home() {
               />
               <span>previously at</span>
               <LogoBox
-                href="https://bundl.com"
+                href="https://www.bundl.com/"
                 alt="bundl"
                 icon={
                   <img
@@ -111,7 +77,7 @@ export default function Home() {
             <BioLine>
               <span>and share my journey on</span>
               <LogoBox
-                href="https://www.linkedin.com/in/michielvanpraet/"
+                href="https://www.linkedin.com/in/vanpraetmichiel/"
                 alt="LinkedIn"
                 icon={<LinkedInIcon />}
               />
@@ -120,20 +86,24 @@ export default function Home() {
             <BioLine>
               <span>View my portfolio</span>
               <LogoBox
-                href="/portfolio.pdf"
-                alt="Portfolio PDF"
-                icon={<PdfIcon />}
+                href="/portfolioimage.png"
+                alt="Portfolio"
+                icon={
+                  <LinkIcon
+                    className="w-full h-full text-[#111111]"
+                    strokeWidth={2}
+                  />
+                }
               />
             </BioLine>
 
             {/* Wanna chat? — sits as the last bio line */}
             <div className="pt-2">
-              <div className="h-px bg-[#EAE7DE] mb-7" />
               <BioLine>
                 <span>Wanna chat?</span>
                 <LogoGroup>
                   <LogoBox
-                    href="mailto:michiel.van.praet@o2o.be"
+                    href="mailto:vanpraetmichiel@gmail.com"
                     alt="Mail"
                     icon={
                       <img
@@ -154,20 +124,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ───── PROJECTS ───── */}
-        <section id="projects" className="mt-32 sm:mt-40 scroll-mt-8">
-          <div className="h-px bg-[#EAE7DE] mb-16" />
-          <SectionHeader
-            eyebrow="Things I build"
-            title="Apps I've shipped"
-            description="Side projects and full products. Each one was a real bet — some worked, some taught me something."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
-            {PROJECTS.map((p) => (
-              <ProjectCard key={p.title} {...p} />
-            ))}
-          </div>
-        </section>
       </main>
 
       {/* ───── FOOTER ───── */}
@@ -302,110 +258,3 @@ function LinkedInIcon() {
   );
 }
 
-function PdfIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-full h-full" aria-hidden>
-      <path
-        d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8l-5-5z"
-        stroke="#111111"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path d="M14 3v5h5" stroke="#111111" strokeWidth="1.6" strokeLinejoin="round" />
-      <text x="12" y="17" textAnchor="middle" fontSize="5.5" fontWeight="700" fill="#DC2626">
-        PDF
-      </text>
-    </svg>
-  );
-}
-
-/* ─────────────────────────────────────────────────────
- * SECTION HEADER
- * ───────────────────────────────────────────────────── */
-
-function SectionHeader({
-  eyebrow,
-  title,
-  description,
-}: {
-  eyebrow: string;
-  title: React.ReactNode;
-  description: string;
-}) {
-  return (
-    <div className="max-w-[680px]">
-      <div className="text-xs font-semibold tracking-[1.8px] text-[#6B6B63] uppercase mb-3">
-        {eyebrow}
-      </div>
-      <h2 className="font-[family-name:var(--font-space-grotesk)] text-3xl sm:text-4xl font-medium tracking-[-0.8px] leading-[1.1]">
-        {title}
-      </h2>
-      <p className="text-[16px] sm:text-[17px] leading-[1.6] text-[#6B6B63] mt-3">
-        {description}
-      </p>
-    </div>
-  );
-}
-
-/* ─────────────────────────────────────────────────────
- * PROJECT CARD
- * ───────────────────────────────────────────────────── */
-
-function ProjectCard({
-  title,
-  tagline,
-  description,
-  href,
-  logo,
-  status,
-}: {
-  title: string;
-  tagline: string;
-  description: string;
-  href: string;
-  logo: string;
-  status: string;
-}) {
-  const isExternal = href.startsWith("http");
-  const [imgError, setImgError] = useState(false);
-  return (
-    <a
-      href={href}
-      target={isExternal ? "_blank" : undefined}
-      rel={isExternal ? "noopener noreferrer" : undefined}
-      className="group flex flex-col gap-4 bg-white border border-[#EAE7DE] rounded-2xl p-6 hover:-translate-y-0.5 transition-all"
-      style={{
-        boxShadow: "0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03)",
-      }}
-    >
-      <div className="flex items-center justify-between">
-        <div className="w-11 h-11 rounded-xl bg-[#F4F1E8] flex items-center justify-center overflow-hidden">
-          {imgError ? (
-            <span className="text-[11px] font-bold text-[#111111]">{title}</span>
-          ) : (
-            <img
-              src={logo}
-              alt={title}
-              className="w-8 h-8 object-contain"
-              onError={() => setImgError(true)}
-            />
-          )}
-        </div>
-        <span className="text-[11px] font-medium tracking-wider uppercase text-[#6B6B63] bg-[#F4F1E8] px-2 py-0.5 rounded-md">
-          {status}
-        </span>
-      </div>
-      <div>
-        <h3 className="font-[family-name:var(--font-space-grotesk)] text-[20px] font-medium tracking-[-0.3px]">
-          {title}
-        </h3>
-        <p className="text-[15px] font-medium text-[#3A3A35] mt-1">{tagline}</p>
-      </div>
-      <p className="text-[14px] leading-[1.55] text-[#6B6B63]">{description}</p>
-      <div className="flex items-center gap-1.5 text-sm font-medium text-[#111111] mt-1 group-hover:gap-2.5 transition-all">
-        Open
-        <ArrowUpRight className="w-4 h-4" />
-      </div>
-    </a>
-  );
-}
