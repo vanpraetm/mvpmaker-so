@@ -1,11 +1,7 @@
 "use client";
 
 import { Children, useState } from "react";
-import {
-  Link as LinkIcon,
-  AlertTriangle,
-  ClipboardCheck,
-} from "lucide-react";
+import { Link as LinkIcon } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────
  * PAGE
@@ -64,14 +60,18 @@ export default function Home() {
               <span>I build apps</span>
               <LogoGroup>
                 <LogoBox
+                  src="/risky-logored.png"
                   alt="RISKY"
                   href="https://risky.mvpmaker.so"
-                  icon={<AlertTriangle className="w-7 h-7 text-[#DC2626]" strokeWidth={2.25} />}
+                  fallback="RISKY"
+                  padded
                 />
                 <LogoBox
+                  src="/punch-logoblack.png"
                   alt="PUNCH"
                   href="https://punch.mvpmaker.so"
-                  icon={<ClipboardCheck className="w-7 h-7 text-[#111111]" strokeWidth={2.25} />}
+                  fallback="PUNCH"
+                  padded
                 />
               </LogoGroup>
             </BioLine>
