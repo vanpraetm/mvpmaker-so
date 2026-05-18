@@ -130,7 +130,17 @@ export default function Home() {
 
         {/* ───── CASE STUDY ───── */}
         <CaseStudyVideo
-          heading={`A sneak peek of the work at "o2o bicycle leasing component"`}
+          heading={
+            <>
+              <span>A sneak peek of the work at</span>
+              <LogoBox
+                src="/o2ologo.png"
+                alt="o2o"
+                href="https://www.o2o.be/nl"
+              />
+              <span>bicycle leasing component</span>
+            </>
+          }
           driveId="1akRdl5FAOyIGwzH3Bpwiey_XUJeSa-vB"
         />
 
@@ -302,7 +312,7 @@ function CaseStudyVideo({
   youtubeId,
   driveId,
 }: {
-  heading: string;
+  heading: React.ReactNode;
   description?: string;
   youtubeId?: string;
   driveId?: string;
@@ -316,8 +326,8 @@ function CaseStudyVideo({
     : `https://www.youtube.com/embed/${youtubeId}?rel=0`;
 
   return (
-    <section className="mt-20 sm:mt-28 max-w-3xl mx-auto">
-      <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-medium tracking-tight mb-6 text-[#111111]">
+    <section className="mt-20 sm:mt-28 max-w-[680px] mx-auto">
+      <h2 className="flex flex-wrap items-center gap-x-4 gap-y-3 text-[#6B6B63] text-[20px] sm:text-[22px] leading-[1.5] mb-6 font-normal">
         {heading}
       </h2>
       {description ? (
@@ -333,7 +343,7 @@ function CaseStudyVideo({
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          title={heading}
+          title="o2o case study video"
         />
       </div>
     </section>
