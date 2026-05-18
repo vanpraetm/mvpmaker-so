@@ -130,9 +130,8 @@ export default function Home() {
 
         {/* ───── CASE STUDY ───── */}
         <CaseStudyVideo
-          heading="My work at o2o"
-          description="A short walkthrough of what I built at o2o bicycle leasing — what shipped, what we learned, how the team works."
-          youtubeId="TODO_REPLACE_WITH_VIDEO_ID"
+          heading={`A sneak peek of the work at "o2o bicycle leasing component"`}
+          driveId="1akRdl5FAOyIGwzH3Bpwiey_XUJeSa-vB"
         />
 
       </main>
@@ -301,26 +300,35 @@ function CaseStudyVideo({
   heading,
   description,
   youtubeId,
+  driveId,
 }: {
   heading: string;
-  description: string;
-  youtubeId: string;
+  description?: string;
+  youtubeId?: string;
+  driveId?: string;
 }) {
-  // Guard against placeholder ID so we don't render a broken iframe
-  if (!youtubeId || youtubeId.startsWith("TODO_")) return null;
+  // Guard against placeholder IDs / missing source
+  if (youtubeId?.startsWith("TODO_")) return null;
+  if (!youtubeId && !driveId) return null;
+
+  const src = driveId
+    ? `https://drive.google.com/file/d/${driveId}/preview`
+    : `https://www.youtube.com/embed/${youtubeId}?rel=0`;
 
   return (
     <section className="mt-20 sm:mt-28 max-w-3xl mx-auto">
-      <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-medium tracking-tight mb-2 text-[#111111]">
+      <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-medium tracking-tight mb-6 text-[#111111]">
         {heading}
       </h2>
-      <p className="text-[15px] sm:text-base text-zinc-600 mb-6 max-w-2xl">
-        {description}
-      </p>
+      {description ? (
+        <p className="text-[15px] sm:text-base text-zinc-600 mb-6 max-w-2xl">
+          {description}
+        </p>
+      ) : null}
 
       <div className="aspect-video rounded-2xl overflow-hidden border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] bg-zinc-900">
         <iframe
-          src={`https://www.youtube.com/embed/${youtubeId}?rel=0`}
+          src={src}
           className="w-full h-full"
           loading="lazy"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
