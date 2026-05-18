@@ -128,6 +128,13 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ───── CASE STUDY ───── */}
+        <CaseStudyVideo
+          heading="My work at o2o"
+          description="A short walkthrough of what I built at o2o bicycle leasing — what shipped, what we learned, how the team works."
+          youtubeId="TODO_REPLACE_WITH_VIDEO_ID"
+        />
+
       </main>
 
       {/* ───── FOOTER ───── */}
@@ -205,17 +212,24 @@ function LogoBox({
   const tooltip = description ? (
     <span
       role="tooltip"
-      className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 -rotate-3 mb-3 px-3.5 py-2 rounded-xl bg-white text-[#111111] text-[13px] font-medium leading-snug whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-10 border border-[#EAE7DE] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
+      className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 -rotate-3 mb-3 px-3.5 py-2 rounded-xl bg-white text-[#111111] text-[13px] font-medium leading-snug whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-10 border border-[#EAE7DE] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)] [@media(hover:none)]:hidden"
     >
+      {description}
+    </span>
+  ) : null;
+
+  const mobileCaption = description ? (
+    <span className="hidden [@media(hover:none)]:block text-[10px] mt-1.5 text-zinc-600 max-w-[88px] text-center leading-tight">
       {description}
     </span>
   ) : null;
 
   if (!href) {
     return (
-      <span className="relative inline-block align-middle group">
+      <span className="relative inline-flex flex-col items-center align-middle group">
         {content}
         {tooltip}
+        {mobileCaption}
       </span>
     );
   }
@@ -226,18 +240,19 @@ function LogoBox({
     href.endsWith(".pdf");
 
   return (
-    <span className="relative inline-block align-middle group">
+    <span className="relative inline-flex flex-col items-center align-middle group">
       <a
-      href={href}
-      target={isExternal && !href.startsWith("mailto") ? "_blank" : undefined}
-      rel={isExternal && !href.startsWith("mailto") ? "noopener noreferrer" : undefined}
-      aria-label={alt}
-      title={description || alt}
-      className="inline-block align-middle hover:-translate-y-0.5 transition-transform duration-150"
-    >
-      {content}
-    </a>
+        href={href}
+        target={isExternal && !href.startsWith("mailto") ? "_blank" : undefined}
+        rel={isExternal && !href.startsWith("mailto") ? "noopener noreferrer" : undefined}
+        aria-label={alt}
+        title={description || alt}
+        className="inline-block align-middle hover:-translate-y-0.5 transition-transform duration-150"
+      >
+        {content}
+      </a>
       {tooltip}
+      {mobileCaption}
     </span>
   );
 }
@@ -275,6 +290,74 @@ function LogoGroup({ children }: { children: React.ReactNode }) {
         </div>
       ))}
     </div>
+  );
+}
+
+/* ─────────────────────────────────────────────────────
+ * CASE STUDY VIDEO — 16:9 card with lazy YouTube embed
+ * ───────────────────────────────────────────────────── */
+
+function CaseStudyVideo({
+  heading,
+  description,
+  youtubeId,
+  posterUrl,
+}: {
+  heading: string;
+  description: string;
+  youtubeId: string;
+  posterUrl?: string;
+}) {
+  const [playing, setPlaying] = useState(false);
+  const poster =
+    posterUrl || `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+
+  return (
+    <section className="mt-20 sm:mt-28 max-w-3xl mx-auto">
+      <h2 className="font-[family-name:var(--font-space-grotesk)] text-2xl sm:text-3xl font-medium tracking-tight mb-2 text-[#111111]">
+        {heading}
+      </h2>
+      <p className="text-[15px] sm:text-base text-zinc-600 mb-6 max-w-2xl">
+        {description}
+      </p>
+
+      <div className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)]">
+        {playing ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
+            className="absolute inset-0 w-full h-full"
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+            allowFullScreen
+            title={heading}
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            className="absolute inset-0 group w-full h-full cursor-pointer"
+            aria-label={`Play video: ${heading}`}
+          >
+            <img
+              src={poster}
+              alt={heading}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/15 group-hover:bg-black/25 transition-colors">
+              <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-7 h-7 sm:w-9 sm:h-9 text-[#111111] ml-1"
+                  aria-hidden
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </div>
+          </button>
+        )}
+      </div>
+    </section>
   );
 }
 
