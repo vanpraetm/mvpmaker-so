@@ -88,7 +88,7 @@ export default function Home() {
             <BioLine>
               <span>View my portfolio</span>
               <LogoBox
-                href="/portfolioimage.png"
+                href="/michiel-van-praet-portfolio.pdf"
                 alt="Portfolio"
                 icon={
                   <LinkIcon
@@ -202,7 +202,10 @@ function LogoBox({
     return <span className="inline-block align-middle">{content}</span>;
   }
 
-  const isExternal = href.startsWith("http") || href.startsWith("mailto");
+  const isExternal =
+    href.startsWith("http") ||
+    href.startsWith("mailto") ||
+    href.endsWith(".pdf");
 
   return (
     <a
