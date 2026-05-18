@@ -65,6 +65,7 @@ export default function Home() {
                   href="https://risky.mvpmaker.so"
                   fallback="RISKY"
                   padded
+                  description="Safetychecks via QR-code and voice"
                 />
                 <LogoBox
                   src="/punch-logoblack.png"
@@ -72,6 +73,7 @@ export default function Home() {
                   href="https://punch.mvpmaker.so"
                   fallback="PUNCH"
                   padded
+                  description="Track field work across all your sites"
                 />
               </LogoGroup>
             </BioLine>
@@ -153,6 +155,7 @@ function LogoBox({
   radius = 14,
   fallback,
   padded = false,
+  description,
 }: {
   src?: string;
   alt: string;
@@ -162,6 +165,7 @@ function LogoBox({
   radius?: number;
   fallback?: string;
   padded?: boolean;
+  description?: string;
 }) {
   const [imgError, setImgError] = useState(false);
 
@@ -198,8 +202,22 @@ function LogoBox({
     </div>
   );
 
+  const tooltip = description ? (
+    <span
+      role="tooltip"
+      className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 rounded-md bg-[#111111] text-white text-[11px] font-medium leading-snug whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-10 shadow-md"
+    >
+      {description}
+    </span>
+  ) : null;
+
   if (!href) {
-    return <span className="inline-block align-middle">{content}</span>;
+    return (
+      <span className="relative inline-block align-middle group">
+        {content}
+        {tooltip}
+      </span>
+    );
   }
 
   const isExternal =
@@ -208,16 +226,19 @@ function LogoBox({
     href.endsWith(".pdf");
 
   return (
-    <a
+    <span className="relative inline-block align-middle group">
+      <a
       href={href}
       target={isExternal && !href.startsWith("mailto") ? "_blank" : undefined}
       rel={isExternal && !href.startsWith("mailto") ? "noopener noreferrer" : undefined}
       aria-label={alt}
-      title={alt}
+      title={description || alt}
       className="inline-block align-middle hover:-translate-y-0.5 transition-transform duration-150"
     >
       {content}
     </a>
+      {tooltip}
+    </span>
   );
 }
 
