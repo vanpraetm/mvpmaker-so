@@ -301,16 +301,13 @@ function CaseStudyVideo({
   heading,
   description,
   youtubeId,
-  posterUrl,
 }: {
   heading: string;
   description: string;
   youtubeId: string;
-  posterUrl?: string;
 }) {
-  const [playing, setPlaying] = useState(false);
-  const poster =
-    posterUrl || `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  // Guard against placeholder ID so we don't render a broken iframe
+  if (!youtubeId || youtubeId.startsWith("TODO_")) return null;
 
   return (
     <section className="mt-20 sm:mt-28 max-w-3xl mx-auto">
@@ -321,41 +318,15 @@ function CaseStudyVideo({
         {description}
       </p>
 
-      <div className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-900 border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)]">
-        {playing ? (
-          <iframe
-            src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`}
-            className="absolute inset-0 w-full h-full"
-            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-            allowFullScreen
-            title={heading}
-          />
-        ) : (
-          <button
-            type="button"
-            onClick={() => setPlaying(true)}
-            className="absolute inset-0 group w-full h-full cursor-pointer"
-            aria-label={`Play video: ${heading}`}
-          >
-            <img
-              src={poster}
-              alt={heading}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/15 group-hover:bg-black/25 transition-colors">
-              <span className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 flex items-center justify-center shadow-xl group-hover:scale-105 transition-transform">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-7 h-7 sm:w-9 sm:h-9 text-[#111111] ml-1"
-                  aria-hidden
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-            </div>
-          </button>
-        )}
+      <div className="aspect-video rounded-2xl overflow-hidden border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] bg-zinc-900">
+        <iframe
+          src={`https://www.youtube.com/embed/${youtubeId}?rel=0`}
+          className="w-full h-full"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          title={heading}
+        />
       </div>
     </section>
   );
