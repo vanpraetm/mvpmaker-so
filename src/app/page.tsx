@@ -205,7 +205,7 @@ function LogoBox({
   const tooltip = description ? (
     <span
       role="tooltip"
-      className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2.5 py-1 rounded-md bg-[#111111] text-white text-[11px] font-medium leading-snug whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-10 shadow-md"
+      className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3.5 py-2 rounded-xl bg-white text-[#111111] text-[13px] font-medium leading-snug whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-10 border border-[#EAE7DE] shadow-[0_2px_6px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
     >
       {description}
     </span>
