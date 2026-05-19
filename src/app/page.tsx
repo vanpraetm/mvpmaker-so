@@ -334,7 +334,7 @@ function CaseStudyVideo({
         </p>
       ) : null}
 
-      <div className="aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] bg-zinc-900">
+      <div className="aspect-[5/4] rounded-2xl overflow-hidden border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] bg-zinc-900">
         <iframe
           src={src}
           className="w-full h-full"
