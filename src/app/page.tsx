@@ -324,7 +324,7 @@ function CaseStudyVideo({
     : `https://www.youtube.com/embed/${youtubeId}?rel=0`;
 
   return (
-    <section className="mt-12 sm:mt-16 max-w-[680px]">
+    <section className="mt-12 sm:mt-16">
       <h2 className="flex flex-wrap items-center gap-x-4 gap-y-3 text-[#6B6B63] text-[20px] sm:text-[22px] leading-[1.5] mb-6 font-normal">
         {heading}
       </h2>
