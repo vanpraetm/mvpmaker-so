@@ -32,15 +32,10 @@ export default function Home() {
             <BioLine>
               <span>Currently Product Manager at</span>
               <LogoBox
-                href="https://www.o2o.be/nl"
+                src="/o2ologo.png"
                 alt="o2o bicycle leasing"
-                icon={
-                  <img
-                    src="/o2ologo.png"
-                    alt="o2o bicycle leasing"
-                    className="w-full h-full object-contain"
-                  />
-                }
+                href="https://www.o2o.be/nl"
+                padded
               />
               <span>previously at</span>
               <LogoBox
@@ -128,6 +123,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ───── DIVIDER ───── */}
+        <hr className="mt-16 sm:mt-20 max-w-[680px] border-t border-[#EAE7DE]" />
+
         {/* ───── CASE STUDY ───── */}
         <CaseStudyVideo
           heading={
@@ -137,6 +135,7 @@ export default function Home() {
                 src="/o2ologo.png"
                 alt="o2o"
                 href="https://www.o2o.be/nl"
+                padded
               />
             </>
           }
@@ -325,7 +324,7 @@ function CaseStudyVideo({
     : `https://www.youtube.com/embed/${youtubeId}?rel=0`;
 
   return (
-    <section className="mt-20 sm:mt-28 max-w-[680px]">
+    <section className="mt-12 sm:mt-16 max-w-[680px]">
       <h2 className="flex flex-wrap items-center gap-x-4 gap-y-3 text-[#6B6B63] text-[20px] sm:text-[22px] leading-[1.5] mb-6 font-normal">
         {heading}
       </h2>
@@ -335,7 +334,7 @@ function CaseStudyVideo({
         </p>
       ) : null}
 
-      <div className="aspect-video rounded-2xl overflow-hidden border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] bg-zinc-900">
+      <div className="aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden border border-[#EAE7DE] shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_32px_rgba(0,0,0,0.08)] bg-zinc-900">
         <iframe
           src={src}
           className="w-full h-full"
