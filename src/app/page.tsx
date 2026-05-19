@@ -138,7 +138,6 @@ export default function Home() {
                 alt="o2o"
                 href="https://www.o2o.be/nl"
               />
-              <span>bicycle leasing component</span>
             </>
           }
           driveId="1akRdl5FAOyIGwzH3Bpwiey_XUJeSa-vB"
@@ -326,7 +325,7 @@ function CaseStudyVideo({
     : `https://www.youtube.com/embed/${youtubeId}?rel=0`;
 
   return (
-    <section className="mt-20 sm:mt-28 max-w-[680px] mx-auto">
+    <section className="mt-20 sm:mt-28 max-w-[680px]">
       <h2 className="flex flex-wrap items-center gap-x-4 gap-y-3 text-[#6B6B63] text-[20px] sm:text-[22px] leading-[1.5] mb-6 font-normal">
         {heading}
       </h2>
