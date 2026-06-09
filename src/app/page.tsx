@@ -55,6 +55,14 @@ export default function Home() {
               <span>I build apps</span>
               <LogoGroup>
                 <LogoBox
+                  src="/punch-logoblack.png"
+                  alt="PUNCH"
+                  href="https://punch.mvpmaker.so"
+                  fallback="PUNCH"
+                  padded
+                  description="Track field work across all your sites"
+                />
+                <LogoBox
                   src="/risky-logored.png"
                   alt="RISKY"
                   href="https://risky.mvpmaker.so"
@@ -63,12 +71,12 @@ export default function Home() {
                   description="Safetychecks via QR-code and voice"
                 />
                 <LogoBox
-                  src="/punch-logoblack.png"
-                  alt="PUNCH"
-                  href="https://punch.mvpmaker.so"
-                  fallback="PUNCH"
+                  src="/agentci-logo.png"
+                  alt="agentci"
+                  href="https://www.agentci.eu/"
+                  fallback="agentci"
                   padded
-                  description="Track field work across all your sites"
+                  description="AI agents that automate processes"
                 />
               </LogoGroup>
             </BioLine>
@@ -225,18 +233,11 @@ function LogoBox({
     </span>
   ) : null;
 
-  const mobileCaption = description ? (
-    <span className="hidden [@media(hover:none)]:block text-[10px] mt-1.5 text-zinc-600 max-w-[88px] text-center leading-tight">
-      {description}
-    </span>
-  ) : null;
-
   if (!href) {
     return (
       <span className="relative inline-flex flex-col items-center align-middle group">
         {content}
         {tooltip}
-        {mobileCaption}
       </span>
     );
   }
@@ -259,7 +260,6 @@ function LogoBox({
         {content}
       </a>
       {tooltip}
-      {mobileCaption}
     </span>
   );
 }
