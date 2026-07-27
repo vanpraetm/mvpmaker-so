@@ -18,7 +18,7 @@ import Link from "next/link";
  * ───────────────────────────────────────────────────── */
 
 // TODO: paste your Cusdis App ID here (cusdis.com → dashboard → your website).
-const CUSDIS_APP_ID = "YOUR_CUSDIS_APP_ID";
+const CUSDIS_APP_ID = "46734225-62bc-4b71-b5f8-8be9e9c18d39";
 
 // Edit the proposal date here.
 const PROPOSAL_DATE = "July 2026";
@@ -90,7 +90,7 @@ const TRACKS = [
     accent: NAVY,
     title: "Continuous feedback (extra)",
     subtitle: "Keep a running feedback loop so your team gets input and the product keeps improving.",
-    duration: "Ongoing",
+    duration: "",
     activities: [
       { text: "In-tool feedback capture via a modal" },
       { text: "Install PostHog for usage insights" },
@@ -268,11 +268,11 @@ export default function BorroProposal() {
                   <strong>How much of the tracks should I facilitate?</strong> I lead Track 1 first,
                   then see how much guidance is needed.
                 </NumberedItem>
-                <NumberedItem n={2} accent={ROYAL}>
+                <NumberedItem n={2} accent={NAVY}>
                   <strong>How do you see the timeline?</strong> Does the pace below fit, or should we
                   compress or stretch phases?
                 </NumberedItem>
-                <NumberedItem n={3} accent={SKY}>
+                <NumberedItem n={3} accent={NAVY}>
                   <strong>Pricing.</strong> Once the above is clear, I put a concrete price forward.
                 </NumberedItem>
               </ol>
@@ -693,7 +693,11 @@ function Comments() {
   }
 
   return (
-    <div className="max-w-[720px]">
+    <div className="w-full max-w-[900px]">
+      <style>{`
+        #cusdis_thread { width: 100%; }
+        #cusdis_thread iframe { width: 100% !important; min-height: 460px; }
+      `}</style>
       <div
         id="cusdis_thread"
         data-host="https://cusdis.com"
