@@ -82,7 +82,7 @@ const TRACKS = [
       "Which key assumptions are true? Which aren't?",
     ],
     outputs: [
-      { img: "/proposals/borro1/t2-prototype.png", caption: "Example output: tested prototype" },
+      { img: "/proposals/borro1/t2-prototype.png", caption: "Example output: first Vision Type" },
     ] as Output[],
   },
   {
@@ -560,14 +560,12 @@ function OutputCard({ output, accent }: { output: Output; accent: string }) {
     <figure className="m-0">
       <figcaption className="text-[12px] italic text-[#6B6B63] mb-2">{output.caption}</figcaption>
       {showImg ? (
-        <div className="rounded-2xl overflow-hidden border border-[#EAE7DE] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_28px_rgba(0,0,0,0.06)]">
-          <img
-            src={output.img}
-            alt={output.caption}
-            className="w-full h-auto object-cover"
-            onError={() => setError(true)}
-          />
-        </div>
+        <img
+          src={output.img}
+          alt={output.caption}
+          className="w-full h-auto"
+          onError={() => setError(true)}
+        />
       ) : (
         <div
           className="rounded-2xl border border-dashed flex items-center justify-center min-h-[160px] bg-white"
