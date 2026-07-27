@@ -529,7 +529,7 @@ function TrackDeliverable({
           </div>
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-16">
           {track.outputs.map((o, i) => (
             <OutputCard key={i} output={o} accent={track.accent} />
           ))}
