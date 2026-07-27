@@ -327,7 +327,7 @@ export default function BorroProposal() {
 
 function DownloadButton() {
   return (
-    <div className="no-print pt-20 sm:pt-28 pb-16 sm:pb-24 flex justify-start">
+    <div className="no-print pt-12 sm:pt-16 flex justify-start">
       <button
         type="button"
         onClick={() => window.print()}
@@ -693,10 +693,10 @@ function Comments() {
   }
 
   return (
-    <div className="w-full max-w-[900px]">
+    <div className="w-full max-w-[680px]">
       <style>{`
         #cusdis_thread { width: 100%; }
-        #cusdis_thread iframe { width: 100% !important; min-height: 460px; }
+        #cusdis_thread iframe { width: 100% !important; min-height: 300px; }
       `}</style>
       <div
         id="cusdis_thread"
