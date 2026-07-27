@@ -60,7 +60,7 @@ const TRACKS = [
     ],
     outputs: [
       { img: "/proposals/borro1/t1-blueprint.png", caption: "Example output: service blueprint" },
-      { img: "/proposals/borro1/t1-opportunity-tree.png", caption: "Example output: opportunity tree" },
+      { img: "/proposals/borro1/t1-interview-cards.png", caption: "Example output: interview cards" },
     ] as Output[],
   },
   {
