@@ -18,7 +18,7 @@ import Link from "next/link";
  * ───────────────────────────────────────────────────── */
 
 // TODO: paste your Cusdis App ID here (cusdis.com → dashboard → your website).
-const CUSDIS_APP_ID = "46734225-62bc-4b71-b5f8-8be9e9c18d39";
+const CUSDIS_APP_ID: string = "46734225-62bc-4b71-b5f8-8be9e9c18d39";
 
 // Edit the proposal date here.
 const PROPOSAL_DATE = "July 2026";
