@@ -106,7 +106,7 @@ const TRACKS = [
       "Which channels give us the fastest, most useful signal?",
     ],
     outputs: [
-      { img: "/proposals/borro1/t3-feedback.png", caption: "Example output: product-feedback channel" },
+      { img: "/proposals/borro1/t3-feedback-capture.png", caption: "Example output: In-tool feedback capturing" },
     ] as Output[],
   },
 ];
