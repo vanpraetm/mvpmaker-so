@@ -23,6 +23,10 @@ const CUSDIS_APP_ID: string = "46734225-62bc-4b71-b5f8-8be9e9c18d39";
 // Edit the proposal date here.
 const PROPOSAL_DATE = "July 2026";
 
+// Comments section (Cusdis) temporarily hidden — ad-blockers block the cusdis.com iframe.
+// Set to true to bring section 04 back (also un-comment its entry in PARTS below).
+const SHOW_COMMENTS = false;
+
 // Blue family used for the three tracks.
 const NAVY = "#0B2B63";
 const ROYAL = "#1E4FA3";
@@ -44,17 +48,16 @@ const TRACKS = [
     subtitle: "Map users, needs and pain points across the full customer journey.",
     duration: "",
     activities: [
-      { text: "Service blueprint with 2 to 3 users" },
-      { text: "+5 open-ended client interviews with cup owners (B2B)" },
-      { text: "+3 open-ended client interviews with operational teams (B2C)" },
-      { text: "List of Jobs-To-Be-Done (JTBD) per stakeholder" },
-      { text: "Map an opportunity tree" },
-      { text: "Map assumptions" },
-      { text: "Map the opportunities to a now → next → later roadmap" },
+      { text: "Service blueprint: with 2 lanes for users, and Borro's service mapped out" },
+      { text: "List of Jobs-To-Be-Done (JTBD) per user" },
+      { text: "+5 open-ended user interviews with cup owners (B2B)" },
+      { text: "+3 open-ended user interviews with operational teams (B2C)" },
+      { text: "Opportunity tree with assumptions" },
+      { text: "Opportunities mapped on a now → next → later roadmap" },
     ] as Activity[],
     questions: [
       "Who are our users and what are they trying to do?",
-      "What's working and what's not, for users and operations teams?",
+      "What's working and what's not, for users and Borro's operations?",
       "Where do the biggest opportunities sit across the journey?",
       "What are the biggest assumptions for each opportunity?",
     ],
@@ -78,8 +81,9 @@ const TRACKS = [
       { text: "Validate the key assumptions (things that need to be true, but maybe aren't)" },
     ] as Activity[],
     questions: [
-      "Is a customer portal necessary, or does email suffice?",
+      "What does the user want to achieve?",
       "Which key assumptions are true? Which aren't?",
+      "What's the smallest thing we have to build?",
     ],
     outputs: [
       { img: "/proposals/borro1/t2-prototype.png", caption: "Example output: first Vision Type" },
@@ -92,11 +96,10 @@ const TRACKS = [
     subtitle: "Keep a running feedback loop so your team gets input and the product keeps improving.",
     duration: "",
     activities: [
-      { text: "In-tool feedback capture via a modal" },
+      { text: "In-tool feedback capturing" },
       { text: "Install PostHog for usage insights" },
       { text: "Create #product-feedback Slack channel + form" },
       { text: "Recurring interviews & automated surveys" },
-      { text: "Install Intercom" },
     ] as Activity[],
     questions: [
       "How do we keep learning from users after the workshop, and create new opportunities?",
@@ -114,7 +117,7 @@ const PARTS = [
   { n: "01", title: "The challenge" },
   { n: "02", title: "Project deliverables" },
   { n: "03", title: "Project approach & pricing" },
-  { n: "04", title: "Questions & comments" },
+  // { n: "04", title: "Questions & comments" }, // temporarily hidden — Cusdis blocked by ad-blockers
 ];
 
 export default function BorroProposal() {
@@ -261,7 +264,7 @@ export default function BorroProposal() {
                 <span aria-hidden>💬</span> A few things to decide together
               </h3>
               <p className="text-[15px] text-[#6B6B63] leading-[1.6] mb-4">
-                Your input here shapes the final scope and price:
+                The input here shapes the final scope and price:
               </p>
               <ol className="space-y-3 text-[15px] leading-[1.6]">
                 <NumberedItem n={1} accent={NAVY}>
@@ -283,8 +286,7 @@ export default function BorroProposal() {
           <div className="mt-16 sm:mt-20">
             <SubLabel accent={NAVY}>Timing</SubLabel>
             <p className="max-w-[680px] mb-8 text-[16px] sm:text-[17px] leading-[1.6]">
-              The three tracks in sequence, with their key deliverables. This is a draft, happy to
-              shape it around your planning.
+              The three tracks in sequence, with their key deliverables.
             </p>
             <div className="grid md:grid-cols-3 gap-5">
               {TRACKS.map((t) => (
@@ -294,13 +296,15 @@ export default function BorroProposal() {
           </div>
         </Section>
 
-        {/* ───── 04 · QUESTIONS & COMMENTS ───── */}
-        <Section index="04" title="Questions & comments">
-          <p className="mb-6 max-w-[680px] text-[17px] leading-[1.6]">
-            Leave your thoughts, questions, or feedback directly below. No account needed.
-          </p>
-          <Comments />
-        </Section>
+        {/* ───── 04 · QUESTIONS & COMMENTS — temporarily hidden via SHOW_COMMENTS (top of file). ───── */}
+        {SHOW_COMMENTS && (
+          <Section index="04" title="Questions & comments">
+            <p className="mb-6 max-w-[680px] text-[17px] leading-[1.6]">
+              Leave your thoughts, questions, or feedback directly below. No account needed.
+            </p>
+            <Comments />
+          </Section>
+        )}
 
         {/* ───── DOWNLOAD ───── */}
         <DownloadButton />
