@@ -83,7 +83,7 @@ const TRACKS = [
     questions: [
       "What does the user want to achieve?",
       "Which key assumptions are true? Which aren't?",
-      "What's the smallest thing we have to build? (Maybe a recurring email flow, or an MCP instead of a portal.)",
+      "What's the smallest thing we have to build? (Could be an automatic mailflow, or an MCP)",
     ],
     outputs: [
       { img: "/proposals/borro1/t2-prototype.png", caption: "Example output: first Vision Type" },
