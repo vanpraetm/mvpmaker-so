@@ -37,7 +37,7 @@ const GRADIENT = "linear-gradient(135deg, #0B0D0F 0%, #08224E 100%)";
 
 /* ── Track content (edit freely) ─────────────────────── */
 
-type Output = { img?: string; caption: string };
+type Output = { img?: string; caption: string; maxW?: number };
 type Activity = { text: string; highlight?: boolean };
 
 const TRACKS = [
@@ -83,7 +83,7 @@ const TRACKS = [
     questions: [
       "What does the user want to achieve?",
       "Which key assumptions are true? Which aren't?",
-      "What's the smallest thing we have to build?",
+      "What's the smallest thing we have to build? (Maybe a recurring email flow, or an MCP instead of a portal.)",
     ],
     outputs: [
       { img: "/proposals/borro1/t2-prototype.png", caption: "Example output: first Vision Type" },
@@ -106,7 +106,7 @@ const TRACKS = [
       "Which channels give us the fastest, most useful signal?",
     ],
     outputs: [
-      { img: "/proposals/borro1/t3-feedback-capture.png", caption: "Example output: In-tool feedback capturing" },
+      { img: "/proposals/borro1/t3-feedback-capture.png", caption: "Example output: In-tool feedback capturing", maxW: 460 },
     ] as Output[],
   },
 ];
@@ -561,7 +561,7 @@ function OutputCard({ output, accent }: { output: Output; accent: string }) {
   const [error, setError] = useState(false);
   const showImg = output.img && !error;
   return (
-    <figure className="m-0">
+    <figure className="m-0" style={output.maxW ? { maxWidth: output.maxW } : undefined}>
       <figcaption className="text-[12px] italic text-[#6B6B63] mb-2">{output.caption}</figcaption>
       {showImg ? (
         <div className="rounded-2xl overflow-hidden border border-[#EAE7DE] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.04),0_8px_28px_rgba(0,0,0,0.06)]">
